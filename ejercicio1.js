@@ -4,3 +4,6 @@
 //
 // console.log(palabra);
 // console.log(palabra[0])
+
+
+// I move forwards with this exercise!!!
