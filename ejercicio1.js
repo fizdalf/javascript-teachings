@@ -11,14 +11,19 @@ let vocales = 0;
 // 0 === "0" -> false
 if (palabra) {
 
-        // if (palabra[0] === listaDeVocales[0] ||
-        //     palabra[0] === listaDeVocales[1] ||
-        //     palabra[0] === listaDeVocales[2] ||
-        //     palabra[0] === listaDeVocales[3] ||
-        //     palabra[0] === listaDeVocales[4]) {
-        //     vocales++;
-        //}
-
+    // if (palabra[0] === listaDeVocales[0] ||
+    //     palabra[0] === listaDeVocales[1] ||
+    //     palabra[0] === listaDeVocales[2] ||
+    //     palabra[0] === listaDeVocales[3] ||
+    //     palabra[0] === listaDeVocales[4]) {
+    //     vocales++;
+    //}
+    // vocales = Array.from(palabra).reduce((acc, x) => {
+    //     if (listaDeVocales.indexOf(x) > -1) {
+    //         acc++
+    //     }
+    //     return acc;
+    // }, 0);
 
     for (let p = 0; p < palabra.length; p++) {
         for (let i = 0; i < listaDeVocales.length; i++) {
