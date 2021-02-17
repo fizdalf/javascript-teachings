@@ -1,0 +1,46 @@
+console.log(1); // Number Integer
+console.log(2);
+console.log(1.5); // Number Float
+console.log(1 / 3);
+console.log(2 / 3);
+console.log(1 / 3 + 2 / 3);
+console.log(0o10);
+console.log(0b10);
+console.log(0x10);
+
+// operators!!
+
+console.log(2 + 5);
+console.log(2 - 5);
+console.log(2 * 5);
+console.log(2 / 5);
+console.log(2 ** 5);
+console.log(2 % 4 + 4 - 1 / 0 ** 4);
+
+//
+// 0 1 2 3 4 5 6 7 8 9 A B C D E F -> 16
+
+// [00] [A6] [76]
+
+// 0 1 2 3 4 5 6 7 8 9 -> 10                      125
+//                                                1 * 10**2  +   2 * 10**1   + 5 * 10**0  -> 125
+
+// 0 1 2 3 4 5 6 7 -> 8
+//                                                     115
+//                                                          1 * 8**2   +   1 * 8**1        + 5 * 8**0 ->
+//                                                             64    +            8   +               5 =
+
+// 10
+// 1*2**1+0* 2**0=2
+// 0 1 -> 2
+
+// COMPARATORS!!!
+
+console.log(2 > 4);
+console.log(2 >= 4);
+console.log(2 < 4);
+console.log(2 <= 4);
+console.log(2 === 4);
+console.log(2 !== 4);
+// console.log(2 != 4); no usar
+// console.log(2 == 4); no usar
