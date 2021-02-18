@@ -12,4 +12,4 @@ console.log("05" === "5");
 //Boolean
 console.log(true || false);
 //undefinied
-console.log()
+console.log(undefined / 3)
