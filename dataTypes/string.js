@@ -1,13 +1,16 @@
 // STRING
-console.log("hola \" Mc'avoy");
-console.log('hola ' +
+console.log("y Luismi dijo: \"Iré a mi casa a comer\"  Mc'avoy");
+console.log('hola \' `´""""" ' +
     '' +
     '' +
     '' +
     ' "McAvoy"');
 
+
 console.log(`hola \` 
- 
+ fasdfasdfasdfasdfvkandgfñlakjesr.
+ fasldkfjasdfñl
+ .fa,sdjvalsdkfj
  gbadfbadfgb
  fdgadfg
  gfadfbadf
@@ -24,6 +27,7 @@ console.log(2 + "2");
 console.log("2" + 2.5);
 console.log("a" + 2);
 
+// COMPATORS!!
 console.log("a" > "b", "a > b");
 console.log("a" >= "b", "a >= b");
 console.log("a" < "b", "a < b");
@@ -33,5 +37,5 @@ console.log("a" === "b", "a === b");
 console.log("01" === "1", "01 === 1");
 console.log("aaa" > "1", "aaa > 1");
 
-console.log("2" > 1);
-console.log(1 !== "1");
+ console.log("a" > 2);
+console.log(1 === "1");
