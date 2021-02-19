@@ -4,7 +4,7 @@ const arguments = process.argv;
 const veg1 = (arguments[2]);
 
 let message = "Junio";
-if (veg1 !== 'Tomate') {
+if (veg1 !== 'tomates') {
     message = "Los tomates son geniales";
 }
 console.log(message);
