@@ -21,37 +21,3 @@ console.log(70 % 30, 'resto de cualquier cosa')
 
 console.log("I am working on this exercise \"even thou I cannot put them into reality\" and I will do my best")
 
-
-//Control structures
-
-const arguments = process.argv;
-
-const verdura = arguments (2)
-let message = "June"
-if (verdura !== tomate) {
-    message = "Tomatoes are great! Try them!";
-}
-
-
-
-const arguments = process.argv;
-
-const Raining = arguments (2)
-let message = "It is not recommended for you to drive"
-if (raining !== yes) {
-    message = "You can drive. Have a great day out.";
-}
-
-
-
-const arguments = process.argv;
-
-const red = arguments (2)
-const green = arguments (3)
-if (arguments === red) {
-    menssage = "What an intense color!";
-}
-else if (arguments === green) {
-    message = "That is not an intense color";
-}
-
