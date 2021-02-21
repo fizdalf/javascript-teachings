@@ -1,7 +1,8 @@
 const arguments = process.argv;
 
-const verdura = arguments (2)
+const verdura = arguments[2]
 let message = "June"
-if (verdura !== tomate) {
+if (verdura !== 'tomate') {
     message = "Tomatoes are great! Try them!";
 }
+console.log(message);
