@@ -5,7 +5,7 @@ if(Vegetal === tomato) {
 }
 
 else(vegetal !== tomato) {
-    "Los tomates son geniales";
+    "Los message son geniales";
 }
 console.log(Vegetal);
 

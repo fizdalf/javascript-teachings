@@ -7,26 +7,29 @@ const number2 = parseInt(arguments[3]);
 const number3 = parseInt(arguments[4]);
 const number4 = parseInt(arguments[5]);
 
-let divisible1 = "es divisible";
-if (number1 %2 !== 0) {
-    divisible1 = ((number1 ) + "no es divisible entre 2");
+const divisibleMessage = " es divisible entre 2";
+const notDivisibleMessage = " no" + divisibleMessage;
+
+divisible1 = divisibleMessage;
+if (number1 % 2 !== 0) {
+    divisible1 = notDivisibleMessage;
 }
-console.log(divisible1);
+console.log(number1 + divisible1);
 
 let divisible2 = "es divisible";
-if(number2 %2 !== 0) {
-    divisible2 = ((number2 ) + "no es divisible entre 2");
+if (number2 % 2 !== 0) {
+    divisible2 = (number2 + " no es divisible entre 2");
 }
 console.log(divisible2);
 
 let divisible3 = "es divisible"
-if(number3 %2 !== 0) {
-    divisible3 = ((number3 ) + "no es divisible entre 2")
+if (number3 % 2 !== 0) {
+    divisible3 = (number3 + " no es divisible entre 2")
 }
 console.log(divisible3)
 
 let divisible4 = "es divisible"
-if(number4 %2 !== 0) {
-    divisible4 = ((number4 ) + "no es divisible entre 2")
+if (number4 % 2 !== 0) {
+    divisible4 = (number4 + " no es divisible entre 2")
 }
 console.log(divisible4)

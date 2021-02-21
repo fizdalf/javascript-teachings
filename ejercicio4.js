@@ -1,4 +1,4 @@
-// dada una palabra por el terminal, determinar si es un palíndromo o no.
+// dada una palabra por el terminal, determinar message es un palíndromo o no.
 
 const list = process.argv;
 let index = 2;
