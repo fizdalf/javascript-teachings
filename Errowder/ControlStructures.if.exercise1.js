@@ -8,4 +8,4 @@ let message = "Junio";
 if (verdura !== 'tomate') {
     message = "Los tomates son geniales";
 }
-console.log(verdura)
+console.log(message)
