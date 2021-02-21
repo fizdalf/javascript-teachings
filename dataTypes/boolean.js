@@ -1,19 +1,19 @@
 // BOOLEAN
-console.log(true);
-console.log(false);
+// console.log(true);
+// console.log(false);
 
-
+// OR
 // true  || true  = true
 // true  || false = true
 // false || true  = true
 // false || false = false
-
+// AND
 // true  && true   -> true
 // true  && false  -> false
 // false && true   -> false
 // false && false  -> false
-
-
+// console.log(false || (true && false && true) || true);
+// NOT
 // !true  -> false
 // !false -> true
 

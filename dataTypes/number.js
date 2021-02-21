@@ -1,5 +1,5 @@
 console.log(1); // Number Integer
-console.log(2);
+console.log(3.1415e-5);// -> 3.1415 / 10**6 -> 3141500
 console.log(1.5); // Number Float
 console.log(1 / 3);
 console.log(2 / 3);
@@ -15,7 +15,9 @@ console.log(2 - 5);
 console.log(2 * 5);
 console.log(2 / 5);
 console.log(2 ** 5);
-console.log(2 % 4 + 4 - 1 / 0 ** 4);
+console.log(150 % 100, 'dia de la semana');
+
+
 
 //
 // 0 1 2 3 4 5 6 7 8 9 A B C D E F -> 16
