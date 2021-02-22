@@ -36,6 +36,14 @@ if (rainChance >= guaranteedRainChanceToBringUmbrella) {
     console.log("Make sure to bring your umbrella with you as it's probably going to rain.");
 } else if (rainChance >= isPossibleRainChance) {
     console.log("It would be wise to bring your umbrella with you...you never know.");
+} else if (rainChance >= isPossibleRainChance) {
+    console.log("It would be wise to bring your umbrella with you...you never know.");
+} else if (rainChance >= isPossibleRainChance) {
+    console.log("It would be wise to bring your umbrella with you...you never know.");
+} else if (rainChance >= isPossibleRainChance) {
+    console.log("It would be wise to bring your umbrella with you...you never know.");
+} else if (rainChance >= isPossibleRainChance) {
+    console.log("It would be wise to bring your umbrella with you...you never know.");
 } else {
     console.log("It's all good, enjoy in the sun!!");
 }
