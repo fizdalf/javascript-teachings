@@ -4,12 +4,19 @@ const arguments = process.argv;
 let index = 2
 
 const lastIndex = arguments.length - 1;
+let max = arguments
 
 while (index <= lastIndex) {
-   let numbers = arguments;
+    let number = arguments[index]
+
+    if (number > max) {
+        max = number
     }
-let array.sort(arguments);
-index++;
+
+    index++;
+}
+
+let message = max
 console.log(message);
 
 
