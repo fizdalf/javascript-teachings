@@ -12,7 +12,6 @@ while (firstNumber !== secondNumber) {
         index++
         firstNumber = parseInt(arguments[index]);
     } else {
-        (arguments[index] > lastIndex);
         lastIndex--
         secondNumber = parseInt(arguments[lastIndex]);
     }

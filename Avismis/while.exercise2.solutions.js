@@ -16,7 +16,7 @@ while (index <= lastIndex) {
     index++;
 }
 
-let message = "de entre "  + (arguments.length - 2) + " números el mayor es " + max
+let message = "de entre estos " + (arguments.length - 2) + " números el mayor es " + max
 console.log(message);
 
 
