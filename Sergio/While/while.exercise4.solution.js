@@ -6,24 +6,5 @@
 // console.log(lista) -> [1,2,3,4,7]
 'use strict'
 
-const arguments = process.argv;
-
-const index = 2;
-
-const number = parseInt(arguments[2]);
-
-let factorsList = [];
-
-let factor = 0;
-
-while (number > factor) {
-    if (factor % number === 0) {
-    }
-    factor = factorsList.push;
-
-    factor++;
-}
-
-let message = "El/Los factor/es de " + (index) + " es/son " + factorsList;
 
 console.log(message)
