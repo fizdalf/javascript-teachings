@@ -17,12 +17,13 @@ let factorsList = [];
 let factor = 0;
 
 while (number > factor) {
-    if (factor % number === 0) {
-    } factor = factorsList.push;
+    if (number % factor === 0) {
+    }
+    factor = factorsList.push;
 
-factor++;
-        }
+    factor++;
+}
 
-    let message = "El/Los factor/es de " + (index) + " es/son " + factorsList;
+let message = "El/Los factor/es de " + (arguments[2]) + " es/son " + factorsList;
 
 console.log(message)
