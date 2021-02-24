@@ -1,11 +1,11 @@
 // Crea un programa que recibe una lista de palabras, imprime la más larga, sabiendo que los strings son también listas! ("hola".length -> 4)
 
 const arguments = process.argv;
-let index = 2
+let index = 3
 
 const lastIndex = arguments.length - 1;
 
-let longestWord = "a"
+let longestWord = arguments[2]
 
 while (index <= lastIndex) {
 
