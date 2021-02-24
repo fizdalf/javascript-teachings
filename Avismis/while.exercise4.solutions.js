@@ -7,23 +7,19 @@
 // console.log(lista) -> [1,2,3,4,7]
 
 const arguments = process.argv;
-
-const index = 2;
-
 const number = parseInt(arguments[2]);
-
 let factorsList = [];
-
-let factor = 0;
-
-while (number > factor) {
+let factor = 1;
+while (Math.sqrt(number) >= factor) {
+    console.log(`comprobando si ${factor} es un factor de ${number}`)
     if (number % factor === 0) {
+        console.log(`${factor} es un factor de ${number}!! añadelo a la lista!`);
+        factorsList.push(factor);
+        factorsList.push(number / factor);
     }
-    factor = factorsList.push;
-
     factor++;
 }
 
-let message = "El/Los factor/es de " + (arguments[2]) + " es/son " + factorsList;
-
-console.log(message)
+factorsList.sort((a, b) => a - b);
+let message = "El/Los factor/es de " + number + " es/son " + factorsList;
+console.log(message);

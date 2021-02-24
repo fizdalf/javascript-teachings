@@ -4,7 +4,7 @@ const arguments = process.argv;
 let index = 2;
 
 const lastIndex = arguments.length - 1;
-let max = 0;
+let max = Number.NEGATIVE_INFINITY;
 
 while (index <= lastIndex) {
     let number = parseInt(arguments[index])

@@ -1,17 +1,17 @@
-// Crea un programa que recibe una lista de palabras, imprime la más larga, sabiendo que los strings son también listas! ("hola".length -> 4)
+// Crea un programa que recibe una lista de palabras, imprime la más firstWordLength, sabiendo que los strings son también listas! ("hola".length -> 4)
 // Frase: vaya ejercicio mas dificil
-
 const arguments = process.argv;
 let index = 2
-const larga = arguments[index].length
-let palabra = arguments.length -1
-
-while (larga !== palabra){
-    if (larga < palabra){
+let lastIndex = arguments.length - 1;
+let firstWordLength = arguments[index].length
+let secondWordLength = arguments[arguments.length - 1].length;
+while (index !== lastIndex) {
+    if (firstWordLength < secondWordLength) {
         index++
+        firstWordLength = arguments[index].length
     } else {
-        (larga > palabra);
-        palabra--
+        lastIndex--;
+        secondWordLength = arguments[lastIndex].length;
     }
 }
-console.log(larga + " es la palabra mas larga")
+console.log(arguments[index] + " es la palabra mas larga")

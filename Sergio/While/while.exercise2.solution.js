@@ -4,12 +4,12 @@
 const arg = process.argv;
 let index = 2;
 const lastIndex = arg.length - 1;
-
-let message;
+let max = Number.NEGATIVE_INFINITY;
 while (index <= lastIndex) {
-    let number = arguments[index];
-    if(number < number){
-        message = number + 'es el más grande'
+    let number = parseInt(arguments[index]);
+    if (number > max) {
+        max = number;
     }
+    index++;
 }
-console.log(message);
+console.log(number + 'es el más grande');

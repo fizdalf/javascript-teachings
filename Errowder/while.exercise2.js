@@ -3,14 +3,18 @@
 
 const arguments = process.argv;
 let index = 2
-let lastIndex = arguments.length -1
+let lastIndex = arguments.length - 1
+let firstNumber = parseInt(arguments[index]);
+let secondNumber = parseInt(arguments[lastIndex]);
 
-while (arguments[index] !== lastIndex){
-    if (arguments[index] < lastIndex){
+while (firstNumber !== secondNumber) {
+    if (firstNumber < secondNumber) {
         index++
+        firstNumber = parseInt(arguments[index]);
     } else {
         (arguments[index] > lastIndex);
         lastIndex--
+        secondNumber = parseInt(arguments[lastIndex]);
     }
 }
 console.log(arguments[index] + " es el mayor numero")
