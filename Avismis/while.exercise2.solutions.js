@@ -7,13 +7,10 @@ const lastIndex = arguments.length - 1;
 let max = 0
 
 while (index <= lastIndex) {
-    let number = arguments[index]
-
-    console.log("el número en la posición " + (index - 2) + " es " + number)
+    let number = parseInt(arguments[index])
 
     if (number > max) {
         max = number
-        console.log("me quedo con el " + max)
     }
 
     index++;
