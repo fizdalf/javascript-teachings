@@ -1,4 +1,4 @@
-// Crea un programa que recibe una lista de palabras, imprime la más firstWordLength, sabiendo que los strings son también listas! ("hola".length -> 4)
+// Crea un programa que recibe una lista de palabras, imprime la más larga, sabiendo que los strings son también listas! ("hola".length -> 4)
 
 const arguments = process.argv;
 let index = 3;
