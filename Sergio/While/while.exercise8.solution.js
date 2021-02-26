@@ -11,3 +11,24 @@
 // console.log("8x1=8");
 // console.log("9x1=9");
 // console.log("10x1=10");
+'use strict'
+
+const arg = process.argv
+const index = 2
+const number = parseInt(arg[index])
+let min = 0
+const max = 10
+let table = 1
+
+if (!isNaN(number)){
+    while (min <= max) {
+        console.log(min * number)
+        min++
+    }
+} else if(table <= max) {
+        while (min <= max) {
+            console.log(min * table)
+            min++
+        }
+        table++
+}
