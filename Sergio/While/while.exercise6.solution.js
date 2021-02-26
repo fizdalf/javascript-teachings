@@ -13,6 +13,5 @@ while (index <= lastIndex) {
     total = parseInt(arg[index]) + total
     index++
 }
-let media = total / (arg.length - 2)
 
-console.log('La media es ' + media)
+console.log('La media es ' + (total / (arg.length - 2)))
