@@ -16,28 +16,26 @@ const arguments = process.argv;
 
 let index = parseInt(arguments[2])
 
-let min = 0
 
-if (index >= min) {
-    let index = arguments[2]
+if (!Number.isNaN(index)) {
+    let number = arguments[2];
+    let counter = 1
 
-    console.log()
-    console.log("1x" + index, "= " + (1 * index));
-    console.log("2x" + index, "= " + (2 * index));
-    console.log("3x" + index, "= " + (3 * index));
-    console.log("4x" + index, "= " + (4 * index));
-    console.log("5x" + index, "= " + (5 * index));
-    console.log("6x" + index, "= " + (6 * index));
-    console.log("7x" + index, "= " + (7 * index));
-    console.log("8x" + index, "= " + (8 * index));
-    console.log("9x" + index, "= " + (9 * index));
-    console.log("10x" + index, "= " + (10 * index));
-    console.log("..............................")
-} else if (index < min) {
-    while (index <= 10) {
-        (index = 1)
-
-        index++
+    while (counter <= 10) {
+        console.log(counter + "x" + number, "= " + (counter * number));
+        counter = counter + 1;
+    }
+} else {
+    let externalCounter = 1;
+    while (externalCounter <= 10) {
+        let counter = 1;
+        console.log()
+        while (counter <= 10) {
+            console.log(counter + "x" + externalCounter, "= " + (counter * externalCounter));
+            counter = counter + 1;
+        }
+        console.log("..............................")
+        externalCounter = externalCounter + 1;
     }
 }
 

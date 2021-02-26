@@ -21,7 +21,7 @@ const max = 10
 let tabla = 1
 const finish = 10
 
-if (number !== NaN){
+if (!Number.isNaN(NaN)) {
     while (min <= max) {
         console.log(min * number)
         min++
@@ -32,8 +32,9 @@ if (number !== NaN){
             console.log(min * tabla)
             min++
         }
+        min = 0;
+        tabla++
     }
-    tabla++
 }
 
 

@@ -1,25 +1,26 @@
-// Dados una lista de notas de estudiantes devolver la media
+// Dados una lista de lastIndex de estudiantes devolver la media
 // https://www.matesfacil.com/calculadoras/estadistica/media-aritmetica/calcular-calculadora-media-aritmetica-ejemplos-problemas-resueltos-explicacion.html
 // ejemplo -> 8 7 6 -> 7
 
 const arguments = process.argv
 let index = 2
-const number = parseInt(arguments[index])
-const notas = arguments.length - 1
+
+const lastIndex = arguments.length - 1
 let media = []
 
-while (number <= notas) {
-    media.push(index)
+while (index <= lastIndex) {
+    const number = parseInt(arguments[index])
+    media.push(number);
     index++
 }
 
-let primero = 0
-const ultimo = media.length -1
-let siguiente = 0
+let indice = 0
+const ultimo = media.length - 1
+let suma = 0
 
-while (primero <= ultimo) {
-    siguiente = media[primero] + siguiente
-    primero++
+while (indice <= ultimo) {
+    suma = media[indice] + suma
+    indice++
 }
 
-console.log("la media es " + (siguiente/ultimo))
+console.log("la media es " + (suma / media.length))

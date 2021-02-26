@@ -8,8 +8,7 @@ let multiplication = 0;
 
 
 while (multiplication <= 10) {
-
-console.log(number * multiplication)
+    console.log(number * multiplication)
     multiplication++
 }
 

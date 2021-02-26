@@ -7,7 +7,7 @@ let number2 = 10;
 let tree = "*";
 let firstlevel = 1;
 let levels = firstlevel + 1 + tree;
-
+console.log(levels);
 
 while(firstlevel < levels){
     console.log(levels)
