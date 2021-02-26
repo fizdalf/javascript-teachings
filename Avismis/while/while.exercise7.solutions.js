@@ -27,16 +27,18 @@ const arguments = process.argv;
 
 let index = 1
 
-console.log("*")
+start = "  *  "
+console.log("  *  ")
 
 const branchCount = parseInt(arguments[2])
 
 const lastIndex = branchCount;
 
 while (index < branchCount) {
-    console.log()
+    console.log(" * " + start + " * ")
+
     index++
 }
 
-console.log("*")
-console.log("*")
+console.log("  *  ")
+console.log("  *  ")
