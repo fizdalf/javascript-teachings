@@ -4,25 +4,15 @@
 
 const arguments = process.argv;
 
-max = arguments[2]
-let index = 3;
+let index = 2;
+let total = 0
+
 const lastIndex = arguments.length - 1;
 
 while (index <= lastIndex) {
-    let max = index + max
-
+    total = parseInt(arguments[index]) + total
     index++
 }
-console.log(max)
+average = total / (arguments.length - 2)
 
-//
-// let gradesList = []
-//
-// const grades = parseInt(arguments[index])
-//
-// const lastIndex = arguments.length - 1;
-//
-// while (index < gradesList) {
-//     let grades =
-//
-// }
+console.log("La media de estas " + (arguments.length -2) + " notas es " + average)
