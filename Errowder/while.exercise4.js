@@ -5,8 +5,5 @@
 // lista.push(7);
 // console.log(lista) -> [1,2,3,4,7]
 
-const arguments = process.argv;
-
-
 
 
