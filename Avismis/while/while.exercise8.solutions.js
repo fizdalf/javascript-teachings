@@ -40,3 +40,33 @@ if (!Number.isNaN(index)) {
 }
 
 
+return;
+
+
+
+const arguments = process.argv;
+
+let index = parseInt(arguments[2])
+
+
+if (!Number.isNaN(index)) {
+    let number = arguments[2];
+    let counter = 1
+
+    while (counter <= 10) {
+        console.log(counter + "x" + number, "= " + (counter * number));
+        counter = counter + 1;
+    }
+} else {
+    let externalCounter = 1;
+    while (externalCounter <= 10) {
+        let counter = 1;
+        console.log()
+        while (counter <= 10) {
+            console.log(counter + "x" + externalCounter, "= " + (counter * externalCounter));
+            counter = counter + 1;
+        }
+        console.log("..............................")
+        externalCounter = externalCounter + 1;
+    }
+}

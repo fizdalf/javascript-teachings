@@ -45,3 +45,40 @@ while (index < branchCount) {
 
 console.log("  *  ")
 console.log("  *  ")
+
+
+return;
+
+
+const args = process.argv;
+const startingIndex = 2
+const N = parseInt(args[startingIndex]);
+
+let currentLevel = 1;
+while (currentLevel <= N) {
+    let asterisksInLevel = "";
+    const requiredAsterisks = currentLevel * 2 - 1;
+    while (asterisksInLevel.length < requiredAsterisks) {
+        asterisksInLevel = asterisksInLevel + "*";
+    }
+    const requiredSpaces = N - currentLevel;
+    let spacesInLevel = "";
+    while (spacesInLevel.length < requiredSpaces) {
+        spacesInLevel = spacesInLevel + " ";
+    }
+    console.log(spacesInLevel + asterisksInLevel);
+    currentLevel++;
+}
+const trunkRequiredSpaces = N - 1;
+let trunkPiece = '*';
+let amountOfSpacesAlreadyInTheTrunk = 0
+while (amountOfSpacesAlreadyInTheTrunk < trunkRequiredSpaces) {
+    trunkPiece = " " + trunkPiece;
+    amountOfSpacesAlreadyInTheTrunk++;
+}
+const trunkPiecesToPrint = 2;
+let trunkPiecesPrinted = 0;
+while (trunkPiecesPrinted < trunkPiecesToPrint) {
+    console.log(trunkPiece);
+    trunkPiecesPrinted++;
+}
