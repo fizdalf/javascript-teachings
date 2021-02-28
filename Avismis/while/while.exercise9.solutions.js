@@ -3,51 +3,68 @@
 // console.log("AAAAAAAAAAAAA".toLowerCase());
 
 
-// const arguments = process.argv;
+// const [,,word] = process.argv;
+
+// let endOfWord = word.length -1
 //
-// let index = arguments[2]
-//
-// let endOfWord = index.length
-//
-// let halfWord = (index.length / 2)
+// let halfWord = (word.length / 2)
 //
 // let begginingOfWord = 1
 //
-// // console.log(halfWord)
-// // console.log(endOfWord)
-// // console.log(begginingOfWord)
+// console.log(halfWord)
+// console.log(endOfWord)
+// console.log(begginingOfWord)
 //
 // while (begginingOfWord < endOfWord) {
 //     if ((halfWord - 1) === (halfWord + 1)) {
-//         console.log(index + " sí es un palíndromo")
+//         console.log(word + " sí es un palíndromo")
 //     } else if ((halfWord - 1) !== (halfWord + 1)) {
-//         console.log(index + " no es un palíndromo")
+//         console.log(word + " no es un palíndromo")
 //     }
 //     begginingOfWord++
 // }
 //
 
-
-// let begginngLetter = index.length - (index.length +1)
-//
-// let finalLetter = index.length - 1
-//
-// while (begginngLetter <= finalLetter)
-// {
-//     console.log(arguments[index.length])
-//
-//     console.log(arguments[index.length] / 2)
-// }
-//
-// begginngLetter++
+// ------------------------------------------------------------------------------------------------------------
 
 
-const arguments = process.argv;
+const [, , word] = process.argv;
 
-let index = arguments[2];
+const begginingOfWord = word[0]
+let messageYes = word + " sí es un palíndromo"
+let messageNo = word + " no es un palíndromo"
 
-let index = [];
+if (word.length === 1) {
+    console.log(messageYes)
+} else if (word.length === 2) {
+    if (begginingOfWord === word[1]) {
+        console.log(messageYes)
+    } else {
+        console.log(messageNo)
+    }
+} else if (word.length === 3) {
+    if (begginingOfWord === word[2]) {
+        console.log(messageYes)
+    } else {
+        console.log(messageNo)
+    }
+}
+// de aquí hacía arriba está bien (palabras de 1, 2 ó 3 letras)
 
-// index.length = listOftotalOfLetterInAWord.push;
+let halfWord = (word.length / 2)
+let index = 1
 
-console.log(index);
+while (halfWord >= index) {
+        if ((word[halfWord] + index) === (word[halfWord] - index)){
+            console.log(messageYes)
+        } else{
+            console.log(messageNo)
+        }
+        index++
+    }
+
+console.log(word[halfWord])
+
+
+// ------------------------------------------------------------------------------------------------------------
+
