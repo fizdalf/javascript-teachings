@@ -24,6 +24,6 @@ let [first, second, ...remainingElements] = [10, 20, 30, 40, 50];
 [first, second, ...remainingElements] = ["my", "tailor", "is", "rich"];
 // We can also use array destructuring to ASSIGN values to variables as the above line shows
 // The variables will contain the associated values as follows:
-// first                -> 10               (as this is asking to assign the value of the first element of the array)
-// second               -> 20               (as this is asking to assign the value of the second element of the array)
+// first                -> "my"             (as this is asking to assign the value of the first element of the array)
+// second               -> "tailor"         (as this is asking to assign the value of the second element of the array)
 // remainingElements    -> ["is","rich"]    (as this is asking to assign the rest of the element of the array)
