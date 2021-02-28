@@ -8,24 +8,26 @@
 
 // console.log('A' === 'Á'); // aabbaa
 
-const arguments = process.argv;
+const [,,words] = process.argv
 
+// const arguments = process.argv;
+//
 let index = 2;
 
 
-total = []
+// total = []
 const lastIndex = arguments.length - 1;
 
 while (index <= lastIndex) {
-    total.push(arguments[index])
+    // total.push(arguments[index])
     index++
 }
 
-console.log(total)
-
-
+console.log(words)
 //
-// const itemsCount = arguments.length - 2;
-// average = total / itemsCount
 //
-// console.log("La media de estas " + itemsCount + " letras es " + average)
+// //
+// // const itemsCount = arguments.length - 2;
+// // average = total / itemsCount
+// //
+// // console.log("La media de estas " + itemsCount + " letras es " + average)

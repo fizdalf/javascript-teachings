@@ -3,3 +3,5 @@
 // console.log("AAAAAAAAAAAAA".toLowerCase());
 
 
+const arguments = process.argv;
+
