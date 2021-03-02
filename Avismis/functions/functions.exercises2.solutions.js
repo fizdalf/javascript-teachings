@@ -11,5 +11,13 @@
 // quedándonos const exerciseLibrary = require('../../exercises/functions/functions.exercise.library.js');
 
 'use strict';
-const exerciseLibrary = require("./functions.exercise.library");
-exerciseLibrary.rectanglePerimeter();
+const exerciseLibrary = require("../../exercises/functions/functions.exercise.library");
+
+const [, , ...restOfElements] = process.argv
+
+const a = parseInt(restOfElements[0])
+const b = parseInt(restOfElements[1])
+
+const result = exerciseLibrary.rectanglePerimeter(a, b)
+
+console.log(result);

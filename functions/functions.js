@@ -1,5 +1,9 @@
 'use strict';
 
+const word = process.argv[2]
+
+
+
 function checkIsPalindrome(wordToCheck) {
     if (wordToCheck === undefined) {
         return false;
@@ -16,8 +20,18 @@ function checkIsPalindrome(wordToCheck) {
             }
         }
     }
+
     return true;
 }
+
+const puta = checkIsPalindrome(word)
+
+if (puta === true) {
+   console.log(word + " sí es palíndromo")
+} else {
+    console.log(word + " no es palíndromo")
+}
+
 
 //
 // //
@@ -79,3 +93,8 @@ const myPimpedNumber = pimpMyNumberAndShowIt(4);
 console.log("This is my Pimped number: ", myPimpedNumber);
 
 exports.checkIsPalindrome = checkIsPalindrome;
+
+
+
+
+

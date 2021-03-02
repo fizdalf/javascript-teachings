@@ -1,5 +1,5 @@
-// Dados los tamaños de dos lados contiguos de un rectángulo  por terminal, crea un programa que muestra por terminal el perímetro del rectángulo
-// usando la función "rectanglePerimeter" de la librería de ejercicios
+// Dada la base y la altura de un triángulo por terminal, crea un programa que muestra por terminal el área del triángulo usando la función "triangleArea"
+// de la librería de ejercicios
 // Ten en cuenta que la función "require" importa la libería, y tendrás que darle la posición relativa de donde ésta se encuentre
 // utiliza "." para referirte al directorio actual, ".." par el directorio padre
 // por ejemplo para utilizar la librería que está en /exercises/functions/functions.exercise.library desde un archivo en /Avismis/functions/funcionts.exercise1.solution.js
@@ -11,5 +11,11 @@
 // quedándonos const exerciseLibrary = require('../../exercises/functions/functions.exercise.library.js');
 
 'use strict';
-const exerciseLibrary = require("./functions.exercise.library");
-exerciseLibrary.rectanglePerimeter();
+const exerciseLibrary = require("../../exercises/functions/functions.exercise.library");
+
+const [,, ...restOfElements] = process.argv
+
+const base = parseInt(restOfElements[0])
+const height = parseInt(restOfElements[1])
+
+console.log(exerciseLibrary.triangleArea(base, height))
