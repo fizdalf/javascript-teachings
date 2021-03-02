@@ -22,3 +22,5 @@ while (primeNumbersList.length < number) {
 }
 
 console.log(primeNumbersList);
+
+Number.NEGATIVE_INFINITY; 
