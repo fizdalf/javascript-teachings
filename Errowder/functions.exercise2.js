@@ -14,10 +14,10 @@
 const exerciseLibrary = require("./functions.exercise.library.js");
 exerciseLibrary.rectanglePerimeter();
 
-const arguments = process.argv;
+const terminal = process.argv;
 const index = 2
 const lastIndex = 3
-const a = parseInt(arguments[index])
-const b = parseInt(arguments[lastIndex])
+const a = parseInt(terminal[index])
+const b = parseInt(terminal[lastIndex])
 
-console.log(exerciseLibrary.rectanglePerimeter())
+console.log(exerciseLibrary.rectanglePerimeter(a ,b))
