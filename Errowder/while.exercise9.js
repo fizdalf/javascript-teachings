@@ -11,26 +11,47 @@
 const arguments = process.argv
 let index = 2
 let lastIndex = arguments.length - 1
-let currentLetter = arguments[index]
-let lastLetter = arguments[lastIndex]
 
-if (currentLetter === lastLetter) {
-    while (index !== lastIndex) {
-        if (currentLetter === lastLetter) {
-            currentLetter++
-            lastLetter--
-            currentLetter = arguments[index].length
-            lastLetter = arguments[lastIndex].length
-        } else {
-            console.log("No es un palindromo")
-            break;
-        }
+let rightWord = arguments[index]
+let leftWord = arguments[lastIndex]
+
+let indice = 0
+let lastIndice = leftWord.length - 1
+
+let rightLetter = rightWord[indice]
+let leftLetter = leftWord[lastIndice]
+
+let lastLetterOfTheRightWord = rightWord.length - 1
+
+// Esto compara las palabras tal cual
+// while (rightWord === leftWord) {
+//     index++
+//     lastIndex--
+//     rightWord = arguments[index]
+//     leftWord = arguments[lastIndex]
+//     if (index >= lastIndex) {
+//         break
+//     }
+// }
+
+while (rightLetter === leftLetter) {
+    indice++
+    lastIndice--
+    rightLetter = rightWord[indice]
+    leftLetter = leftWord[lastIndice]
+    if (indice > lastLetterOfTheRightWord) {
         index++
-        lastIndex--
-        index = 2
-        lastIndex = arguments.length - 1
+        console.log("aqui peta")
     }
-    console.log("Es un palindromo")
-} else {
-    console.log("No es un palindromo")
+    // if (lastIndice < 0) {
+    //     lastIndex--
+    //     console.log("aqui tambien")
+    // }
 }
+
+
+console.log("Estas letras son diferentes")
+console.log(rightLetter)
+console.log(leftLetter)
+
+//  node Errowder\while.exercise9.js
