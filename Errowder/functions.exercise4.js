@@ -17,12 +17,8 @@ const wallHeight = parseInt(arguments[index + 1])
 const wallWidth = parseInt(arguments[index + 2])
 const numberOfWalls = parseInt(arguments[lastIndex])
 
-function metrosCuadrados(paintCoverRate, wallHeight, wallWidth, numberOfWalls) {
-    return (wallHeight * wallWidth) * numberOfWalls
+function paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls) {
+    return (wallHeight * wallWidth) * numberOfWalls / paintCoverRate
 }
 
-if (paintCoverRate < metrosCuadrados(paintCoverRate, wallHeight, wallWidth, numberOfWalls)) {
-    paintCoverRate = metrosCuadrados(paintCoverRate, wallHeight, wallWidth, numberOfWalls) / paintCoverRate
-}
-
-console.log("You will need " + paintCoverRate + " cans of paint")
+console.log("You will need " + paintCanCalculator() + " cans of paint")
