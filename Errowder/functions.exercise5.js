@@ -20,4 +20,4 @@ function leagueCalculator(win, draw) {
     return leagueCalculator
 }
 
-console.log("LeagueCalculator " + "(" + win + ", " + draw + ", " + losses + " ) = " + leagueCalculator(win, draw, losses) + " puntos.")
+console.log("LeagueCalculator " + "(" + win + ", " + draw + ", " + losses + ") = " + leagueCalculator(win, draw, losses) + " puntos.")

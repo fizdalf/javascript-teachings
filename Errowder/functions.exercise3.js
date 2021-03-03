@@ -4,10 +4,10 @@
 "use strict"
 const terminal = process.argv;
 let index = 2
+let name = terminal[index]
 
 function sayHelloToThisPerson(name) {
-    name = terminal[index]
     return ("Hello " + name)
 }
-console.log(sayHelloToThisPerson())
+console.log(sayHelloToThisPerson(name))
 
