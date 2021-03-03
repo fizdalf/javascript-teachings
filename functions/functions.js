@@ -24,9 +24,9 @@ function checkIsPalindrome(wordToCheck) {
     return true;
 }
 
-const puta = checkIsPalindrome(word)
+const test = checkIsPalindrome(word)
 
-if (puta === true) {
+if (test === true) {
    console.log(word + " sí es palíndromo")
 } else {
     console.log(word + " no es palíndromo")
