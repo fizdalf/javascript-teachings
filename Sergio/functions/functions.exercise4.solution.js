@@ -10,16 +10,15 @@
 'use strict';
 
 const [, , ...Elements] = process.argv
-let paintCoverRate = parseInt(Elements[0])
-let wallHeight = parseInt(Elements[1])
-let wallWidth = parseInt(Elements[2])
-let numberOfWalls = parseInt(Elements[3])
+let paintCoverRate = parseInt(Elements)
+let wallHeight = parseInt(Elements)
+let wallWidth = parseInt(Elements)
+let numberOfWalls = parseInt(Elements)
 
 function paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls) {
-    return (wallHeight + wallWidth) * numberOfWalls / paintCoverRate
+    return wallHeight + wallWidth + numberOfWalls / paintCoverRate
 }
 
-const resultado = paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls)
-let message = 'La pintura necesaria es' + resultado
+let message = 'La pintura necesaria es' + paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls)
 
 console.log(message)

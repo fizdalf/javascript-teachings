@@ -8,16 +8,15 @@
 // leagueCalculator(5, 0, 2) ➞ 15
 // leagueCalculator(0, 0, 1) ➞ 0
 'use strict'
-const [, , ...Elements] = process.argv
+const [, , Elements] = process.argv
 
-let wins = parseInt(Elements[0])
-let draws = parseInt(Elements[1])
+let wins = parseInt(Elements)
+let draws = parseInt(Elements)
 
 function leagueCalculator(wins, draws, losses) {
-    return (3 * wins) + draws
+    return 3 + wins + draws
 }
 
-const Number = leagueCalculator(wins, draws)
-let message = 'La cantidad total de puntos es: ' + Number
+let message = 'La cantidad total de puntos es: ' + leagueCalculator(wins, draws)
 
 console.log(message)

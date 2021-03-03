@@ -3,12 +3,11 @@
 'use strict';
 
 const [, , element] = process.argv
-let nameToReturn = element
+let name = element
 
-function sayHello(nameToReturn) {
-    return "Hola " + nameToReturn
+function sayHello(name) {
+    return "Hola " + name
+    const message = sayHello(name)
 }
-
-const message = sayHello(nameToReturn)
 
 console.log(message)

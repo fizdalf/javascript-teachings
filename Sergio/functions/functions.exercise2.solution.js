@@ -11,11 +11,11 @@
 
 'use strict';
 
-const [, , ...elements] = process.argv
-const exerciseLibrary = require("../../exercises/functions/functions.exercise.library");
-const element1 = parseInt(elements[0]) //base
-const element2 = parseInt(elements[1]) //altura // da igual el orden
+const [, , elements] = process.argv
+const exerciseLibrary = require("./functions.exercise.library");
+const element1 = parseInt(elements)
+const element2= parseInt(elements)
 
-const message = exerciseLibrary.rectanglePerimeter(element1, element2)
+const message = exerciseLibrary.rectanglePerimeter(element1,element2)
 
 console.log(message);
