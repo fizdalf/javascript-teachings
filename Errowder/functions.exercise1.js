@@ -19,4 +19,4 @@ const terminal = process.argv;
 const base = parseInt(terminal[2])
 const height = parseInt(terminal[3])
 
-console.log(exerciseLibrary.triangleArea(base, height))
+console.log("El area del triangulo es " + exerciseLibrary.triangleArea(base, height))

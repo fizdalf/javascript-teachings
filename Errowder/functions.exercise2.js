@@ -20,4 +20,4 @@ const lastIndex = 3
 const a = parseInt(terminal[index])
 const b = parseInt(terminal[lastIndex])
 
-console.log(exerciseLibrary.rectanglePerimeter(a ,b))
+console.log("El perimetro del rectangulo es " + exerciseLibrary.rectanglePerimeter(a ,b))

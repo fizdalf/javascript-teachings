@@ -20,4 +20,4 @@ function points() {
     return points
 }
 
-console.log(points())
+console.log("Tienen " + points() + " puntos.")
