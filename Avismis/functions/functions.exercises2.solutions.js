@@ -21,3 +21,4 @@ const b = parseInt(restOfElements[1])
 const result = exerciseLibrary.rectanglePerimeter(a, b)
 
 console.log(result);
+

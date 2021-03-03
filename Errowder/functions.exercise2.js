@@ -11,13 +11,14 @@
 // quedándonos const exerciseLibrary = require('../../exercises/functions/functions.exercise.library.js');
 
 'use strict';
-const exerciseLibrary = require("./functions.exercise.library.js");
+const exerciseLibrary = require("./../exercises/functions/functions.exercise.library");
 exerciseLibrary.rectanglePerimeter();
 
 const terminal = process.argv;
-const index = 2
-const lastIndex = 3
-const a = parseInt(terminal[index])
-const b = parseInt(terminal[lastIndex])
+// const index = 2
+// const lastIndex = 3
+const a = parseInt(terminal[2])
+const b = parseInt(terminal[3])
 
 console.log("El perimetro del rectangulo es " + exerciseLibrary.rectanglePerimeter(a, b))
+

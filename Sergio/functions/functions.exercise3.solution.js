@@ -8,4 +8,6 @@ function sayHello(name) {
     return "Hola " + name;
 }
 
-console.log(message)
+console.log(sayHello(name))
+
+
