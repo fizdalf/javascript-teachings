@@ -8,16 +8,21 @@
 // leagueCalculator(5, 0, 2) ➞ 15
 // leagueCalculator(0, 0, 1) ➞ 0
 
+let arguments = process.argv
+let index = 2;
+let middleIndex = 3;
+let lastIndex = arguments.length - 1;
+
+let wins = parseInt(arguments[index]) * 3;
+
+let draws = parseInt(arguments[middleIndex]);
+
+let losses = 0;
+
+
 function leagueCalculator(wins, draws) {
-    return (3 * wins) + draws
+    return wins + draws
 }
 
-const [, , ...restOfElements] = process.argv
+console.log("puntos en total son " + leagueCalculator(wins, draws))
 
-let wins = parseInt(restOfElements[0])
-let draws = parseInt(restOfElements[1])
-
-const resultNumber = leagueCalculator(wins, draws)
-let message = "The total amount of points are " + resultNumber
-
-console.log(message)
