@@ -11,13 +11,13 @@
 const arguments = process.argv;
 let index = 2
 const lastIndex = arguments.length - 2
-const win = parseInt(arguments[index]) *3
+ const win = parseInt(arguments[index]) *3
 const draw = parseInt(arguments[lastIndex])
 const losses = 0
 
-function points() {
-    points = win + draw
-    return points
+function leagueCalculator(win, draw) {
+    leagueCalculator = win + draw
+    return leagueCalculator
 }
 
-console.log("Tienen " + points() + " puntos.")
+console.log("LeagueCalculator " + "(" + win + ", " + draw + ", " + losses + ") = " + leagueCalculator(win, draw, losses) + " puntos.")
