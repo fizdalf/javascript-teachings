@@ -10,7 +10,7 @@
 
 
 function paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls) {
-    return (wallHeight + wallWidth) * numberOfWalls / paintCoverRate
+    return (wallHeight * wallWidth) * numberOfWalls / paintCoverRate
 }
 
 const [, , ...restOfElements] = process.argv

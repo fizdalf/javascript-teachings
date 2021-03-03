@@ -7,7 +7,6 @@
 
 function calculateDogAge(yourPuppysAge) {
     return yourPuppysAge * 7
-
 }
 
 const yourPuppysAge = process.argv[2]
@@ -16,8 +15,6 @@ const resultNumber = calculateDogAge(yourPuppysAge)
 let message = "Your doggie is " + resultNumber + " years old in dog years!"
 
 console.log(message)
-
-
 
 
 // function calculateDogAge(yourPuppysAge, yourAge) {
