@@ -7,7 +7,18 @@
 // así por ejemplo :
 // paintCanCalculator(1,1,1,1)   -> 1
 // paintCanCalculator(10,1,1,10) -> 1
-"use strict"
-const argument = process.argv;
-let index = 2;
-let
+
+let arguments = process.argv
+let firstIndex = 2;
+let secondIndex = 3;
+let thirdIndex = 4;
+let lastIndex = arguments.length -1;
+
+let paintCoverRate = parseInt(arguments[firstIndex])
+let wallHeight = parseInt(arguments[secondIndex])
+let wallWidth = parseInt(arguments[thirdIndex])
+let numberOfwalls = parseInt(arguments[lastIndex])
+
+let fullWall = wallHeight * wallWidth;
+let result = fullWall * numberOfwalls;
+
