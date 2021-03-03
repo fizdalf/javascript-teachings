@@ -11,9 +11,8 @@ const partnersName = terminal[index +1]
 const geographicLocation = terminal[index +2]
 const jobTitle = terminal[lastIndex]
 
-function tellFortune() {
-    let finalSentence = "You will be a " + jobTitle + " in "+ geographicLocation + " , and married to " + partnersName + " with " + numberOfChildrens + " ."
-    return tellFortune()
+function tellFortune(numberOfChildrens, partnersName, geographicLocation, jobTitle) {
+     return "You will be a " + jobTitle + " in "+ geographicLocation + ", and married to " + partnersName + " with " + numberOfChildrens + " childrens."
 }
 
-console.log(tellfortune())
+console.log(tellFortune(numberOfChildrens, partnersName, geographicLocation, jobTitle))
