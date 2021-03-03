@@ -18,11 +18,7 @@ const wallWidth = parseInt(arguments[index + 2])
 const numberOfWalls = parseInt(arguments[lastIndex])
 
 function paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls) {
-    return Math.floor((wallHeight * wallWidth) * numberOfWalls / paintCoverRate);
+    return (wallHeight * wallWidth) * numberOfWalls / paintCoverRate
 }
 
-// if (paintCoverRate < paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls)) {
-//     paintCoverRate = paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls) / paintCoverRate
-// }
-
-console.log("You will need " + paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls) + " cans of paint")
+console.log("You will need " + paintCanCalculator() + " cans of paint")
