@@ -13,16 +13,16 @@ let index = 2;
 let middleIndex = 3;
 let lastIndex = arguments.length - 1;
 
-let wins = parseInt(arguments[index]) * 3;
+let wins = parseInt(arguments[index]);
 
 let draws = parseInt(arguments[middleIndex]);
 
-let losses = 0;
+let losses = parseInt(arguments[4]);
 
 
-function leagueCalculator(wins, draws) {
-    return wins + draws
+function leagueCalculator(wins, draws, losses) {
+    return wins * 3 + draws
 }
 
-console.log("puntos en total son " + leagueCalculator(wins, draws))
+console.log("puntos en total son " + leagueCalculator(wins, draws, losses))
 

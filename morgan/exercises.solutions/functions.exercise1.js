@@ -10,14 +10,14 @@
 // quedándonos const exerciseLibrary = require('../../exercises/functions/functions.exercise.library.js');
 
 'use strict';
-const exerciseLibrary = require("./functions.exercise.library");
+const exerciseLibrary = require("./../../exercises/functions/functions.exercise.library");
 exerciseLibrary.triangleArea();
 
-const argument = process.argv
-let index = 2;
-let lastIndex = argument.length -1
-let base = parseInt (argument[index])
-let height = parseInt (argument[lastIndex])
+const [, , ...argument] = process.argv
+// let index = 2;
+// let lastIndex = argument.length - 1
+let base = parseInt(argument[0]);
+let height = parseInt(argument[1]);
 console.log("El area del triangulo es " + exerciseLibrary.triangleArea(base, height))
 
 

@@ -10,11 +10,10 @@
 // quedándonos const exerciseLibrary = require('../../exercises/functions/functions.exercise.library.js');
 
 'use strict';
-
-const [,, elements] = process.argv
-const exerciseLibrary = require("./functions.exercise.library");
-const base = parseInt(elements)
-const altura = parseInt(elements)
+const [, , ...elements] = process.argv
+const exerciseLibrary = require("./../../exercises/functions/functions.exercise.library");
+const base = parseInt(elements[0])
+const altura = parseInt(elements[1])
 const message = exerciseLibrary.triangleArea(base, altura)
 
 console.log(message)

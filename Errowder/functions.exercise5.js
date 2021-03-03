@@ -7,17 +7,16 @@
 // leagueCalculator(3, 4, 2) ➞ 13
 // leagueCalculator(5, 0, 2) ➞ 15
 // leagueCalculator(0, 0, 1) ➞ 0
-
-const arguments = process.argv;
+'use strict';
+const terminal = process.argv;
 let index = 2
-const lastIndex = arguments.length - 2
- const win = parseInt(arguments[index]) *3
-const draw = parseInt(arguments[lastIndex])
-const losses = 0
+const lastIndex = terminal.length - 2
+const win = parseInt(terminal[index])
+const draw = parseInt(terminal[lastIndex - 1])
+const losses = parseInt(terminal[lastIndex])
 
-function leagueCalculator(win, draw) {
-    leagueCalculator = win + draw
-    return leagueCalculator
+function leagueCalculator(win, draw, losses) {
+    return win * 3 + draw + losses *0;
 }
 
 console.log("LeagueCalculator " + "(" + win + ", " + draw + ", " + losses + ") = " + leagueCalculator(win, draw, losses) + " puntos.")

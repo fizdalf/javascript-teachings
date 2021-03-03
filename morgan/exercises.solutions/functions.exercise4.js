@@ -21,4 +21,4 @@ let numberOfwalls = parseInt(arguments[lastIndex])
 
 let fullWall = wallHeight * wallWidth;
 let result = fullWall * numberOfwalls;
-
+ 

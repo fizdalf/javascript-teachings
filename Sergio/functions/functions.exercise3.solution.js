@@ -2,12 +2,10 @@
 // ejemplo sayHello('Juan') -> "Hola Juan"
 'use strict';
 
-const [, , element] = process.argv
-let name = element
+const [, , name] = process.argv
 
 function sayHello(name) {
-    return "Hola " + name
-    const message = sayHello(name)
+    return "Hola " + name;
 }
 
 console.log(message)

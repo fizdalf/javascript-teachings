@@ -9,16 +9,16 @@
 // paintCanCalculator(10,1,1,10) -> 1
 'use strict';
 
-const [, , ...Elements] = process.argv
-let paintCoverRate = parseInt(Elements)
-let wallHeight = parseInt(Elements)
-let wallWidth = parseInt(Elements)
-let numberOfWalls = parseInt(Elements)
+const [, , paintCoverRateString, wallHeightString, wallWidthString, numberOfWallsString] = process.argv
+let paintCoverRate = parseInt(paintCoverRateString)
+let wallHeight = parseInt(wallHeightString)
+let wallWidth = parseInt(wallWidthString)
+let numberOfWalls = parseInt(numberOfWallsString)
 
 function paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls) {
-    return wallHeight + wallWidth + numberOfWalls / paintCoverRate
+    return (wallHeight * wallWidth) * numberOfWalls / paintCoverRate;
 }
 
-let message = 'La pintura necesaria es' + paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls)
+let message = 'Los botes de pintura necesarios son ' + paintCanCalculator(paintCoverRate, wallHeight, wallWidth, numberOfWalls)
 
 console.log(message)

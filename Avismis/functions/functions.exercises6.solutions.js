@@ -25,6 +25,6 @@ if (gender === "female" && age >= 18) {
 } else if (gender === "female" || "male" && age < 18)
     message = "You better worry about growing up"
 
-let message = "You will be a " + X " in " + y " and married to " z " with " n " kids."
+let message = "You will be a " + X + " in " + y + " and married to " + z + " with " + n + " kids."
 // console.log(message)
 

@@ -10,7 +10,7 @@
 // quedándonos const exerciseLibrary = require('../../exercises/functions/functions.exercise.library.js');
 
 'use strict';
-const exerciseLibrary = require("./functions.exercise.library.js");
+const exerciseLibrary = require("./../exercises/functions/functions.exercise.library");
 exerciseLibrary.triangleArea();
 
 const terminal = process.argv;

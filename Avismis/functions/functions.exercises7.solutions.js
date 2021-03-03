@@ -5,8 +5,11 @@
 // Call the function three times with different sets of values.
 //     Bonus: Add an additional argument to the function that takes the conversion rate of human to dog years.
 
-function calculateDogAge(yourPuppysAge) {
-    return yourPuppysAge * 7
+function calculateDogAge(yourPuppysAge, conversionRate) {
+    if (!conversionRate) {
+        conversionRate = 7;
+    }
+    return yourPuppysAge * conversionRate
 }
 
 const yourPuppysAge = process.argv[2]
