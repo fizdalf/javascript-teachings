@@ -8,7 +8,7 @@
 // leagueCalculator(5, 0, 2) ➞ 15
 // leagueCalculator(0, 0, 1) ➞ 0
 
-function leagueCalculator(wins, draws, losses) {
+function leagueCalculator(wins, draws) {
     return (3 * wins) + draws
 }
 
