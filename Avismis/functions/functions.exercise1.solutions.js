@@ -13,7 +13,7 @@
 'use strict';
 const exerciseLibrary = require("../../exercises/functions/functions.exercise.library");
 
-const [,, ...restOfElements] = process.argv
+const [, , ...restOfElements] = process.argv
 
 const base = parseInt(restOfElements[0])
 const height = parseInt(restOfElements[1])
