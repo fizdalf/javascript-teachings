@@ -3,34 +3,27 @@
 // tengan en cuenta que la letra "A" no es igual que la letra "a", para solucionar ésto podemos usar "A".toLowerCase();
 
 // console.log("AAAAAAAAAAAAA".toLowerCase());
-"use strict";
+'use strict'
 
-const [, , ...wordItems] = process.argv;
-let index = 0;
-let word = "";
-while (index < wordItems.length) {
-    word += wordItems[index]; // word = word + wordItems[index];
-    index++;
-}
-word = word.toLowerCase();
+const [, , ...word] = process.argv
+let index = 2
+let lastIndex = word.length - 1
+let letra = word[index]
+let ultimaLetra = word[lastIndex]
 
-const itIsNOTAPalindrome = 'It is NOT a palindrome';
-const itIsAPalindrome = 'It is a palindrome';
-let message = itIsAPalindrome;
-if (!word) {
-    console.log('No wordItems to check');
-} else {
-    let rightIndex = word.length - 1;
-    let leftIndex = 0;
-    while (leftIndex < rightIndex) {
-        const firstCharacter = word[leftIndex];
-        const lastCharacter = word[rightIndex];
-        if (firstCharacter !== lastCharacter) {
-            message = itIsNOTAPalindrome;
-            break;
+if (letra === ultimaLetra) {
+    while (index !== ultimaLetra) {
+        if (letra === ultimaLetra) {
+            letra++
+            ultimaLetra--
+            letra = word[index].length
+            ultimaLetra = word[lastIndex].length
         }
-        leftIndex++;
-        rightIndex--;
-    }
-    console.log(message);
+        index++
+        lastIndex--
+        lastIndex = word.length - 1
+    }   console.log(word + ' es un palíndromo');
+
+} else {
+    console.log(word + ' no es un palíndromo');
 }
