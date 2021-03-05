@@ -9,6 +9,16 @@
 // Example:
 // calculateRaise(2000,10,0.5) -> 1160
 // solve your exercise here below this line
+const [,, baseSalary,yearsWorking,bossHappines] = process.argv;
+const salary = parseInt(baseSalary);
+const yearsWork = parseInt(yearsWorking);
+const bosshappiness = 0|1 ;
+const extra2years = yearsWork* 10/100;
+const bonusOfExtra3years = extra2years *2/100;
+const bonusOfExtra5years = extra2years *1/100;
+const workedExtra3years =  salary +bonusOfExtra3years;
+const workedExtra5years = salary + bonusOfExtra5years;
+
 
 
 // solve your exercise above this line
