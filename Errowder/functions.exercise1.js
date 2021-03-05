@@ -13,9 +13,8 @@
 const exerciseLibrary = require("./../exercises/functions/functions.exercise.library");
 exerciseLibrary.triangleArea();
 
-const terminal = process.argv;
-// const index = 2
-// const lastIndex = 3
+const terminal = process.argv
+
 const base = parseInt(terminal[2])
 const height = parseInt(terminal[3])
 
