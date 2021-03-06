@@ -14,3 +14,22 @@
 // solve your exercise above this line
 // Once you've finished please uncomment the following line as we are going to use this function in the another exercise
 // exports.calculateRaise = calculateRaise;
+
+
+function calculateRaise(baseSalary, yearsWorkingCompany, happinessOfTheBossLevel) {
+    const twoYearsBonus = baseSalary * 0.1;
+    const threeYearsBonus = baseSalary * 0.02;
+    const fiveYearsBonus = baseSalary * 0.01;
+    let twoYearsSalary = Math.floor(yearsWorkingCompany / 2) * twoYearsBonus
+    let threeYearsSalary = Math.floor(yearsWorkingCompany / 3) * threeYearsBonus
+    let fiveYearsSalary = Math.floor(yearsWorkingCompany / 5) * fiveYearsBonus
+
+    return (twoYearsSalary + threeYearsSalary + fiveYearsSalary) * (happinessOfTheBossLevel * 2)
+}
+
+console.log(calculateRaise(2000, 10, 0.5));
+
+
+// solve your exercise above this line
+// Once you've finished please uncomment the following line as we are going to use this function in the another exercise
+exports.calculateRaise = calculateRaise;
