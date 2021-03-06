@@ -120,3 +120,20 @@ console.log(sumFive(2));
 //
 //
 
+function test(string, reversed) {
+    if (!reversed) {
+        reversed = '';
+    }
+    const index = string.length - reversed.length;
+    reversed += string[index - 1];
+    if (reversed.length === string.length) {
+        return reversed;
+    }
+    return test(string, reversed);
+}
+
+const thing = require('./../Errowder/functions.exercise7');
+const reverse = thing.reverseCharacters("");
+
+console.log(reverse);
+

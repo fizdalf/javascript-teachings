@@ -4,16 +4,9 @@
 // concatenate("Hello","world") -> "Hello - world";
 // solve your exercise here below this line
 
-const [, , ...restOfWords] = process.argv
-const firstWord = restOfWords[0]
-const secondWord = restOfWords[1]
-
 function concatenate(firstWord, secondWord) {
     return firstWord + " - " + secondWord
 }
-
-console.log(concatenate(firstWord, secondWord))
-
 
 // solve your exercise above this line
 // Once you've finished please uncomment the following line as we are going to use this function in another exercise

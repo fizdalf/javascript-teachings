@@ -4,27 +4,20 @@
 // reverseCharacters("My tailor is rich") -> "hcir si roliat yM"
 // solve your exercise here below this line
 
-const [, , ...words] = process.argv
-let index = 0
-let lastIndex = words.length -1
-let currentWord = words[index]
-const firstCharacter = currentWord[0]
-let lastCharacter = currentWord[words.length]
-let reverseCharacters =0
-let finalWord = []
-
-//function reverseCharacters(){
-while (index <= lastIndex) {
-    while (currentWord.length -1 > 0) {
-        finalWord = lastCharacter
-        lastCharacter--
-        // reverseCharacters = lastCharacter
+function reverseCharacters(someString) {
+    let lastIndex = someString.length - 1;
+    let reversedString = '';
+    while (lastIndex >= 0) {
+        reversedString = reversedString + someString[lastIndex];
+        lastIndex--;
     }
-    finalWord = currentWord
-    index++
+    return reversedString;
 }
-console.log(finalWord)
+
+function reverseCharactersFunctional(someString) {
+    return someString.split('').reverse().join('');
+}
 
 // solve your exercise above this line
 // Once you've finished please uncomment the following line as we are going to use this function in the another exercise
-// exports.reverseCharacters = reverseCharacters;
+exports.reverseCharacters = reverseCharacters;
