@@ -12,3 +12,6 @@ function triangleArea(base, height) {
 
 
 exports.triangleArea = triangleArea;
+console.log();
+
+hola
