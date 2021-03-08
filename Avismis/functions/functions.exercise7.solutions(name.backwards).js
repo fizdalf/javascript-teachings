@@ -4,12 +4,26 @@
 // reverseCharacters("My tailor is rich") -> "hcir si roliat yM"
 // solve your exercise here below this line
 
-function reverseCharacters(sentence){
-    return
+function reverseCharacters(someString) {
+    let lastIndex = someString.length - 1;
+    let reversedString = '';
+    while (lastIndex >= 0) {
+        reversedString = reversedString + someString[lastIndex];
+        lastIndex--;
+    }
+    return reversedString;
 }
 
+console.log(reverseCharacters("Algo!"))
 
 
+*********************************************************************************************************
+
+function reverseCharactersFunctional(someString) {
+    return someString.split('').reverse().join('');
+}
+
+console.log(reverseCharactersFunctional("Algo!"))
 
 
 // solve your exercise above this line

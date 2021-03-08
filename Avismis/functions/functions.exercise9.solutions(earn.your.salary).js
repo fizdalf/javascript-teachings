@@ -7,7 +7,16 @@
 // Example earnYourRaise("xavi","gonzalez",2000,10) -> (random number was 0.5) "ivax - zelaznog: 1160"
 // Call this function with 3 different set of arguments and show the results through the terminal
 // You can uncomment the code below to import the functions you need from the other exercises
-// const concatenateLibrary = require("./functions.exercise6");
-// const reverseCharacters = require("./functions.exercise7");
-// const calculateRaise = require("./functions.exercise8");
+const concatenateLibrary = require("./functions.exercise6");
+const reverseCharacters = require("./functions.exercise7");
+const calculateRaise = require("./functions.exercise8");
 
+function earnYourRaise(firstName, lastName, baseSalary, yearsWorkingCompany) {
+    const completeNames = concatenateLibrary.concatenate(lastName, firstName);
+    const partialResult = reverseCharactersLibrary.reverseCharacters(completeNames);
+    const happinessOfTheBossLevel = Math.random();
+    const result = calculateRaiseLibrary.calculateRaise(baseSalary, yearsWorkingCompany, happinessOfTheBossLevel)
+    return partialResult + ": " + result;
+}
+
+console.log(earnYourRaise("xavi", "gonzalez", 2000, 10));
