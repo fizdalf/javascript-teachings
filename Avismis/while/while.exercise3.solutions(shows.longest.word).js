@@ -13,4 +13,4 @@ while (index <= lastIndex) {
     index++;
 }
 
-console.log("la palabra mas firstWordLength es " + longestWord);
+console.log('la palabra mas larga es "' + longestWord +'"');
