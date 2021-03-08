@@ -3,13 +3,21 @@
 
 
 function whatsTheAverage(numbers) {
-    const index = 0
-    const half = numbers.length / 2
-    while (index >= half) {
-    }
-    index++
+   return middleNumbersPosition
 }
-let numbers[index] = result
-console.log(result)
+const [, , ...restOfArguments] = process.argv
+let index = 0
+const half = restOfArguments.length / 2
+
+console.log(Math.floor(half))
+console.log(Math.ceil(half))
+
+// while (index >= half) {
+// }
+// index++
+
+
+// let arguments[half] = result
+// console.log(result)
 
 
