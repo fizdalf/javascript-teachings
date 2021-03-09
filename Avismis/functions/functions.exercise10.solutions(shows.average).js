@@ -1,9 +1,8 @@
 // write a function that receives an array of numbers as parameter and returns the average
 // Example: average([1,2,3,4,5]) -> 3
 
-function numbersAverage([numbers]){
+function numbersAverage([numbers]) {
     const arguments = process.argv;
-
     let index = 2;
     let total = 0
 
