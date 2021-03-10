@@ -11,3 +11,16 @@
 // const reverseCharacters = require("./functions.exercise7");
 // const calculateRaise = require("./functions.exercise8");
 
+const concatenateLibrary = require("./functions.exercise6");
+const reverseCharactersLibrary = require("./functions.exercise7");
+const calculateRaiseLibrary = require("./functions.exercise8");
+
+function earnYourRaise(firstName, lastName, baseSalary, yearsWorkingCompany) {
+    const completeNames = concatenateLibrary.concatenate(lastName, firstName);
+    const partialResult = reverseCharactersLibrary.reverseCharacters(completeNames);
+    const happinessOfTheBossLevel = Math.random();
+    const result = calculateRaiseLibrary.calculateRaise(baseSalary, yearsWorkingCompany, happinessOfTheBossLevel)
+    return partialResult + ": " + result;
+}
+
+console.log(earnYourRaise("xavi", "gonzalez", 2000, 10));
