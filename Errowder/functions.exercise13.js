@@ -2,7 +2,8 @@
 // Example: composeFunctions(4,(number) => number * 2, (number) => number + 2) -> 12
 // Example: composeFunctions("test", string => "Prefix "+ string, string => string + " Postfix") -> "Prefix test Postfix"
 
-function composeFunctions(value, a, b){
-
+function composeFunctions(value, a, b) {
+    const resultOfCallingB = b(value);
+    return a(resultOfCallingB);
 }
 

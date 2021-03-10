@@ -2,6 +2,7 @@
 // Example: applyArrayFunction([1,2,3],(number)=> number + 2) -> [3,4,5]
 // Example: applyArrayFunction(["test","something","nothing"], (string) => string + ".") -> ["test.", "something.","nothing."]
 
+
 function applyArrayFunction(array, someFunction) {
     let index = 0
     let lastIndex = array.length - 1;
@@ -12,3 +13,10 @@ function applyArrayFunction(array, someFunction) {
     }
     return lista;
 }
+
+function test(number) {
+    return number + 2;
+}
+
+console.log(applyArrayFunction(["test","something","nothing"], (string) => string + "."));
+console.log(applyArrayFunction(["test", "something", "nothing"], (string) => string + "."));

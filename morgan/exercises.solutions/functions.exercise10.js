@@ -3,7 +3,7 @@
 
 function average (numbers){
  let numbersLength = numbers.length
- return numbers/numbersLength
+ return [numbers/ numbersLength]
 
 
 

@@ -47,7 +47,7 @@ let tvChannel = {
     changeAdvertiser: function (previousAdvertiser, newAdvertiser) {
         // implementation
     },
-    getAdvertisementProfit: function () {
+    xgetAdvertisementProfit: function () {
         return this.advertisementSpaces.reduce((acc, adv) => acc + adv.cost, 0);
     }
 }
