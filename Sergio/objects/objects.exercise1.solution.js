@@ -23,7 +23,7 @@ let library = {
         this.books = ['The little Prince', 'Sleeping Beauty', 'Are You There, Vodka?' - bookTitle]
     },
     isLibraryOpen: function (hours) {
-        if(openHours <=){
+        if(openHours <= 24){
             this.openHours = hours
         }
     },
