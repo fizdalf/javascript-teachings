@@ -4,17 +4,8 @@
 // reverseCharacters("My tailor is rich") -> "hcir si roliat yM"
 // solve your exercise here below this line
 
-function reverseCharacters(someString) {
-    let lastIndex = someString.length - 1;
-    let reversedString = '';
-    while (lastIndex >= 0) {
-        reversedString = reversedString + someString[lastIndex];
-        lastIndex--;
-    }
-    return reversedString;
-}
 
-function reverseCharactersFunctional(someString) {
+function reverseCharacters(someString) {
     return someString.split('').reverse().join('');
 }
 
