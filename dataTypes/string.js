@@ -1,5 +1,14 @@
 // STRING
 console.log("y Luismi dijo: \"Iré a mi casa a comer\"  Mc'avoy");
+console.log("'hola'  ");
+console.log('"hola"`hola`');
+console.log(`hola 
+hodflaksdjflasdf
+asdlfkajsdlf
+asdflkajsdlfkj
+`);
+
+
 // console.log('hola \' `´""""" ' +
 //     '' +
 //     '' +
@@ -22,10 +31,10 @@ console.log("y Luismi dijo: \"Iré a mi casa a comer\"  Mc'avoy");
 //
 // // OPERATORS!!!!
 //
-// console.log("2" + "2");
-// console.log(2 + "2");
-// console.log("2" + 2.5);
-// console.log("a" + 2);
+console.log("2" + "2"); // "22"
+console.log(2 + "2"); // "22"
+console.log("2" + 2.5); // "22.5"
+console.log("a" + 2); // "a2"
 //
 // // COMPATORS!!
 // console.log("a" > "b", "a > b");
