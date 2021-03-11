@@ -1,55 +1,55 @@
-'use strict';
-
-let globalVariable = 4;
-
-function test(a, b, globalVariable) {
-    console.log(globalVariable);
-}
-
-function someOtherFunction(name) {
-    console.log(name);
-}
-
-const variableWithFunction = someOtherFunction;
-
-variableWithFunction('test');
-
-function greet(name, languageSpecificGreetFunction) {
-    return languageSpecificGreetFunction(name);
-}
-
-function spanishGreet(name) {
-    return "Hola " + name;
-}
-
-function englishGreet(name) {
-    return "Hello " + name;
-}
-
-function loreyMoneyGreet(name) {
-    return "Hola, ke ase, " + name;
-}
-
-const frenchGreetingFunction = (name) => {
-    return "Alo Mon Chery"
-}
-
-console.log(greet('Avismis', frenchGreetingFunction));
-console.log(greet('Errow', spanishGreet));
-
-function sum(a, b) {
-    return a + b;
-}
-
-function sumFive(a) {
-    // step 1
-    // step 2
-    // step 3
-
-}
-
-console.log(sumFive(2));
-
+// 'use strict';
+//
+// let globalVariable = 4;
+//
+// function test(a, b, globalVariable) {
+//     console.log(globalVariable);
+// }
+//
+// function someOtherFunction(name) {
+//     console.log(name);
+// }
+//
+// const variableWithFunction = someOtherFunction;
+//
+// variableWithFunction('test');
+//
+// function greet(name, languageSpecificGreetFunction) {
+//     return languageSpecificGreetFunction(name);
+// }
+//
+// function spanishGreet(name) {
+//     return "Hola " + name;
+// }
+//
+// function englishGreet(name) {
+//     return "Hello " + name;
+// }
+//
+// function loreyMoneyGreet(name) {
+//     return "Hola, ke ase, " + name;
+// }
+//
+// const frenchGreetingFunction = (name) => {
+//     return "Alo Mon Chery"
+// }
+//
+// console.log(greet('Avismis', frenchGreetingFunction));
+// console.log(greet('Errow', spanishGreet));
+//
+// function sum(a, b) {
+//     return a + b;
+// }
+//
+// function sumFive(a) {
+//     // step 1
+//     // step 2
+//     // step 3
+//
+// }
+//
+// console.log(sumFive(2));
+//
 //
 // const word = process.argv[2]
 //
@@ -73,46 +73,46 @@ console.log(sumFive(2));
 //
 //     return true;
 // }
-//
-// const test = checkIsPalindrome(word)
-//
-// if (test === true) {
-//     console.log(word + " sí es palíndromo")
-// } else {
-//     console.log(word + " no es palíndromo")
-// }
-//
-//
-// function testItIsGreaterThanFive(number) {
-//     if (number > 5) {
-//         return true;
-//     }
-//     return false;
-// }
-//
-// // comparadores
-// // <=
-// // >=
-// //funciones lamda
-// const addThreeToANumber = number => number + 3;
-//
-// const addTwoToANumber = number => {
-//     return number + 2;
-// }
-// const test = addThreeToANumber(5);
-//
-// const result = console.log(4);// undefined;
-//
-// const pimpMyNumberAndShowIt = function (number) {
-//     const message = "This number is now COOOOOOOOL: " + number;
-//     // console.log(message);
-//     // return message;
-// }
-//
-// const myPimpedNumber = pimpMyNumberAndShowIt(4);
-// console.log("This is my Pimped number: ", myPimpedNumber);
-//
-// exports.checkIsPalindrome = checkIsPalindrome;
+
+const test = checkIsPalindrome(word)
+
+if (test === true) {
+    console.log(word + " sí es palíndromo")
+} else {
+    console.log(word + " no es palíndromo")
+}
+
+
+function testItIsGreaterThanFive(number) {
+    if (number > 5) {
+        return true;
+    }
+    return false;
+}
+
+// comparadores
+// <=
+// >=
+//funciones lamda
+const addThreeToANumber = number => number + 3;
+
+const addTwoToANumber = number => {
+    return number + 2;
+}
+const test = addThreeToANumber(5);
+
+const result = console.log(4);// undefined;
+
+const pimpMyNumberAndShowIt = function (number) {
+    const message = "This number is now COOOOOOOOL: " + number;
+    // console.log(message);
+    // return message;
+}
+
+const myPimpedNumber = pimpMyNumberAndShowIt(4);
+console.log("This is my Pimped number: ", myPimpedNumber);
+
+exports.checkIsPalindrome = checkIsPalindrome;
 //
 //
 //

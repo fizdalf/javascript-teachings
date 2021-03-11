@@ -62,7 +62,7 @@ siono(result3)
 
 
 // *********************************************************************************************************
-
+// math es una libreria con funciones matemáticas, en estos casos se ejecutan así;
 
 
 math.floor ---> usa el primer número entero más bajo   (2,5 ---> 2)
@@ -73,9 +73,7 @@ math.ceil ---> usa el primer número entero más alto     (2,5 ----> 3)
 // *********************************************************************************************************
 
 
-//RECURRENCIA
-
-
+//RECURRENCIA sirve para llamar a una misma función dentro de la propia función, al igual que un bucle tiene que finalizarse.
 
 function test(string, reversed) {
     if (!reversed) {

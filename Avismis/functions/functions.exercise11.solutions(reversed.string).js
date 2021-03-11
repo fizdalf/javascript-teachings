@@ -2,17 +2,18 @@
 // Example: reverseStringArray(["something", "computer", "remainder", "monitor"]) -> ["gnihtemos", "retupmoc", "redniamer", "rotinom"]
 
 
-function reverseStringArray(words){
+function reverseStringArray(words) {
     const reverseCharactersLibrary = require("./functions.exercise7.solutions(phrase.backwards)");
+    const reversedWords = [];
     let index = 0;
     let lastIndex = words.length - 1;
-    let reversedWords = '';
-    while (index <= lastIndex){
-    const reversedWords = reverseCharactersLibrary.reverseCharacters[index](words);
+    while (index <= lastIndex) {
+        const result = reverseCharactersLibrary.reverseCharacters(words[index])
+        reversedWords.push(result);
         index++;
     }
     return reversedWords;
 }
-    console.log(reverseStringArray("hola que tal"))
 
+console.log(reverseStringArray(['tus', 'muertos', 'a', 'caballo']))
 

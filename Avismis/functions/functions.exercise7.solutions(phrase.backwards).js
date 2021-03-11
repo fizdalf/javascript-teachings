@@ -14,8 +14,9 @@ function reverseCharacters(someString) {
     return reversedString;
 }
 
-console.log(reverseCharacters("hola que tal"))
+// console.log(reverseCharacters("hola que tal"))
 
+exports.reverseCharacters = reverseCharacters;
 
 // *********************************************************************************************************
 
