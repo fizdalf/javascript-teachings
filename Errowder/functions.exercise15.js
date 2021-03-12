@@ -7,6 +7,5 @@
 // multiplyByMinusSix(-7) -> 42
 
 function createMultiplyByFunction(number){
-    const multiplyByTwo = createMultiplyByFunction(number) => createMultiplyByFunction(number) * number
-    return multiplyByTwo
+    return (number, secondNumber) => number * secondNumber
 }

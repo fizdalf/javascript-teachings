@@ -7,3 +7,8 @@ function composeFunctions(value, a, b) {
     return a(resultOfCallingB);
 }
 
+
+
+function composeFunctions(value, a, b) {
+    return a(b(value))
+}
