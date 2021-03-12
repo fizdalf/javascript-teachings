@@ -7,17 +7,11 @@
 // const multiplyByMinusSix = createMultiplyByFunction(-6);
 // multiplyByMinusSix(-7) -> 42
 
+function createMultiplyByFunction(number2) {
+    function firstMultiplyFunction(number1) {
+        return number2 * number1
+    }
 
-
-const [, , ...arguments] = process.argv
-
-let number = arguments[0]
-let number1 = arguments[1]
-
-const oneFunction = number => createMultiplyByFunction(number1) * number
-
-const createMultiplyByFunction = number1 => {
-    return oneFunction
+    return firstMultiplyFunction
 }
-
-
+console.log(createMultiplyByFunction(2)(5))
