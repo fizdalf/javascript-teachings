@@ -8,7 +8,8 @@
 //  - Methods
 //      + addBook(bookTitle)    This is a method that adds a bookTitle given as argument to the array of books
 //      + borrowBook(bookTitle) This is a method that removes a book given the bookTitle as argument (create a new array without the book to remove)
-//      + isLibraryOpen(hours)  This is a method that receives hours, a number between 0 and 24 as argument and returns true if the hours are within the open/close hours, returns false otherwise
+//      + isLibraryOpen(hours)  This is a method that receives hours, a number between 0 and 24 as argument and returns true if the hours are within the
+//      open/close hours, returns false otherwise
 
 
 

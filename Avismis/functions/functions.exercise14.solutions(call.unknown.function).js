@@ -2,9 +2,9 @@
 // createSumTwoFunction()(4,5) -> 9
 // createSumTwoFunction()(7,9) -> 16
 
-function createSumTwoFunction() {
-    return (a, b) => a + b
-}
-const sumFunction = createSumTwoFunction();
+const sumTwoNumbers = (number1, number2) => number1 + number2
 
-console.log(createSumTwoFunction()("a", 9));
+function createSumTwoFunction() {
+    return sumTwoNumbers
+}
+console.log(createSumTwoFunction()(1, 5))

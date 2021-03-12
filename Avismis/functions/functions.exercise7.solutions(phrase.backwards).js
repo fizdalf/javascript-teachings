@@ -14,16 +14,17 @@ function reverseCharacters(someString) {
     return reversedString;
 }
 
-console.log(reverseCharacters("Algo!"))
+// console.log(reverseCharacters("hola que tal"))
 
+exports.reverseCharacters = reverseCharacters;
 
-*********************************************************************************************************
+// *********************************************************************************************************
 
-function reverseCharactersFunctional(someString) {
-    return someString.split('').reverse().join('');
-}
-
-console.log(reverseCharactersFunctional("Algo!"))
+// function reverseCharactersFunctional(someString) {
+//     return someString.split('').reverse().join('');
+// }
+//
+// console.log(reverseCharactersFunctional("Algo!"))
 
 
 // solve your exercise above this line

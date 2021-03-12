@@ -12,18 +12,21 @@
 
 let library = {
     address: "calle Fajardo",
-    openHours: "10",
-    closeHours: "14",
+    openHours: 10,
+    closeHours: 14,
     books: ["learning with Xavi", "learning programming", "functions will be your nightmare"],
 }
 
-library.books = ["learning with Xavi", "learning programming", "functions will be your nightmare", "other book about functions"]
-library.books = ["learning with Xavi", "functions will be your nightmare", "other book about functions"]
-library.isLibraryOpen = true,
-    if (hour < openHours){
-        library.isLibraryOpen = false
-    } else if (hour > openHours){
-        library.isLibraryOpen = false
-    }
+library.books.push("other book about functions")
+library["books"] = ["learning with Xavi", "functions will be your nightmare", "other book about functions"]
 
-
+const [, , hour] = process.argv
+const openHours = 10
+const closeHours = 14
+library.isLibraryOpen = true
+if (hour < openHours) {
+    library.isLibraryOpen = false
+} else if (hour > closeHours) {
+    library.isLibraryOpen = false
+}
+console.log(library)

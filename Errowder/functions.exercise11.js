@@ -2,18 +2,18 @@
 // Example: reverseStringArray(["something", "computer", "remainder", "monitor"]) -> ["gnihtemos", "retupmoc", "redniamer", "rotinom"]
 
 
-    function reverseStringArray(arrayOfStrings) { // "23"
-        let lastIndex = arrayOfStrings.length - 1;// 1
-        let array = []// []
-        let index = 0;// 0
+    function reverseStringArray(arrayOfStrings) {
+        let lastIndex = arrayOfStrings.length - 1;
+        let array = []
+        let index = 0;
         while (index <= lastIndex) {
             array.push(reverseString(arrayOfStrings[index]))
             index++
         }
-        return array;// []
+        return array;
     }
 
 
-    function reverseString(string) { // "2"
+    function reverseString(string) {
         return string.split('').reverse().join('');
     }
