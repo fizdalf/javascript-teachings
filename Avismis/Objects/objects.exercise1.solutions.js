@@ -12,7 +12,7 @@
 //      open/close hours, returns false otherwise
 
 
-let library = {
+let pepito = {
     address: 'Antonio Machado st, number 23, Fuenteovejuna',
     openHours: 8,
     closeHours: 20,
@@ -21,21 +21,19 @@ let library = {
         this.books.push(bookTitle)
     },
     borrowBook: function (bookTitle) {
-        let books = []
+        let books = [];
         let index = 0
-        while (index <= this.books.length){
-            if (bookTitle !== this.books[index]){
+        while (index < this.books.length) {
+            if (bookTitle !== this.books[index]) {
                 books.push(this.books[index])
-            } else{
-                return false
             }
             index++
         }
+        this.books = books;
     },
     isLibraryOpen: function (hour) {
-        if (hour > 8 && hour < 20) {
-            return true
-        } else return false
+        return (hour > this.openHours && hour < this.closeHours);
     }
 }
+
 

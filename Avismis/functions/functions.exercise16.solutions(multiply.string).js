@@ -11,4 +11,4 @@ function repeatStringArray(string, number){
     }
     return actualArray
 }
-console.log(repeatStringArray('Holi tonti', 6))
+console.log(repeatStringArray('Tont@ el/la que lo lea', 6))

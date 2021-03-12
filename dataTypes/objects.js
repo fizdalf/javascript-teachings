@@ -47,7 +47,7 @@ let tvChannel = {
     changeAdvertiser: function (previousAdvertiser, newAdvertiser) {
         // implementation
     },
-    xgetAdvertisementProfit: function () {
+    getAdvertisementProfit: function () {
         return this.advertisementSpaces.reduce((acc, adv) => acc + adv.cost, 0);
     }
 }
@@ -132,4 +132,51 @@ banana.name = 'juan'
 console.log(banana, banana3);
 
 
+const programmingScore = {
+    "?Xavi": 50,
+    Avismis: -350,
+    "Errowder": 35,
+}
 
+
+programmingScore.Avismis = 4;
+programmingScore["?Xavi"] = 4;
+
+
+const myObject = {
+    name: 'Juan',
+    lastName: 'sanchez',
+    points: 1,
+    animals: ["dog", "cat", "fishes"],
+    games: {
+        "The Witcher 2": {
+            finished: true,
+            pirated: false
+        },
+        "Eye of the beholder": {
+            finished: false,
+            pirated: true
+        }
+    },
+    isDead: false,
+    kill: function () {
+        this.isDead = true;
+    }
+}
+
+const {isDead, name, games} = myObject;
+
+console.log(games["Eye of the beholder"], name);
+
+//importante Object.keys
+console.log(Object.keys(myObject));
+let index = 0
+const propertiesArray = Object.keys(myObject);
+while (index < propertiesArray.length) {
+    const propertyName = propertiesArray[index];
+    console.log(propertyName, myObject[propertyName]);
+    index++
+}
+
+
+let myCapacity = 0

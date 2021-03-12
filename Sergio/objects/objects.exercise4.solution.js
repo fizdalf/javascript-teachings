@@ -10,5 +10,5 @@ let weddingEvent = {
         }
     ],
     numberOfTables: 10,
-    durationOfMarriage: 10 + 'minutes',
+    durationOfMarriageInMinutes: 10 ,
 }

@@ -17,10 +17,10 @@ let library = {
     closeHours: '8',
     books: ['The little Prince', 'Sleeping Beauty', 'Are You There, Vodka?'],
     addBook: function (bookTitle) {
-        this.books += bookTitle;
+        this.books.push(bookTitle);
     },
     borrowBook: function (bookTitle) {
-        this.books = ['The little Prince', 'Sleeping Beauty', 'Are You There, Vodka?' - bookTitle]
+        this.books = books - bookTitle
     },
     isLibraryOpen: function (hours) {
         if(openHours <= 24){

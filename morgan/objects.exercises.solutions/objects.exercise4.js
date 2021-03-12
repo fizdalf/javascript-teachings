@@ -7,7 +7,7 @@ let weddingEvent ={
     weddingDress: "Yes",
     colorOfWeddingDress: "white",
     typeOfFood: "buffet",
-    softDrinks: ["Water","Fanta Orange"],
+    softDrinks: ["Water","Fanta Orange", "Clipper fresa", "apeltise"],
     alcoholicDrinks: ["Beer", "Vodka"],
     flowers: "Roses",
     place: "Beach",

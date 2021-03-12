@@ -4,5 +4,5 @@ let lawFirm = {
     numberOfLawyers: '20',
     names: ['Hector García','Ana Martinez','...'],
     collegeCareer: 'advocacy',
-    winedCases: ['Hector = 20','Ana = 13','...'],
+    wonCases: ['Hector = 20','Ana = 13','...'],
 }

@@ -3,7 +3,15 @@
 
 
 function repeatStringArray(string, number) {
-    return [string + number]
+    let index = 0
+    let actualArray = []
+    while (index < number){
+        actualArray.push(string)
+        index++
+    }
+    return actualArray
 }
 
 console.log(repeatStringArray("hi",4))
+
+//arreglao

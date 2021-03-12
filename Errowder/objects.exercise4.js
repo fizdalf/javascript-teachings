@@ -11,3 +11,5 @@ let weddingEvent = {
     church: "San Jose Obrero",
     weddingSuitColor: "Black"
 }
+
+
