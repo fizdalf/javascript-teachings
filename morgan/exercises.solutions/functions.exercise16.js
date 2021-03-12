@@ -3,14 +3,16 @@
 // Example: repeatStringArray("hi",4) -> ["hi", "hi", "hi", "hi"]
 
 
-function repeatStringArray(string,number){
-   string = ""
-   number = 0
-   let maxNumber = 10;
-   while(maxNumber >= number){
-      number++
-      string++
+function repeatStringArray(string, number) {
+    let index = 0;
+    let lastIndex = number;
+    let array = [];
+    while (index < lastIndex) {
+        array.push(string)
+        index++
 
+    }
+    return array
 
-   }
 }
+console.log(repeatStringArray("hola", 3))
