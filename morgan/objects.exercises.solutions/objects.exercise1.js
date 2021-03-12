@@ -10,23 +10,27 @@
 //      + borrowBook(bookTitle) This is a method that removes a book given the bookTitle as argument (create a new array without the book to remove)
 //      + isLibraryOpen(hours)  This is a method that receives hours, a number between 0 and 24 as argument and returns true if the hours are within the open/close hours, returns false otherwise
 
-let library = {
-    address: "calle Fajardo",
+let library ={
+    adress: "Calle Chimidas, 20, 35509 Playa Honda, Las Palmas",
     openHours: 10,
-    closeHours: 14,
-    books: ["learning with Xavi", "learning programming", "functions will be your nightmare"],
+    closeHours: 16,
+    books: ["culpa mia", "culpa tuya, after"]
+
 }
-
-library.books.push("other book about functions")
-library["books"] = ["learning with Xavi", "functions will be your nightmare", "other book about functions"]
-
-const [, , hour] = process.argv
+library.books.push("culpa nuestra")
+library["books"] = ["culpa mia", "culpa tuya", "culpa nuestra"]
+let hours = process.argv[2]
 const openHours = 10
-const closeHours = 14
+const closeHours = 16
 library.isLibraryOpen = true
-if (hour < openHours) {
+if(openHours > hours){
     library.isLibraryOpen = false
-} else if (hour > closeHours) {
+
+
+} else if(hours > closeHours){
     library.isLibraryOpen = false
 }
 console.log(library)
+
+
+

@@ -8,6 +8,3 @@ function createSumTwoFunction() {
 const sumFunction = createSumTwoFunction();
 
 console.log(createSumTwoFunction()("a", 9));
-
-
-console.log(createSumTwoFunction())

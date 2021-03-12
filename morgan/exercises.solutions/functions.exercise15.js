@@ -8,12 +8,14 @@
 // Example:
 // const multiplyByMinusSix = createMultiplyByFunction(-6);
 // multiplyByMinusSix(-7) -> 42
-function createMultiply(){
-    return function multiplyByTwo(){
-        const multiplyByTwo = createMultiply(2)
-       return multiplyByTwo() * 2
+function createMultiplyByFunction(number1) {
+    function multiplyByNumber(number2) {
+        return number2 * number1
     }
 
-
+    return multiplyByNumber;
 }
-console.log(createMultiply(2))
+
+console.log(createMultiplyByFunction(6)(8))
+
+

@@ -2,10 +2,12 @@
 // Example: repeatStringArray("hi",4) -> ["hi", "hi", "hi", "hi"]
 
 function repeatStringArrays(something, number) {
-    let index = parseInt(repeatStringArrays(number))
+    let index = number
+    let array = []
     while (0 < index) {
-        result = something + " " + something
+        array.push(something)
         index--
     }
-    return repeatStringArrays()
+    return array
 }
+console.log(repeatStringArrays("hello",10))

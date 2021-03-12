@@ -3,12 +3,5 @@
 // Example: composeFunctions("test", string => "Prefix "+ string, string => string + " Postfix") -> "Prefix test Postfix"
 
 function composeFunctions(value, a, b) {
-    const resultOfCallingB = b(value);
-    return a(resultOfCallingB);
-}
-
-
-
-function composeFunctions(value, a, b) {
-    return a(b(value))
+    return a(b(value));
 }
