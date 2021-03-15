@@ -25,5 +25,4 @@ function DrawingComposition(width, height) {
 // TODO: Resolve your exercise here!
 }
 
-
 exports.DrawingComposition = DrawingComposition;

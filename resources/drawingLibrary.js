@@ -11,11 +11,13 @@ exports.drawShape = (shape) => {
     context.fillStyle = '#000'
     context.fillRect(0, 0, width, height);
     const imageData = context.getImageData(0, 0, width, height);
-    shape.pixels.forEach((pixelRow, y) => {
-        pixelRow.forEach((pixel, x) => {
-            setPixel(pixel, x, y, width, imageData.data)
-        })
-    })
+    let index = 0;
+    while (index < (shape.width * shape.height)) {
+        const x = index % width;
+        const y = Math.floor(index / width);
+        setPixel(shape.getPixel(x, y), x, y, width, imageData.data);
+        index++;
+    }
     context.putImageData(imageData, 0, 0);
     printFile(canvas);
 }
