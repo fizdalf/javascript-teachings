@@ -15,9 +15,37 @@
 // console.log(pixel1.R) -> 20
 // const pixel3 = pixel1.mixPixel(pixel2);
 // console.log(pixel3.G) -> 135
+'use strict'
 
 function Pixel(r,g,b,a){
-    // TODO: Resolve your exercise here
+    return pixel = {
+        r: 20,
+        g: 250,
+        b: 177,
+        a: 150,
+        mixPixel: function (pixel2){
+            pixel2 = {
+                r2: 177,
+                g2: 250,
+                b2: 20,
+                a2: 150,
+            }
+            let newColorR = (r + r2) / 2
+            let newColorG = (g + g2) / 2
+            let newColorB = (b + b2) / 2
+            let newColorA = (a + a2) / 2
+
+            pixel3 = {
+                r3: newColorR,
+                g3: newColorG,
+                b3: newColorB,
+                a3: newColorA,
+            }
+            return pixel3
+
+    }
+
+    }
 }
 
 exports.Pixel = Pixel;

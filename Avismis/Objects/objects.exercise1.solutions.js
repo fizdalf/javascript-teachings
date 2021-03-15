@@ -12,7 +12,7 @@
 //      open/close hours, returns false otherwise
 
 
-let pepito = {
+let library = {
     address: 'Antonio Machado st, number 23, Fuenteovejuna',
     openHours: 8,
     closeHours: 20,
