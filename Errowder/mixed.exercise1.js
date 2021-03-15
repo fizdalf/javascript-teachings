@@ -31,7 +31,7 @@ function Pixel(r, g, b, a) {
         }
 
         function mixPixel(pixel, otherPixel){
-            mix = (r+r2)/2, (g+g2)/2, (b+b2)/2, (a+a2)/2
+            mix = (red+red2)/2, (green+green2)/2, (blue+blue2)/2, (alphaChannelValue+alphaChannelValue2)/2
             return mix
         }
 
