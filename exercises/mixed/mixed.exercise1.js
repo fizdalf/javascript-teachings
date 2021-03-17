@@ -16,8 +16,7 @@
 // const pixel3 = pixel1.mixPixel(pixel2);
 // console.log(pixel3.G) -> 135
 
-function Pixel(r,g,b,a){
-    // TODO: Resolve your exercise here
+function Pixel(r, g, b, a) {
 }
 
 exports.Pixel = Pixel;

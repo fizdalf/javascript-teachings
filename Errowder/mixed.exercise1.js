@@ -15,28 +15,20 @@
 // console.log(pixel3.G) -> 135
 
 function Pixel(r, g, b, a) {
-    let pixel = {
-        red: r,
-        green: g,
-        blue: b,
-        alphaChannelValue: a,
-    }
-
-    function otherPixel(r2, g2, b2, a2) {
-        let otherPixel = {
-            red2: r2,
-            green2: g2,
-            blue2: b2,
-            alphaChannelValue2: a2,
+    return {
+        R: r,
+        G: g,
+        B: b,
+        A: a,
+        mixPixel: function (otherPixel) {
+            return Pixel(
+                (this.R + otherPixel.R) / 2,
+                (this.G + otherPixel.R) / 2,
+                (this.B + otherPixel.R) / 2,
+                (this.A + otherPixel.R) / 2,
+            )
         }
-
-        function mixPixel(pixel, otherPixel){
-            mix = (red+red2)/2, (green+green2)/2, (blue+blue2)/2, (alphaChannelValue+alphaChannelValue2)/2
-            return mix
-        }
-
     }
-    return mixPixel(pixel, otherPixel)
 }
-console.log(Pixel(2,2,2,2))
+console.log(Pixel(0,0,0,0).mixPixel((Pixel(255,255,255,255))))
 exports.Pixel = Pixel;
