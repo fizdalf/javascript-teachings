@@ -9,8 +9,24 @@
 // const {drawShape} = require("../../resources/drawingLibrary");
 // drawShape(redAndBlueSquare);  // Running this should open an image of a 50 x 50 pixels square with blue line and filled in red, just like the image in /resources/mixed/exercise3.png
 
-// function Square(width, height, linePixel, fillPixel) {
-// TODO: Resolve your exercise here!
-// }
+
+const {Pixel} = require("./mixed.exercise1.solutions");
+const {Shape} = require("./mixed.exercise2.solutions");
+
+function Square(width, height, linePixel, fillPixel) {
+    const ShapeObject = {
+        width: w,
+        height: h,
+        linePixel: l,
+        fillPixel: f,
+
+
+
+    }
+    Shape(w, h)
+
+    return ShapeObject
+}
+
 
 exports.Square = Square;
