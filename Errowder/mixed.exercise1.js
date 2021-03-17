@@ -30,5 +30,5 @@ function Pixel(r, g, b, a) {
         }
     }
 }
-console.log(Pixel(0,0,0,0).mixPixel((Pixel(255,255,255,255))))
+
 exports.Pixel = Pixel;
