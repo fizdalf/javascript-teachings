@@ -16,31 +16,31 @@
 //      + clearShape()              This is a method that turns all the pixels black transparent (R:0,G:0,B:0,A:0)
 // IMPORTANT!!! Before attempting this exercise and the example run "npm install" in the terminal, that should install the required dependencies for this exercise
 // Example:
-const {Pixel} = require("./mixed.exercise1.solutions.js"); // make sure to import correctly from the previous exercise
-const shapeSquare = Shape(5, 5);
-const bluePixel = Pixel(0, 0, 255, 255);
-const redPixel = Pixel(255, 0, 0, 255);
-shapeSquare.setPixel(0, 0, bluePixel);
-shapeSquare.setPixel(0, 1, bluePixel);
-shapeSquare.setPixel(0, 2, bluePixel);
-shapeSquare.setPixel(0, 3, bluePixel);
-shapeSquare.setPixel(0, 4, bluePixel);
-shapeSquare.setPixel(1, 0, bluePixel);
-shapeSquare.setPixel(1, 4, bluePixel);
-shapeSquare.setPixel(2, 0, bluePixel);
-shapeSquare.setPixel(2, 4, bluePixel);
-shapeSquare.setPixel(3, 0, bluePixel);
-shapeSquare.setPixel(3, 4, bluePixel);
-shapeSquare.setPixel(4, 0, bluePixel);
-shapeSquare.setPixel(4, 1, bluePixel);
-shapeSquare.setPixel(4, 2, bluePixel);
-shapeSquare.setPixel(4, 3, bluePixel);
-shapeSquare.setPixel(4, 4, bluePixel);
-const {drawShape} = require("../../resources/drawingLibrary");
-drawShape(shapeSquare);  // The image should be the same as in /resources/mixed/exercise2.png
+const {Pixel} = require("./mixed.exercise1.solution.js"); // make sure to import correctly from the previous exercise
+// const shapeSquare = Shape(5, 5);
+// const bluePixel = Pixel(0, 0, 255, 255);
+// const redPixel = Pixel(255, 0, 0, 255);
+// shapeSquare.setPixel(0, 0, bluePixel);
+// shapeSquare.setPixel(0, 1, bluePixel);
+// shapeSquare.setPixel(0, 2, bluePixel);
+// shapeSquare.setPixel(0, 3, bluePixel);
+// shapeSquare.setPixel(0, 4, bluePixel);
+// shapeSquare.setPixel(1, 0, bluePixel);
+// shapeSquare.setPixel(1, 4, bluePixel);
+// shapeSquare.setPixel(2, 0, bluePixel);
+// shapeSquare.setPixel(2, 4, bluePixel);
+// shapeSquare.setPixel(3, 0, bluePixel);
+// shapeSquare.setPixel(3, 4, bluePixel);
+// shapeSquare.setPixel(4, 0, bluePixel);
+// shapeSquare.setPixel(4, 1, bluePixel);
+// shapeSquare.setPixel(4, 2, bluePixel);
+// shapeSquare.setPixel(4, 3, bluePixel);
+// shapeSquare.setPixel(4, 4, bluePixel);
+// const {drawShape} = require("../../resources/drawingLibrary");
+// drawShape(shapeSquare);  // The image should be the same as in /resources/mixed/exercise2.png
 
 function Shape(width, height) {
-    const pixeledShape = {
+    const shape = {
         width: width,
         height: height,
         pixels: [],
@@ -66,7 +66,7 @@ function Shape(width, height) {
             let index = 0
 
             while (index < (width * height)) {
-                pixeledShape.pixels[index] = Pixel(0, 0, 0, 0)
+                shape.pixels[index] = Pixel(0, 0, 0, 0)
                 index++
             }
         }
@@ -83,10 +83,10 @@ function Shape(width, height) {
     let index = 0
 
     while (index < (width * height)) {
-        pixeledShape.pixels.push(Pixel(0, 0, 0, 0));
+        shape.pixels.push(Pixel(0, 0, 0, 0));
         index++
     }
-    return pixeledShape
+    return shape
 }
 
 

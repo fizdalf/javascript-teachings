@@ -13,7 +13,7 @@
 // IMPORTANT!!! Before attempting this exercise and the example run "npm install" in the terminal, that should install the required dependencies for this exercise
 // Example:
 // const shapeSquare = Shape(5, 5);
-// const {Pixel} = require("./mixed.exercise1.solutions.js"); // make sure to import correctly from the previous exercise
+// const {Pixel} = require("./mixed.exercise1.solution.js"); // make sure to import correctly from the previous exercise
 // const bluePixel = Pixel(0, 0, 255, 255)
 // shapeSquare.setPixel(0, 0, bluePixel);
 // shapeSquare.setPixel(0, 1, bluePixel);
