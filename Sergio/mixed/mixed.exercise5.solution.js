@@ -20,8 +20,6 @@
 // newComposition.addShape(0, 0, redAndBlueSquare);
 // newComposition.addShape(10, 10, redAndGreenSquare);
 // drawComposition(newComposition);
-const {drawShape} = require("../../resources/drawingLibrary");
-
 const {ShapePosition} = require("./mixed.exercise4.solution");
 
 function DrawingComposition(width, height) {
