@@ -1,0 +1,24 @@
+{
+  "name": "proyectomaincra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "canvas": "^2.7.0",
+    "open-file-explorer": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fizdalf/javascript-teachings.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fizdalf/javascript-teachings/issues"
+  },
+  "homepage": "https://github.com/fizdalf/javascript-teachings#readme"
+}
