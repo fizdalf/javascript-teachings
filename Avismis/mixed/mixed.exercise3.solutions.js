@@ -9,24 +9,50 @@
 // const {drawShape} = require("../../resources/drawingLibrary");
 // drawShape(redAndBlueSquare);  // Running this should open an image of a 50 x 50 pixels square with blue line and filled in red, just like the image in /resources/mixed/exercise3.png
 
+//
+// const {Pixel} = require("./mixed.exercise1.solutions");
+// const {Shape} = require("./mixed.exercise2.solutions");
+//
+// function Square(width, height, linePixel, fillPixel) {
+//     const ShapeObject = {
+//         width: w,
+//         height: h,
+//         linePixel: l,
+//         fillPixel: f,
+//
+//
+//
+//     }
+//     Shape(w, h)
+//
+//     return ShapeObject
+// }
+//
+//
+// exports.Square = Square;
+const {drawShape} = require("../resources/drawingLibrary");
 
-const {Pixel} = require("./mixed.exercise1.solutions");
-const {Shape} = require("./mixed.exercise2.solutions");
+const {Pixel} = require("./mixed.exercise1.solutions")
+const {Shape} = require("./mixed.exercise2.solutions")
+
+const bluePixel = Pixel(0, 255, 255, 255)
+const redPixel = Pixel(255, 255, 0, 0)
+const redAndBlueSquare = Square(500, 500, bluePixel, redPixel)
+drawShape(redAndBlueSquare);  // Running this should open an image of a 50 x 50 pixels square with blue line and filled in red, just like the image in /resources/mixed/exercise3.png
 
 function Square(width, height, linePixel, fillPixel) {
-    const ShapeObject = {
-        width: w,
-        height: h,
-        linePixel: l,
-        fillPixel: f,
+    const shapeSquare = Shape(width, height); // width: 3, height: 3
 
-
-
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+            let pixelToPaint = fillPixel;
+            if (x === 0 || x === width - 1 || y === 0 || y === height - 1) {
+                pixelToPaint = linePixel;
+            }
+            shapeSquare.setPixel(x, y, pixelToPaint);
+        }
     }
-    Shape(w, h)
-
-    return ShapeObject
+    return shapeSquare;
 }
-
 
 exports.Square = Square;
