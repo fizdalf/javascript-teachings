@@ -16,7 +16,14 @@
 // console.log(shapePosition1.y) -> 6
 
 function ShapePosition(x, y, shape) {
-    // TODO: Resolve your exercise here!
-}
+        return {
+            x,
+            y,
+            shape,
+        };
 
+
+
+}
 exports.ShapePosition = ShapePosition;
+
