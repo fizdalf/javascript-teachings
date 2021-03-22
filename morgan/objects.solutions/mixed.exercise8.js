@@ -3,7 +3,7 @@
 // the Triangle function, except now paints the inside of the triangle with fillPixel
 const {drawShape, Pixel, Shape} = require("../../resources/drawingLibrary");
 
-function TriangleFilled(width, height, linePixel,fillPixel) {
+function TriangleFilled(width, height, linePixel, fillPixel) {
     const shapeSquare = Shape(width, height);
     const whitePixel = Pixel(255, 255, 255, 255);
 
@@ -16,7 +16,6 @@ function TriangleFilled(width, height, linePixel,fillPixel) {
             }
 
 
-
             const difference = height - 1 - y;
             const possibleY = height - 1 - difference;
 
@@ -26,19 +25,19 @@ function TriangleFilled(width, height, linePixel,fillPixel) {
                 pixelToPaint = linePixel
             }
 
-            if(x >=difference + 1 && x<= width-2 - difference){
+            if (x >= difference + 1 && x <= width - 2 - difference) {
                 pixelToPaint = fillPixel
             }
             if (y === height - 1) {
                 pixelToPaint = linePixel
 
             }
-                shapeSquare.setPixel(x, y, pixelToPaint);
+            shapeSquare.setPixel(x, y, pixelToPaint);
         }
     }
     return shapeSquare;
 }
 
 const bluePixel = Pixel(0, 0, 255, 255)
-const redPixel = Pixel(255, 0, 0, 255)
-drawShape(TriangleFilled(50, 50,bluePixel, redPixel))
+const redPixel = Pixel(0, 0, 0, 255)
+drawShape(TriangleFilled(50, 50, bluePixel, redPixel))

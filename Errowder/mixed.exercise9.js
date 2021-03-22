@@ -20,28 +20,17 @@ const {Shape} = require("../resources/drawingLibrary");
 const {drawShape} = require("../resources/drawingLibrary");
 
 function Circumference(radius, linePixelColor) {
-    const r = radius
-    let width = r * 2 + 2
-    let height = r * 2 + 2
-    const SquareShape = Shape(width, height)
-    let angle = linePixelColor
-    const cx = Math.ceil(width - 1 / 2)
-    const cy = Math.ceil(height - 1 / 2)
-    const PI = 3.14
-    const cos = Math.cos
-    const sin = Math.sin
-    const whitePixel = Pixel(255,255,255,255)
+    const cx = radius;
+    const cy = radius;
+    const shape = Shape(radius * 2, radius * 2);
 
-
-    for (let x = 0; x < width; x++) {
-        for (let y = 0; y < height ; y++) {
-            let pixelToPaint = whitePixel
-
-            if(){}
-            SquareShape.setPixel(x,y,pixelToPaint)
-        }
+    for (let angle = 0; angle < 360; angle += 1 / radius) {
+        let x = Math.floor(cx + (radius * Math.cos(angle * Math.PI / 180)));
+        let y = Math.floor(cy + (radius * Math.sin(angle * Math.PI / 180)));
+        shape.setPixel(x, y, linePixelColor);
     }
-    return SquareShape;
+
+    return shape;
 }
 
-drawShape(Circumference(10, Pixel(255, 0, 0, 255)))
+//drawShape(Circumference(200,Pixel(255, 0, 0, 255)));

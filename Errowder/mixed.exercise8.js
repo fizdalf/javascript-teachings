@@ -4,11 +4,9 @@
 const {Pixel} = require("../resources/drawingLibrary");
 const {Shape} = require("../resources/drawingLibrary");
 const {drawShape} = require("../resources/drawingLibrary");
-const {Triangle} = require("../resources/drawingLibrary");
 
 function TriangleFilled(width, height, linePixel, fillPixel) {
     const triangleShape = Shape(width, height)
-    const triangle = Triangle(width, height, linePixel)
     const whitePixel = Pixel(255, 255, 255, 255)
 
     for (let x = 0; x < width; x++) {
@@ -25,6 +23,7 @@ function TriangleFilled(width, height, linePixel, fillPixel) {
             if (y === possibleY && (x === difference || x === width - 1 - difference) && (difference <= width - 1 - difference)) {
                 pixelToPaint = linePixel
             }
+
             if (x >= difference + 1 && x <= width - 2 - difference) {
                 pixelToPaint = fillPixel
             }
@@ -32,10 +31,12 @@ function TriangleFilled(width, height, linePixel, fillPixel) {
             if (y === height - 1) {
                 pixelToPaint = linePixel
             }
+
+
             triangleShape.setPixel(x, y, pixelToPaint);
         }
     }
     return triangleShape;
 }
 
-drawShape(TriangleFilled(5, 5, Pixel(0, 0, 0, 255), Pixel(255, 0, 0, 255)))
+drawShape(TriangleFilled(50, 50, Pixel(255, 0, 0, 255), Pixel(0, 255, 0, 255)))
