@@ -4,18 +4,18 @@
 // Example: countVowels("aeiou") -> 5
 // Example: countVowels("murcielago") -> 5
 
-function countVowels(word) {
+function countVowels(wordGiven) {
     const vowels = ["a", "e", "i", "o", "u"]
 
-    let wordGiven = word
-    let counter= 0;
+    // let wordGiven = word
+    let counter = 0;
     let index = 0;
-    let lastIndex = wordGiven.length -1
-   while(index <= lastIndex){
+    let lastIndex = wordGiven.length - 1
+    while (index <= lastIndex) {
         counter++
-   }
+    }
 
-wordGiven.filter(wordGiven => vowels).map(wordGiven=> (counter))
+    wordGiven.filter(wordGiven => vowels).map(wordGiven => (counter))
 }
 
 

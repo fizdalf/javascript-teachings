@@ -4,7 +4,9 @@
 // Example: countVowels("murcielago") -> 5
 
 function countVowels(word){
-    const vocals = ("a","e","i","o","u")
-    const words = ["murcielago"].filter(word !== vocals).map((x) => x.length);
+    const vocals = ["a","e","i","o","u"]
+    const words = [word].filter( !== vocals).map((x) => x.length);
     return words
 }
+
+countVowels('murcielago');
