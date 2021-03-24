@@ -13,3 +13,13 @@
 // ]
 // where number is the given number and result is the result of the multiplication of number by each of the numbers in the table (from 1 to 10)
 // use Array functions to solve this problem
+
+
+function multiplicationTable(number) {
+
+    return [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+    ].map(n => number + " x " + n + " = " + n * number);
+}
+
+console.log(multiplicationTable(10));
