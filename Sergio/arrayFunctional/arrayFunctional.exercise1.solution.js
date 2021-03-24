@@ -8,4 +8,3 @@ function countVowels(word){
     const words = ["murcielago"].filter(word !== vocals).map((x) => x.length);
     return words
 }
-console.log(countVowels())
