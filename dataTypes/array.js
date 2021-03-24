@@ -9,7 +9,7 @@ console.log(["test", true, 1, undefined, []]);
 
 // Utils / Functional programming
 
-const testArray = [1, 2, "hola", 4].forEach(
+[1, 2, "hola", 4].forEach(
     (item, index, array) => {
         console.log(item)
     }

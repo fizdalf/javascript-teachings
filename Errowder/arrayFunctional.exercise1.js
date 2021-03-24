@@ -14,3 +14,18 @@ function countVowels(word) {
 }
 
 console.log(countVowels("hola"))
+
+
+
+
+
+
+// function nombre(arguments){
+//
+// }
+//
+// (arguments) => {
+//
+// }
+//
+// arguments => a
