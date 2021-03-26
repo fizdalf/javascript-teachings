@@ -4,7 +4,13 @@
 // Example: forEach(["hola", "adios", "tolete"], (x) => console.log(x.split('').reverse().join('')) -> shows "aloh" then "soida" then "etelot" in the terminal
 
 function forEach(array, callbackFn) {
-    return array.forEach(callbackFn)
+    let i = 0;
+    let newArray = []
+    while (i <= array.length - 1) {
+        newArray.push(callbackFn(array[i]))
+        i++
+    }
+    return newArray
 }
 
 console.log(forEach([1, 2, 3], console.log))

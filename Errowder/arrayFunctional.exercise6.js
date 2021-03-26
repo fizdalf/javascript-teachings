@@ -3,8 +3,16 @@
 // Example: console.log(filter([1,2,3], (x) => x >= 2 ))  -> shows [2,3] in the terminal
 // Example: console.log(filter(["hola", "adios", "tolete"], (x) => x.length > 2 && x[1] === 'o') -> shows ["hola","tolete"] in the terminal
 
-function filter(array,criteria){
-    return array.filter(criteria)
+function filter(array, criteria) {
+    let i = 0;
+    let newArray = []
+    while (i <= array.length - 1) {
+        if (criteria(array[i])) {
+            newArray.push(array[i])
+        }
+        i++
+    }
+    return newArray
 }
 
 console.log(filter(["hola", "adios", "tolete"], (x) => x.length > 2 && x[1] === 'o'))
