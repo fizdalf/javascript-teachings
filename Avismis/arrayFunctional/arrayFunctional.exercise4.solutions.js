@@ -44,3 +44,8 @@ let data = [
 // getFullNamesByCriteria(data,(item) => item.age > 50) -> ["Jose Betancort", "Rosalía Suarez"]
 // getFullNamesByCriteria(data,(item) => item.age <= 20) -> ["Manuela Lasso", "Lorena Gonzalez"]
 
+function getFullNamesByCriteria(data, criteria) {
+    return data.filter(criteria).map(person => person.firstName + " " + person.lastName);
+}
+
+console.log(getFullNamesByCriteria(data, (item) => item.firstName.length > 4));
