@@ -9,14 +9,14 @@
 
 function filter(array, criteria) {
     let emptyArray = []
-    array.push(emptyArray)
+    array.push(emptyArray) // supposedly correct
 
     if (criteria === array) {
         return true
-    } else (criteria !== array)
+    } else
     {
         return false
     }
-
-
 }
+
+console.log(filter(["hola", "adios", "tolete"], (x) => x.length > 2 && x[1] === 'o'));

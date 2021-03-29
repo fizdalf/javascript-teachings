@@ -7,7 +7,7 @@ function filter(array, criteria) {
     let i = 0;
     let newArray = []
     while (i <= array.length - 1) {
-        if (criteria(array[i])) {
+        if (criteria(array[i], i, array)) {
             newArray.push(array[i])
         }
         i++
