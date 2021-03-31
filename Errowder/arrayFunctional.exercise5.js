@@ -5,9 +5,11 @@
 
 function forEach(array, callbackFn) {
     for (let i = 0; i <= array.length - 1; i++) {
-        callbackFn(array[i], i, array);
+        callbackFn(array[i]);
     }
 }
+
+
 
 forEach([1, 2, 3], console.log);
 const myReverseFunction = (item) => console.log(item.split('').reverse().join(''));

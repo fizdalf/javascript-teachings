@@ -29,8 +29,8 @@ const returnedBooks = [
     },
 ];
 
-const library = {
-    categories: [],
+const libraryxx = {
+    categories: {},
     storeBook: function (book) {
         if (!(book.category in this.categories)) {
             this.categories[book.category] = [];

@@ -5,11 +5,9 @@
 // Example: console.log(map(["hola", "adios", "tolete"], (x) => x.toUpperCase()) -> shows ["HOLA", "ADIOS", "TOLETE"] in the terminal
 
 function map(array, transformation) {
-    let i = 0;
     let newArray = []
-    while (i <= array.length - 1) {
-        newArray.push(transformation(array[i]))
-        i++
+    for (let i = 0; i < array.length; i++) {
+        newArray.push(transformation(array[i], i, array))
     }
     return newArray
 }

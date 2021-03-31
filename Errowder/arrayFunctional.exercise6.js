@@ -4,15 +4,15 @@
 // Example: console.log(filter(["hola", "adios", "tolete"], (x) => x.length > 2 && x[1] === 'o') -> shows ["hola","tolete"] in the terminal
 
 function filter(array, criteria) {
-    let i = 0;
     let newArray = []
-    while (i <= array.length - 1) {
+    for (let i = 0; i < array.length; i++) {
         if (criteria(array[i], i, array)) {
             newArray.push(array[i])
         }
-        i++
     }
     return newArray
 }
 
-console.log(filter(["hola", "adios", "tolete"], (x) => x.length > 2 && x[1] === 'o'))
+[1,2,3,4].filter((elemento, indice, array) => {})
+
+console.log(filter(["hola", "adios", "tolete"], (x,indice) => indice % 2 === 0))
