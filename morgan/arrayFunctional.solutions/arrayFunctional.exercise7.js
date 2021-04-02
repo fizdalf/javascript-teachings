@@ -8,10 +8,10 @@
 // Example: console.log(map(["hola", "adios", "tolete"],
 // (x) => x.toUpperCase()) -> shows ["HOLA", "ADIOS", "TOLETE"] in the terminal
 
-function map(array,transformation){
+function map(array, transformation) {
     let emptyArray = []
     array.push(emptyArray)
-let result = transformation
+    let result = transformation(array);
     result.push(emptyArray)
     return emptyArray;
 }

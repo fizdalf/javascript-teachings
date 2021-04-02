@@ -5,12 +5,12 @@
 //forEach(["hola", "adios", "tolete"], (x) => console.log(x.split('').reverse().join(''))
 // -> shows "aloh" then "soida" then "etelot" in the terminal
 
- function forEach(array,callbackFn) {
-     let emptyArray = []
-     array.push(emptyArray)
-    callbackFn.push(emptyArray)
-     callbackFn.forEach()
+function forEach(array, callbackFn) {
+    let emptyArray = []
+    array.push(emptyArray) //
+    callbackFn.push(emptyArray) // ERROR!!!
+    callbackFn.forEach()
+}
 
 
-
- }
+forEach([1, 2, 3], console.log);
