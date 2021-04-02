@@ -10,12 +10,13 @@ console.log(0x10); // Hexadecimal
 
 // operators!!
 
+console.log(2+5)
 console.log(2 + 5);
 console.log(2 - 5);
 console.log(2 * 5);
 console.log(2 / 5);
 console.log(2 ** 5); // 2 elevado a 5
-console.log(150 % 7, 'dia de la semana'); // operador módulo / Modulo Operator
+console.log(150 % 7, 'dia de la semana'); // operador módulo / Modulo Operator resultado de la divisió
 
 
 
@@ -38,11 +39,11 @@ console.log(150 % 7, 'dia de la semana'); // operador módulo / Modulo Operator
 
 // COMPARATORS!!!
 
-console.log(2 > 4);
-console.log(2 >= 4);
-console.log(2 < 4);
-console.log(2 <= 4);
-console.log(2 === 4);
-console.log(2 !== 4);
+console.log(2 > 4); // FALSE
+console.log(2 >= 4); // FALSE
+console.log(2 < 4); // TRUE
+console.log(2 <= 4); // TRUE
+console.log(2 === 4); // FALSE
+console.log(2 !== 4); // TRUE
 // console.log(2 != 4); no usar
 // console.log(2 == 4); no usar

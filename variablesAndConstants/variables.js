@@ -1,3 +1,23 @@
+let saldo;
+let banco;
+banco = "pepe"
+saldo = 150;
+diasDeLaSemana = 7
+pagoQuincenal = 14
+saldo = (pagoQuincenal / diasDeLaSemana) + 'Ra' + (saldo + banco);
+// console.log(saldo);
+
+diasDeLaSemana++; // diasDeLaSemana = diasDeLaSemana + 1
+pagoQuincenal--;  // pagoQuincenal = pagoQuincenal - 1
+banco += "a"; // banco = banco + loQueSea
+diasDeLaSemana -= 5; // diasDeLaSemana = diasDeLaSemana - loQueSea
+diasDeLaSemana *= pagoQuincenal;
+diasDeLaSemana /= 4;
+console.log(diasDeLaSemana, pagoQuincenal, banco)
+
+// vale
+
+
 let dollarsInMyAccount = "test"
 let somethingElse = 3;
 

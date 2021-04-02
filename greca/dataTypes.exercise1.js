@@ -10,12 +10,15 @@ console.log(7 % 5);
 console.log(10 / 2)
 // muestra por pantalla una cadena(string) de 4 caracteres
 console.log('pela')
-// muestra por pantalla una cadena que contenga un número
+// muestra por pantalla una cadena (string) que contenga un número
 console.log('2')
 // muestra el resultado de la concatenación de dos strings
 console.log('45' + '20')
 // muestra el resultado de la concatenación de dos strings y un número
 console.log('pe' + 'pe' + 2)
+console.log('test nuevo','pe' + (5 + 6)+(11*22));
+console.log('alto' + (120 / 6))
+console.log('test',false + 'hola' )
 // muestra por pantalla el boolean falso
 console.log(false)
 console.log(!true)
@@ -27,3 +30,6 @@ console.log(true && false)
 console.log(!true)
 // muestra por pantalla el resultado de LA NEGACIÓN de una operación AND
 console.log(!(true && true))
+// muestro el resultado de negación de una operación not
+console.log(!!true)
+console.log(false)

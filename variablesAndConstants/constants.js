@@ -1,4 +1,4 @@
-const pi = 3.1415; //avismis
+const numeroDeCuenta = "2035 5024 2165 12456 215462 21651 232412"; //avismis
 const numberOfLegsInHumans = 2; // error
 const earthGravityAcceleration = 9.8 + 5; // fizdalf
 const welcomeMessage = "Welcome to the Party!!!!"; //obbaquilona
