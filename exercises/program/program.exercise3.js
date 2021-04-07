@@ -7,4 +7,3 @@
 // There must be a way of keeping track of all the funders and their funding
 // There must be a way of telling how much is left to get to the goal
 // When a user provides funding they will receive the reward according to the tiers
-
