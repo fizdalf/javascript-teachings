@@ -12,3 +12,18 @@ function filter(array, criteria){
 
     return theArray
 }
+**********************************************************************************************************************
+
+function filter(array, criteria) {
+    let newArray = []
+    for (let i = 0; i < array.length; i++) {
+        if (criteria(array[i], i, array)) {
+            newArray.push(array[i])
+        }
+    }
+    return newArray
+}
+
+[1,2,3,4].filter((elemento, indice, array) => {})
+
+console.log(filter(["hola", "adios", "tolete"], (x,indice) => indice % 2 === 0))

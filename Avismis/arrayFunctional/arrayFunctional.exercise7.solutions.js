@@ -4,7 +4,12 @@
 // Example: console.log(map([1,2,3], (x) => x ** 2 ))  -> shows [1,4,9] in the terminal
 // Example: console.log(map(["hola", "adios", "tolete"], (x) => x.toUpperCase()) -> shows ["HOLA", "ADIOS", "TOLETE"] in the terminal
 
-function map(array, transformation){
-
-    return lastArray
+function map(array, transformation) {
+    let newArray = []
+    for (let i = 0; i < array.length; i++) {
+        newArray.push(transformation(array[i]))
+    }
+    return newArray
 }
+
+console.log(map(["hola", "adios", "tolete"], (x) => x.toUpperCase()))
