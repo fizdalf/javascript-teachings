@@ -7,6 +7,14 @@
 // Another function will take the ID of the order and the money, and will return the actual order
 // (the burgers, fries..whatever) and any spare change.
 // there must be a way of telling how much money has the Burger Restaurant made with their sales
+
+function ListOfIngredients(arrayOfIngredients){
+    return {
+        addIngredient(name, quantity){
+
+        }
+    }
+}
 function Ingredient(nameOfIngredient, quantity) {
     return {
         nameOfIngredient,
@@ -15,11 +23,12 @@ function Ingredient(nameOfIngredient, quantity) {
 }
 const stockOfIngredients = [
     Ingredient( "meat", 80),
+    Ingredient("fasdf", 50),
     Ingredient( "bread", 40),
     Ingredient( "lettuce", 50),
     Ingredient( "tomato", 60),
     Ingredient( "onion", 30),
-    Ingredient( "tomato", 60),
+    Ingredient( "tomato pocho", 200),
     Ingredient( "chicken", 80),
 ]
 const Burger = function (ingredients, price, id) {

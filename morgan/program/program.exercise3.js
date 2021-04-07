@@ -10,21 +10,21 @@
 
 let project = {
     Funder: "CrowdFundingPlatform",
-    Tier1: 50 + " A T-shirt with my face in it ",
+    Tier1: 50 + " A T-shirt with my face in it ", //  "50 A T-shirt with my face in it "
     Tier2: 100 + " A T-shirt with my face in it and a set of stickers with my face",
     Tier3: 150 + " A T-shirt with my face in it, and a set of stickers with my face and a cup with my face",
     EndDate: "2021-05-21"
 
 }
 
+let array = []
+
 // There must be a way of keeping track of all the funders and their funding
 function keepTrackOfFundersAndFundings(funder, funding) {
-    let array = []
-    let max = 100
-    for (let i = 0; i <= max; i++) {
-        funder + " " + funding.push(array)
+    let max = array.length;
+    for (let i = 0; i < max; i++) {
+        array.push(funder + " " + funding) //
     }
-    array.forEach()
     return
 }
 
@@ -33,11 +33,13 @@ function keepTrackOfFundersAndFundings(funder, funding) {
 
 function money(moneyYouHaveNow, goal) {
     return moneyYouHaveNow - goal
-
 }
 
 // When a user provides funding they will receive the reward according to the tiers
 
+function costOfRewards(numberOfRewards, costPerReward) {
+    return numberOfRewards * costPerReward
+}
 
 function tiers(numberOftierSold, costOftypeOfTier) {
     let tier1 = 50
@@ -46,18 +48,15 @@ function tiers(numberOftierSold, costOftypeOfTier) {
     let reward2 = " A T-shirt with my face in it and a set of stickers with my face"
     let tier3 = 150
     let reward3 = " A T-shirt with my face in it, and a set of stickers with my face and a cup with my face"
-    if (numberOftierSold > 1) {
-        return costOftypeOfTier * numberOftierSold
+    if (costOftypeOfTier === tier1) {
+        reward1 = numberOftierSold + "T-shirt with my face in it "
     }
-if (costOftypeOfTier === tier1){
-    reward1 = numberOftierSold + "T-shirt with my face in it "
-}
-if ( costOftypeOfTier === tier2){
-    reward2 = numberOftierSold + "T-shirt with my face in it and a set of stickers with my face"
-}
-if (costOftypeOfTier === tier3){
-    reward3 = numberOftierSold + "T-shirt with my face in it, and a set of stickers with my face and a cup with my face"
-}
-return
+    if (costOftypeOfTier === tier2) {
+        reward2 = numberOftierSold + "T-shirt with my face in it and a set of stickers with my face"
+    }
+    if (costOftypeOfTier === tier3) {
+        reward3 = numberOftierSold + "T-shirt with my face in it, and a set of stickers with my face and a cup with my face"
+    }
+    return
 }
 

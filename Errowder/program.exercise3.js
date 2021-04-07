@@ -12,32 +12,36 @@ const CrownFundingPlatform = function (goal, description, endDate) {
     const founders = new Map();
     let money = 0
     return {
-        getFoundersInformation: function (foundersName, founding) {
-            if (founding < 0) {
+
+        addFunding: function (foundersName, funding) {
+            if (funding < 0) {
                 throw Error("No me intentes robar")
             }
-            if (founding >= goal) {
+            if (funding >= goal) {
                 throw Error("Voy a llorar de la emoSion")
             }
-            founders.set(foundersName, founding)
-            money = (founding + money)
+            let previousFunding = 0;
+            if (founders.has(foundersName)) {
+                previousFunding = founders.get(foundersName);
+            }
+            founders.set(foundersName, funding + previousFunding);
+            money += funding;
+        },
+        funders() {
             return founders;
         },
         getHowMuchIsLeftToReachTheGoal: function () {
-            const moneyNeededToRaise = goal - money
-            return moneyNeededToRaise
+            return goal - money
         },
-        getYourReward: function (founding) {
-            if (founding < 50) {
+        getYourReward: function (name) {
+            const fundedAmount = founders.get(name);
+            if (fundedAmount < 50) {
                 console.log("sigue asi y conseguiras premios")
-            }
-            if (founding >= 50 && founding < 100) {
-                console.log("You have received" + " = " + "A T-shirt with my face in it" + " Congratulations")
-            }
-            if (founding >= 100 && founding < 150) {
+            } else if (fundedAmount >= 50 && fundedAmount < 100) {
+                console.log("You have received = A T-shirt with my face in it Congratulations")
+            } else if (fundedAmount >= 100 && fundedAmount < 150) {
                 console.log("You have received" + " = " + "A T-shirt with my face in it and a set of stickers with my face" + " Congratulations")
-            }
-            if(founding >= 150) {
+            } else {
                 console.log("You have received" + " = " + "A T-shirt with my face in it, a set of stickers with my face and a cup with my face" + " Congratulations")
             }
         }
@@ -46,6 +50,8 @@ const CrownFundingPlatform = function (goal, description, endDate) {
 
 const empresa = CrownFundingPlatform(500, "es una empresa que quiere ganar dinero", "2021-04-07")
 
-console.log(empresa.getFoundersInformation("alvaro", 75))
+empresa.addFunding("alvaro", 75);
+empresa.addFunding("alvaro", 75);
+console.log(empresa.funders())
 console.log(empresa.getHowMuchIsLeftToReachTheGoal())
-console.log(empresa.getYourReward(45))
+empresa.getYourReward("alvaro");
