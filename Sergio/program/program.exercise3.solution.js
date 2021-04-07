@@ -8,44 +8,42 @@
 // There must be a way of telling how much is left to get to the goal
 // When a user provides funding they will receive the reward according to the tiers
 
-const CrowdFunding = function (goal, description, dateOfFinish) {
+const CrowdFunding = function (goal, description, dateOfFinish, moneyFounded) {
     const listOfDonors = new Map();
-    function getDonor(nameOfDonor, donatedMoney){
+
+    return {
+        goal,
+        description,
+        dateOfFinish,
+        moneyFounded,
+        howManyToGoal() {
+            if (moneyFounded >= goal) {
+                return "we get the goal!!"
+            }
+            return goal - moneyFounded
+        },
+        getDonor(nameOfDonor, donatedMoney) {
         const lowerCaseName = nameOfDonor.toLowerCase();
         if (listOfDonors.has(nameOfDonor)) {
             listOfDonors.set(lowerCaseName, donatedMoney);
         }
         listOfDonors.set(lowerCaseName, donatedMoney);
-    },
-    return{
-        goal,
-        description,
-        dateOfFinish,
-        Tier(tier1,tier2,tier3){
-            return {
-                tier1: 50,
-                tier2: 100,
-                tier3: 150,
-            }
         },
-
-        howManyToGoal(moneyFounded){
-            return this.goal - moneyFounded
-        },
-        rewardUser(nameOfDonor, tier){
+        rewardUser(nameOfDonor, donatedMoney) {
 
             const message = "You won a T-short with your face"
-            getDonors(tier)
-            if(nameOfDonor === tier1){
+            if (donatedMoney >= 50 && donatedMoney < 100) {
+                listOfDonors.set(nameOfDonor, donatedMoney)
                 return message
-            }
-            if(nameOfDonor === tier2){
+            } else if (donatedMoney >= 100 && donatedMoney < 150) {
+                listOfDonors.set(nameOfDonor, donatedMoney)
                 return message + "and a set of stickers with my face"
+            } else if (donatedMoney >= 150) {
+                listOfDonors.set(nameOfDonor, donatedMoney)
+                return message + "and a set of stickers with my face, and a cup with your face"
+            } else {
+                return "donate me or I'll burn your house"
             }
-            if(nameOfDonor === tier3){
-                return message +"and a set of stickers with my face, and a cup with my face"
-            }
-
         }
     }
 }
