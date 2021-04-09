@@ -8,77 +8,80 @@
 // (the burgers, fries..whatever) and any spare change.
 // there must be a way of telling how much money has the Burger Restaurant made with their sales
 
-const BurgerMenu = function (ingredients, extra, price, id) {
+function burger(name, ingredients, burgerPrice, burgerId) {
     return {
+        name,
+        ingredients,
+        burgerPrice,
+        burgerId,
+    }
+}
+
+function burgerMenu(name, ingredients, extra, burgerPrice, burgerId) {
+    return {
+        name,
         ingredients,
         extra,
-        price,
-        id,
+        burgerPrice,
+        burgerId,
     }
 }
 
-const Burger = function (ingredients, price, id) {
-    return {
-        ingredients,
-        price,
-        id,
-    }
-}
-
-const Menu = [
+const foodMenu = [
     {
-        menuId1: BurgerMenu("porkMeat,lettuce,tomato", "fries, ketchup", 7, 1)
+        product: burger("chikenBurger", "chicken, tomato, lettuce", 3, 1)
     },
     {
-        menuId2: BurgerMenu("porkMeat,lettuce,tomato", "fries, ketchup, mustard", 10, 2)
+        product: burger("porkBurger", "pork,tomato,lettuce", 4, 2)
     },
     {
-        menuId3: BurgerMenu("chickenMeat,lettuce,tomato", "fries, ketchup, mustard,onionsRing", 15, 3)
+        product: burgerMenu("chickenMenu", "chicken, tomato,lettuce", "cola, fries", 8, 3)
     },
     {
-        burgerId1: Burger("chickenMeat,lettuce, tomato", 2, 1)
+        product: burgerMenu("porkMenu", "pork, tomato, lettuce", "cola, fries", 8, 4)
     },
-    {
-        burgerId2: Burger("porkMeat,lettuce, tomato", 2, 2)
-    },
-    {
-        burgerId3: Burger("porkMeat,chickenMeat,lettuce, tomato", 5, 3)
-    }
 ]
 
-const BurgerRestaurant = function (restaurantName, id) {
+const burgerRestaurant = function (listOfProducts) {
+    const stockOfIngredients = new Map()
+    const stockOfExtra = new Map()
     return {
-        restaurantName,
-        id,
-        getBurgerMenu: function (menuId) {
-            if (menuId < 1 || menuId > id) {
-                throw Error("Invalid ID");
+        addIngredientsToStock: function (ingredient, ingredientPrice) {
+            if (stockOfIngredients.has(ingredient)) {
+                throw Error("This is already added")
             }
-            return BurgerMenu(
-                restaurantName,
-                menuId,
-            );
+            stockOfIngredients.set(ingredient, ingredientPrice)
         },
-        getBurger: function (burgerId) {
-            if (burgerId < 1 || burgerId > id) {
-                throw Error("Invalid ID");
+        addExtraToStock: function (extra, extraPrice) {
+            if (stockOfIngredients.has(extra)) {
+                throw Error("This is already added")
             }
-            return Burger(
-                restaurantName,
-                burgerId,
-            );
+            stockOfExtra.set(extra, extraPrice)
         },
+        selectWhatYouWant:function(burgerOrMenu) {
+            for (let i = 0; i < listOfProducts.length; i++) {
+                const stockItem = listOfProducts[i];
+                if(burgerOrMenu === stockItem){
+                    return [stockItem.product.burgerId,stockItem.product.burgerPrice]
+                }
+            }
+            // throw Error("This product does not exist in my restaurant")
+        },
+        pickYourBurgerById: function (id,ingredient,extra) {
+            for (let i = 0; i < listOfProducts.length; i++) {
+                const stockItem = listOfProducts[i];
+                if (id === stockItem.product.burgerId) {
+                    return stockItem.product.burgerPrice + stockOfIngredients.has(ingredient.ingredientPrice) + stockOfExtra.has(extra.extraPrice)
+                }
+            }
+        }
     }
 }
 
-// const Extra = ["fries", "ketchup", "mustard", "onionsRing"]
-// const Ingredients = ["porkMeat", "chickenMeat", "lettuce", "tomato"]
-
-const king = BurgerRestaurant("king", 3)
-
-const kidMenu = Menu.menuId1
-const normalMenu = Menu.menuId2
-const familyMenu = Menu.menuId3
-const chickenBurger = Menu.burgerId1
-const porkBurger = Menu.burgerId2
-const mixBurger = Menu.burgerId3
+const kingBurger = burgerRestaurant(foodMenu)
+kingBurger.addIngredientsToStock("lettuce", 1)
+// kingBurger.addIngredientsToStock("lettuce", 1)
+kingBurger.addExtraToStock("cola",1)
+// kingBurger.addExtraToStock("cola",1)
+// console.log(kingBurger.selectWhatYouWant("porkBurger"))
+console.log(kingBurger.pickYourBurgerById(4,"lettuce","cola"))
