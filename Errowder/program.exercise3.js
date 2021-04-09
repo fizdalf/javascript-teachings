@@ -40,9 +40,9 @@ const CrownFundingPlatform = function (goal, description, endDate) {
             } else if (fundedAmount >= 50 && fundedAmount < 100) {
                 console.log("You have received = A T-shirt with my face in it Congratulations")
             } else if (fundedAmount >= 100 && fundedAmount < 150) {
-                console.log("You have received" + " = " + "A T-shirt with my face in it and a set of stickers with my face" + " Congratulations")
+                console.log("You have received = A T-shirt with my face in it and a set of stickers with my face Congratulations")
             } else {
-                console.log("You have received" + " = " + "A T-shirt with my face in it, a set of stickers with my face and a cup with my face" + " Congratulations")
+                console.log("You have received = A T-shirt with my face in it, a set of stickers with my face and a cup with my face Congratulations")
             }
         }
     }
