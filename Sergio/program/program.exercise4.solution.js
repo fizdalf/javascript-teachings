@@ -1,8 +1,8 @@
-// Model a Burger Restaurant, you have to keep track of the stock of ingredients, at least 2 burger recipes, each burger
+// Model a Burger Restaurant, you have to keep track of the stock of INGREDIENTS, at least 2 burger recipes, each burger
 // can have a set of extras the customer can pick from if they want.
 // The burgers, the menus, the extras, everything will have a price associated.
 // Customers can request full menu or only the burger there must be function that allows to place an order,
-// the function returns the ID of the order and the amount that to be paid, when there's not enough ingredients to fill
+// the function returns the ID of the order and the amount that to be paid, when there's not enough INGREDIENTS to fill
 // an order, you must return an error.
 // Another function will take the ID of the order and the money, and will return the actual order
 // (the burgers, fries..whatever) and any spare change.
@@ -46,12 +46,11 @@ const Extras = function (nameOfExtra, price, id) {
         id
     }
 }
-const burgerRestaurant = function (ingredients, numberOfBurgers, menus, extras, id) {
+const burgerRestaurant = function (ingredients, numberOfBurgers, menus, extras) {
 
     return {
         ingredients,
         numberOfBurgers,
-        id,
         getMenu: function (idMenu) {
             if (idMenu < 1 || idMenu > id) {
                 throw Error("Invalid ID");
@@ -60,40 +59,34 @@ const burgerRestaurant = function (ingredients, numberOfBurgers, menus, extras, 
                 menus,
                 idMenu,
                 Burger,
-
             }
         },
-        getBurgerByID: function () {
+        getBurgerByID: function (burgerId) {
             let price = 2
-            if (id < 1 || id > id) {
+            if (burgerId < 1 || burgerId > id) {
                 throw Error("Invalid ID");
             }
             if (ingredients > stockOfIngredients) {
-                throw Error("There are not enough ingredients")
+                throw Error("There are not enough INGREDIENTS")
             }
-            if (numberOfBurgers === 2) {
-                price += price
-                if (numberOfBurgers === 3) {
-                    price += price
-                    if (numberOfBurgers === 4) {
-                        price += price
-                    }
-                }
+            let precioPorExtraDeCarne = 0;
+            if (numberOfBurgers >= 2) {
+                precioPorExtraDeCarne = numberOfBurgers * price;
             }
 
             return Burger(
                 ingredients,
-                price,
+                price + precioPorExtraDeCarne,
                 id,
             );
         },
         getExtras() {
             let price = 0
-            if (extras === "ketchup" || extras === "fries" || extras === "Drink") {
-                price = 1
-            } else if (extras !== "ketchup" || extras !== "fries" || extras !== "Drink") {
+            if (extras !== "ketchup" && extras !== "fries" && extras !== "Drink") {
                 throw Error("We have not that extra")
             }
+            price = 1
+
 
             return {
                 Burger() {
