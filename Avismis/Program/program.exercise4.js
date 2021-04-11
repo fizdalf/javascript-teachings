@@ -8,3 +8,27 @@
 // (the burgers, fries..whatever) and any spare change.
 // there must be a way of telling how much money has the Burger Restaurant made with their sales
 
+let burgerRestaurant = {
+    name: ,
+    logo:,
+    typeOfFood:,
+    menu:,
+    specialOffers:,
+    staffPossitions:,
+    Employees:,
+}
+
+const ingredients = function(product, quantity)
+
+let stock = {
+    ingredients: bread,
+    ingredients: seitan,
+    ingredients: veganCheese,
+    ingredients: ketchup,
+    ingredients: mayo,
+    ingredients:,
+    ingredients:,
+    ingredients:,
+    ingredients:,
+    ingredients:,
+}

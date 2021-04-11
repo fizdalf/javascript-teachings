@@ -64,5 +64,4 @@ const Salute = "Hello! We are a group of serious and decent people, and not just
 const blabla = GOAL(Salute, '1000', 'Sept 25th')
 blabla.rewardOrganizer('Luis', 'dfgjkdfd', 150)
 console.log(blabla.rewardOrganizer('Pepa', 'dsfsdsf', 200))
-console.log(blabla.hundredHalfEurosWinners)
 console.log(blabla.rewardOrganizer('Mongui', 'dsgfdsfsd', 25))
