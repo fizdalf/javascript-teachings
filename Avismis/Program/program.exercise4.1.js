@@ -170,17 +170,24 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock) {
             throw Error("no existe este ingrediente, cerdo");
         }
     }
+
     function updateStockWithExtraRequested(currentBurger, extra) {
-            confirmExtraExists(currentBurger, extra);
-            const currentExtra = findExtra(currentBurger, extra)
+        confirmExtraExists(currentBurger, extra);
+        const currentExtra = findExtra(currentBurger, extra)
         ingredientStock.set(ingredientStock.get(currentExtra) - 1)
     }
 
     function getNextOrderId() {
-
+        return currentId + 1
     }
+    let currentId = getNextOrderId()
 
     function getBurgerRecipePrice(burgerRecipe, extraRequested) {
+        const theBurguer = findBurgerRecipe()
+        const theExtra = findExtra()
+        const burguerPrice = burgerRecipes.price.get(theBurguer)
+        const extraPrice = burgerRecipes.price.get(theExtra)
+        return burguerPrice + extraPrice
 
     }
 
