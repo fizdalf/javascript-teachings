@@ -1,4 +1,5 @@
-// Model a Burger Restaurant, you have to keep track of the stock of INGREDIENTS, at least 2 burger recipes, each burger
+// Model a Burger Restaurant, you have to keep track of the stock of INGREDIENTS, at least 2 burger recipes,
+// each burger
 // can have a set of extras the customer can pick from if they want.
 // The burgers, the menus, the extras, everything will have a price associated.
 // Customers can request full menu or only the burger there must be function that allows to place an order,
@@ -8,104 +9,207 @@
 // (the burgers, fries..whatever) and any spare change.
 // there must be a way of telling how much money has the Burger Restaurant made with their sales
 
-function ListOfIngredients(arrayOfIngredients) {
-    return {
-        addIngredient(name, quantity) {
+// lechuga, tomate,  pan, pepinillos, hamburguesa de ternera, hamburguesa de pollo, mayonesa, ketchup, papas fritas, cocacola, fanta y clipper
 
+const INGREDIENTS = {
+    lechuga: "lechuga",
+    tomate: "tomate",
+    queso: "queso",
+    hamburguesaDeTernera: "hamburguesa de ternera",
+    hamburguesaDePollo: "hamburguesa de pollo",
+    pan: "pan",
+    pepinillo: "pepinillo",
+    mayonesa: "mayonesa",
+    ketchup: "ketchup",
+    papasFritas: "papas fritas",
+    cocacola: "cocacola",
+    fanta: "fanta",
+    clipper: "clipper",
+    water: "water",
+}
+
+const ingredientStock = new Map(
+    [
+        [INGREDIENTS.lechuga, 0],
+        [INGREDIENTS.tomate, 20],
+        [INGREDIENTS.queso, 20],
+        [INGREDIENTS.hamburguesaDeTernera, 20],
+        [INGREDIENTS.hamburguesaDePollo, 20],
+        [INGREDIENTS.pan, 20],
+        [INGREDIENTS.pepinillo, 20],
+        [INGREDIENTS.mayonesa, 20],
+        [INGREDIENTS.ketchup, 20],
+        [INGREDIENTS.papasFritas, 20],
+        [INGREDIENTS.cocacola, 20],
+        [INGREDIENTS.fanta, 20],
+        [INGREDIENTS.clipper, 20],
+        [INGREDIENTS.water, 20],
+    ]
+);
+
+const burgerNames = {
+    BOMBA_EXPLOSIVA: "Bomba explosiva Mortal",
+    BOMBA_VEGANA: "Bomba Vegana"
+}
+
+const burgerRecipes = new Map(
+    [
+        [
+            burgerNames.BOMBA_EXPLOSIVA,
+            {
+                name: burgerNames.BOMBA_EXPLOSIVA,
+                ingredients: [
+                    INGREDIENTS.lechuga,
+                    INGREDIENTS.tomate,
+                    INGREDIENTS.queso,
+                    INGREDIENTS.hamburguesaDeTernera,
+                    INGREDIENTS.hamburguesaDePollo,
+                    INGREDIENTS.pan,
+                    INGREDIENTS.pepinillo,
+                ],
+                extras: [
+                    {extraIngredient: INGREDIENTS.mayonesa, price: 0.2}
+                ],
+                price: 8.50,
+            }
+        ],
+        [
+            burgerNames.BOMBA_VEGANA,
+            {
+                name: burgerNames.BOMBA_VEGANA,
+                ingredients: [
+                    INGREDIENTS.lechuga,
+                    INGREDIENTS.tomate,
+                ],
+                extras: [
+                    {extraIngredient: INGREDIENTS.pepinillo, price: 0.5}
+                ],
+                price: 10.50,
+            }
+        ]
+    ]
+);
+
+const menus = [
+    {
+        burger: burgerNames.BOMBA_EXPLOSIVA,
+        price: 12.50,
+        drinkChoices: [
+            INGREDIENTS.cocacola,
+            INGREDIENTS.fanta,
+            INGREDIENTS.clipper,
+            INGREDIENTS.water,
+        ],
+    },
+    {
+        burger: burgerNames.BOMBA_VEGANA,
+        price: 15.50,
+        drinkChoices: [
+            INGREDIENTS.water,
+        ],
+    },
+]
+
+const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock, id) {
+
+
+    function checkIngredientInStock(currentIngredient) {
+        if (!ingredientStock.has(currentIngredient) || ingredientStock.get(currentIngredient) < 1) {
+            throw Error('Lo siento, no tenemos posibilidad de hacerte la hamburguesa!');
+        }
+    }
+
+    function updateStock(currentIngredient) {
+        ingredientStock.set(ingredientStock.get(currentIngredient) - 1);
+    }
+
+    function confirmAllIngredintsExist(selectedBurgerRecipe) {
+        selectedBurgerRecipe.ingredients.forEach(
+            (currentIngredient) => {
+                checkIngredientInStock(currentIngredient);
+            }
+        )
+    }
+
+    function updateStockWithAllIngredients(selectedBurgerRecipe) {
+        selectedBurgerRecipe.ingredients.forEach(
+            (currentIngredient) => {
+                updateStock(currentIngredient);
+            }
+        )
+    }
+
+    function findExtra(selectedBurgerRecipe, extra) {
+        let foundExtra = null;
+        for (let i = 0; i < selectedBurgerRecipe.extras.length; i++) {
+            let currentExtra = selectedBurgerRecipe.extras[i]; // {extraIngredient: INGREDIENTS.mayonesa, price: 0.2};
+            if (extra === currentExtra.extraIngredient) {
+                foundExtra = currentExtra;
+            }
+        }
+        return foundExtra;
+    }
+
+    function checkBurgerExists(burgerName) {
+        if (!burgerRecipes.has(burgerName)) {
+            throw Error("no existe esa hamburguesa, cerdo");
+        }
+    }
+
+    function findBurgerRecipe(burgerName) {
+        checkBurgerExists(burgerName);
+        const selectedBurgerRecipe = burgerRecipes.get(burgerName);
+        return selectedBurgerRecipe;
+    }
+
+    function confirmExtraExists(selectedBurgerRecipe, foundExtra) {
+        for (let i = 0; i < selectedBurgerRecipe.extras.length; i++) {
+            let currentExtra = selectedBurgerRecipe.extras[i];
+            if (foundExtra !== currentExtra.extraIngredient) {
+                throw Error("Ese extra no existe")
+            }
+            return "Ahora mismo le ponemos" + selectedBurgerRecipe
+        }
+    }
+
+    function updateStockWithExtraRequested(foundExtra) {
+        foundExtra.ingredients.forEach(
+            (currentExtra) => {
+                updateStock(currentExtra);
+            }
+        )
+    }
+
+    function getNextOrderId() {
+        return id + 1
+    }
+
+    function getBurgerRecipePrice(burgerRecipe) {
+        let extraPrice = burgerRecipe.extras.price;
+        return burgerRecipe.price + extraPrice
+
+    }
+
+    return {
+        name() {
+            return name;
+        },
+        orderBurger(burgerName, extraRequested) {
+            const selectedBurgerRecipe = findBurgerRecipe(burgerName);
+            let foundExtra = findExtra(selectedBurgerRecipe, extraRequested);
+            if (extraRequested && !foundExtra) {
+                throw Error('No existe ese ingrediente, pig');
+            }
+            confirmAllIngredintsExist(selectedBurgerRecipe);
+            confirmExtraExists(selectedBurgerRecipe, foundExtra);
+            updateStockWithAllIngredients(selectedBurgerRecipe);
+            updateStockWithExtraRequested(foundExtra);
+            return {orderId: getNextOrderId(), price: getBurgerRecipePrice(selectedBurgerRecipe, foundExtra)};
         }
     }
 }
 
-function Ingredient(nameOfIngredient, quantity) {
-    return {
-        nameOfIngredient,
-        quantity,
-    }
-}
 
-const stockOfIngredients = [
-    Ingredient("meat", 80),
-    Ingredient("bread", 40),
-    Ingredient("lettuce", 50),
-    Ingredient("tomato", 60),
-    Ingredient("onion", 30),
-    Ingredient("tomato pocho", 200),
-    Ingredient("chicken", 80),
-]
-const Burger = function (ingredients, price, id) {
-    return {
-        ingredients,
-        price,
-        id,
-    }
-}
-const Extras = function (nameOfExtra, price, id) {
-    return {
-        nameOfExtra,
-        price,
-        id
-    }
-}
-const burgerRestaurant = function (ingredients, numberOfBurgers, menus, extras) {
+const myMacDaniels = BurgerRestaurant('Mc` Daniels', burgerRecipes, menus);
 
-    return {
-        ingredients,
-        numberOfBurgers,
-        getMenu: function (idMenu) {
-            if (idMenu < 1 || idMenu > id) {
-                throw Error("Invalid ID");
-            }
-            return {
-                menus,
-                idMenu,
-                Burger,
-            }
-        },
-        getBurgerByID: function (burgerId) {
-            let price = 2
-            if (burgerId < 1 || burgerId > id) {
-                throw Error("Invalid ID");
-            }
-            if (ingredients > stockOfIngredients) {
-                throw Error("There are not enough INGREDIENTS")
-            }
-            let precioPorExtraDeCarne = 0;
-            if (numberOfBurgers >= 2) {
-                precioPorExtraDeCarne = numberOfBurgers * price;
-            }
-
-            return Burger(
-                ingredients,
-                price + precioPorExtraDeCarne,
-                id,
-            );
-        },
-        getExtras() {
-            let price = 0
-            if (extras !== "ketchup" && extras !== "fries" && extras !== "Drink") {
-                throw Error("We have not that extra")
-            }
-            price = 1
-
-
-            return {
-                Burger() {
-                    return {
-                        ingredients,
-                        price,
-                        id,
-                    }
-                },
-                Extras() {
-                    return {
-                        ingredients,
-                        price,
-                        id,
-                    }
-                },
-            };
-        },
-    }
-}
-console.log(burgerRestaurant(5, 2, 4, "fries", 2983).getBurgerByID())
-console.log(burgerRestaurant(5, 4, 4, "ketchup", 2983).getExtras().Extras())
+console.log(myMacDaniels.name());
