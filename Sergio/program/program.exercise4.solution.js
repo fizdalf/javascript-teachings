@@ -131,10 +131,15 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock, i
         )
     }
 
-    function updateStockWithAllIngredients(selectedBurgerRecipe) {
+    function updateStockOfAllIngredients(selectedBurgerRecipe, foundExtra) {
         selectedBurgerRecipe.ingredients.forEach(
             (currentIngredient) => {
                 updateStock(currentIngredient);
+            }
+        )
+        foundExtra.ingredients.forEach(
+            (currentExtra) => {
+                updateStock(currentExtra);
             }
         )
     }
@@ -150,36 +155,27 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock, i
         return foundExtra;
     }
 
-    function checkBurgerExists(burgerName) {
+    function findBurgerRecipe(burgerName) {
+        confirmBurguerAndaExtraExists(burgerName);
+        const selectedBurgerRecipe = burgerRecipes.get(burgerName);
+        return selectedBurgerRecipe;
+    }
+
+    function confirmBurguerAndaExtraExists(selectedBurgerRecipe, foundExtra, burgerName) {
+        for (let i = 0; i < selectedBurgerRecipe.extras.length; i++) {
+            let currentExtra = selectedBurgerRecipe.extras[i];
+            if (foundExtra !== currentExtra.extraIngredient) {
+                throw Error("Ese extra no existe")
+            }
+            return "Ahora mismo le ponemos" + selectedBurgerRecipe
+        }
         if (!burgerRecipes.has(burgerName)) {
             throw Error("no existe esa hamburguesa, cerdo");
         }
     }
 
-    function findBurgerRecipe(burgerName) {
-        checkBurgerExists(burgerName);
-        const selectedBurgerRecipe = burgerRecipes.get(burgerName);
-        return selectedBurgerRecipe;
-    }
-
-    function confirmExtraExists(selectedBurgerRecipe, foundExtra) {
-        let exits = false;
-        for (let i = 0; i < selectedBurgerRecipe.extras.length; i++) {
-            let currentExtra = selectedBurgerRecipe.extras[i];
-            if (foundExtra === currentExtra.extraIngredient) {
-                return selectedBurgerRecipe
-            }
-        }
-        return exits;
-    }
-
-    function updateStockWithExtraRequested(extraName) {
-        const updatedIngredientStock = ingredientStock.get(extraName) - 1;
-        ingredientStock.set(extraName, updatedIngredientStock);
-    }
-
     function getNextOrderId() {
-        return id++
+        return id + 1
     }
 
     function getBurgerRecipePrice(burgerRecipe) {
@@ -193,24 +189,20 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock, i
             return name;
         },
         orderBurger(burgerName, extraRequested) {
-
             const selectedBurgerRecipe = findBurgerRecipe(burgerName);
             let foundExtra = findExtra(selectedBurgerRecipe, extraRequested);
             if (extraRequested && !foundExtra) {
                 throw Error('No existe ese ingrediente, pig');
             }
             confirmAllIngredintsExist(selectedBurgerRecipe);
-            confirmExtraExists(selectedBurgerRecipe, foundExtra);
-            updateStockWithAllIngredients(selectedBurgerRecipe);
-            updateStockWithExtraRequested(foundExtra.extraIngredient);
+            confirmBurguerAndaExtraExists(selectedBurgerRecipe, foundExtra, burgerName);
+            updateStockOfAllIngredients(selectedBurgerRecipe);
             return {orderId: getNextOrderId(), price: getBurgerRecipePrice(selectedBurgerRecipe, foundExtra)};
-        },
-        retrieveOrder(orderId, money) {
-
-        }//dibujo de hamburguesa con queso
+        }
     }
 }
 
-const myMacDaniels = BurgerRestaurant('Mc` Daniels', burgerRecipes, menus, ingredientStock);
 
-console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_VEGANA, INGREDIENTS.pepinillo));
+const myMacDaniels = BurgerRestaurant('Mc` Daniels', burgerRecipes, menus);
+
+console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_EXPLOSIVA, INGREDIENTS.water))
