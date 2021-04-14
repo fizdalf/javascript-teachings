@@ -30,7 +30,7 @@ const INGREDIENTS = {
 
 const ingredientStock = new Map(
     [
-        [INGREDIENTS.lechuga, 0],
+        [INGREDIENTS.lechuga, 20],
         [INGREDIENTS.tomate, 20],
         [INGREDIENTS.queso, 20],
         [INGREDIENTS.hamburguesaDeTernera, 20],
@@ -113,7 +113,9 @@ const menus = [
 ]
 
 const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock) {
-
+    if (!ingredientStock) {
+        throw Error("Se requiere una lista de stock de ingredientes");
+    }
 
     function checkIngredientInStock(currentIngredient) {
         if (!ingredientStock.has(currentIngredient) || ingredientStock.get(currentIngredient) < 1) {
@@ -141,13 +143,18 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock) {
         )
     }
 
-    function findExtra(selectedBurgerRecipe, extra) {
+    function checkExtraAllowed(selectedBurgerRecipe, extra) {
         let foundExtra = null;
         for (let i = 0; i < selectedBurgerRecipe.extras.length; i++) {
             let currentExtra = selectedBurgerRecipe.extras[i]; // {extraIngredient: INGREDIENTS.mayonesa, price: 0.2};
+
+
             if (extra === currentExtra.extraIngredient) {
                 foundExtra = currentExtra;
             }
+        }
+        if (!foundExtra) {
+            console.log(selectedBurgerRecipe, extra);
         }
         return foundExtra;
     }
@@ -160,35 +167,27 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock) {
 
     function findBurgerRecipe(burgerName) {
         checkBurgerExists(burgerName);
-        const selectedBurgerRecipe = burgerRecipes.get(burgerName);
-        return selectedBurgerRecipe;
+        return burgerRecipes.get(burgerName);
     }
 
-    function confirmExtraExists(selectedBurgerRecipe, extra) {
-        const foundExtra = findExtra(selectedBurgerRecipe, extra)
-        if (foundExtra === null || !ingredientStock.get(foundExtra) > 0) {
-            throw Error("no existe este ingrediente, cerdo");
+    function confirmThereIsEnoughStockOfExtra(selectedBurgerRecipe, extra) {
+        if (!ingredientStock.has(extra) || ingredientStock.get(extra) <= 2) {
+            throw Error("no existe este ingrediente o no está disponible, cerdo");
         }
     }
 
-    function updateStockWithExtraRequested(currentBurger, extra) {
-        confirmExtraExists(currentBurger, extra);
-        const currentExtra = findExtra(currentBurger, extra)
-        ingredientStock.set(ingredientStock.get(currentExtra) - 1)
+    function updateStockWithExtraRequested(extra) {
+        ingredientStock.set(ingredientStock.get(extra) - 1)
     }
+
+    let currentId = 0;
 
     function getNextOrderId() {
-        return currentId + 1
+        return currentId++;
     }
-    let currentId = getNextOrderId()
 
-    function getBurgerRecipePrice(burgerRecipe, extraRequested) {
-        const theBurguer = findBurgerRecipe()
-        const theExtra = findExtra()
-        const burguerPrice = burgerRecipes.price.get(theBurguer)
-        const extraPrice = burgerRecipes.price.get(theExtra)
-        return burguerPrice + extraPrice
-
+    function getBurgerRecipePrice(burgerRecipe, extraWithPrice) {
+        return burgerRecipe.price + extraWithPrice.price
     }
 
     return {
@@ -197,20 +196,25 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock) {
         },
         orderBurger(burgerName, extraRequested) {
             const selectedBurgerRecipe = findBurgerRecipe(burgerName);
-            let foundExtra = findExtra(selectedBurgerRecipe, extraRequested);
+
+            let foundExtra = checkExtraAllowed(selectedBurgerRecipe, extraRequested);
             if (extraRequested && !foundExtra) {
                 throw Error('No existe ese ingrediente, pig');
             }
             confirmAllIngredintsExist(selectedBurgerRecipe);
-            confirmExtraExists(selectedBurgerRecipe, foundExtra);
+            confirmThereIsEnoughStockOfExtra(selectedBurgerRecipe, extraRequested);
             updateStockWithAllIngredients(selectedBurgerRecipe);
-            updateStockWithExtraRequested(foundExtra);
+            updateStockWithExtraRequested(extraRequested);
             return {orderId: getNextOrderId(), price: getBurgerRecipePrice(selectedBurgerRecipe, foundExtra)};
         }
     }
 }
 
 
-const myMacDaniels = BurgerRestaurant('Mc` Daniels', burgerRecipes, menus);
+const myMacDaniels = BurgerRestaurant('Mc` Daniels', burgerRecipes, menus, ingredientStock);
 
-console.log(myMacDaniels.name());
+console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_EXPLOSIVA, INGREDIENTS.mayonesa));
+// console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_EXPLOSIVA, INGREDIENTS.mayonesa));
+// console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_EXPLOSIVA, INGREDIENTS.mayonesa));
+// console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_EXPLOSIVA, INGREDIENTS.mayonesa));
+// console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_EXPLOSIVA, INGREDIENTS.mayonesa));

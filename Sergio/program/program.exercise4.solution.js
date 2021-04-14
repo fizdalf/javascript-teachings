@@ -163,25 +163,23 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock, i
     }
 
     function confirmExtraExists(selectedBurgerRecipe, foundExtra) {
+        let exits = false;
         for (let i = 0; i < selectedBurgerRecipe.extras.length; i++) {
             let currentExtra = selectedBurgerRecipe.extras[i];
-            if (foundExtra !== currentExtra.extraIngredient) {
-                throw Error("Ese extra no existe")
+            if (foundExtra === currentExtra.extraIngredient) {
+                return selectedBurgerRecipe
             }
-            return "Ahora mismo le ponemos" + selectedBurgerRecipe
         }
+        return exits;
     }
 
-    function updateStockWithExtraRequested(foundExtra) {
-        foundExtra.ingredients.forEach(
-            (currentExtra) => {
-                updateStock(currentExtra);
-            }
-        )
+    function updateStockWithExtraRequested(extraName) {
+        const updatedIngredientStock = ingredientStock.get(extraName) - 1;
+        ingredientStock.set(extraName, updatedIngredientStock);
     }
 
     function getNextOrderId() {
-        return id + 1
+        return id++
     }
 
     function getBurgerRecipePrice(burgerRecipe) {
@@ -195,6 +193,7 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock, i
             return name;
         },
         orderBurger(burgerName, extraRequested) {
+
             const selectedBurgerRecipe = findBurgerRecipe(burgerName);
             let foundExtra = findExtra(selectedBurgerRecipe, extraRequested);
             if (extraRequested && !foundExtra) {
@@ -203,13 +202,15 @@ const BurgerRestaurant = function (name, burgerRecipes, menu, ingredientStock, i
             confirmAllIngredintsExist(selectedBurgerRecipe);
             confirmExtraExists(selectedBurgerRecipe, foundExtra);
             updateStockWithAllIngredients(selectedBurgerRecipe);
-            updateStockWithExtraRequested(foundExtra);
+            updateStockWithExtraRequested(foundExtra.extraIngredient);
             return {orderId: getNextOrderId(), price: getBurgerRecipePrice(selectedBurgerRecipe, foundExtra)};
-        }
+        },
+        retrieveOrder(orderId, money) {
+
+        }//dibujo de hamburguesa con queso
     }
 }
 
+const myMacDaniels = BurgerRestaurant('Mc` Daniels', burgerRecipes, menus, ingredientStock);
 
-const myMacDaniels = BurgerRestaurant('Mc` Daniels', burgerRecipes, menus);
-
-console.log(myMacDaniels.name());
+console.log(myMacDaniels.orderBurger(burgerNames.BOMBA_VEGANA, INGREDIENTS.pepinillo));
