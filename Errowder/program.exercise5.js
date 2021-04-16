@@ -7,23 +7,34 @@
 // mark task as completed: this will allow the user to mark a task a completed
 // exit & save: this will allow the user to exit the program and save the tasks to a disk file
 // The program is required to load a from a file with the same name of the list (if exits) upon initialization
-
+const fs = require('fs');
 const readline = require("readline");
+const {TaskManager} = require('../TaskManager/TaskManager');
+const [, , ...fileNameArray] = process.argv
+
+const fileName = fileNameArray.join('_');
+let tasks = [];
+if (fs.existsSync(fileName)) {
+    const test = fs.readFileSync(fileName);
+    const retrievedText = test.toString();
+
+    try {
+        tasks = JSON.parse(retrievedText);
+        console.log('Cargando tareas desde archivo . . .');
+    } catch (error) {
+        console.log('No existe archivo de tareas, creando uno nuevo');
+    }
+
+} else {
+    console.log('No existe archivo de tareas, creando uno nuevo');
+}
+
+const taskManager = TaskManager(tasks);
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-
-let tasks = [
-    {
-        description: "Tachar el dia del calendario",
-        completed: true,
-    },
-    {
-        description: "Recoger las hojas del patio",
-        completed: false,
-    }
-];
 
 
 function printTasks() {
@@ -37,7 +48,7 @@ function printTasks() {
         rows[0][2].length,
     ]
 
-    tasks.forEach((task, index) => {
+    taskManager.tasks().forEach((task, index) => {
         const indexAsStringWithSpaces = " " + index + " ";
         const descriptionWithSpaces = " " + task.description + " ";
         const completedWithSpaces = " " + (task.completed ? "✔" : "✘️") + " ";
@@ -63,9 +74,15 @@ function printTasks() {
     rows.forEach((row) => console.log(row.join("|")));
 }
 
+function pauseAndShowMenu() {
+    rl.question('Pulsa Enter para continuar', function () {
+        return showMenu();
+    });
+}
+
 const showMenu = () => {
-rl.question(
-`
+    rl.question(
+        `
 Bienvenido a tu programa de tareas
 Escoge una de las siguientes opciones.
 0) Mostrar las tareas actuales.
@@ -74,85 +91,66 @@ Escoge una de las siguientes opciones.
 3) Marcar tarea completada.
 4) Guardar y salir
 `,
-function (selectedOption) {
-const numberOption = parseInt(selectedOption);
-if (isNaN(numberOption) || numberOption
-    < 0 || numberOption > 4)
-    {
-        console.log('Opción inválida');
-        return showMenu();
-    }
-
-
-if (numberOption === 0)
-    {
-        printTasks();
-        return showMenu();
-    }
-else if (numberOption === 1)
-    {
-        // request the description of the task
-        rl.question("Introduzca la descripción de la tarea que desea añadir", function (answer){
-                tasks.push({description: answer, completed: false})
-            printTasks();
-            return showMenu();
-        });
-        // add the task to the list of tasks
-        // print the list of tasks updated
-        // printTasks();
-        // show the menu again
-        // return showMenu();
-    }
-else if (numberOption === 2)
-    {
-        // request the index of the task to remove
-        rl.question("Qué tarea desea eliminar?",function (answer){
-            const numberOption = parseInt(answer);
-            if (isNaN(numberOption) || numberOption < 0 || numberOption > tasks.length) {
+        function (selectedOption) {
+            const numberOption = parseInt(selectedOption);
+            if (isNaN(numberOption) || numberOption
+                < 0 || numberOption > 4) {
                 console.log('Opción inválida');
                 return showMenu();
             }
-            function removeTaskFromLstByIndex(numberOption,){
-                let listOfTask = []
 
-                for(let i =0; i < tasks.length; i++){
-                    if(numberOption !== tasks[i]){
-                        listOfTask.push(numberOption)
+
+            if (numberOption === 0) {
+                printTasks();
+                pauseAndShowMenu();
+            } else if (numberOption === 1) {
+                rl.question("Introduzca la descripción de la tarea que desea añadir\n", function (answer) {
+                    taskManager.addNewTask(answer);
+                    printTasks();
+                    pauseAndShowMenu();
+                });
+            } else if (numberOption === 2) {
+                printTasks();
+                rl.question("Qué tarea desea eliminar?\n", function (answer) {
+                    const numberOption = parseInt(answer);
+                    if (isNaN(numberOption)) {
+                        console.log('Opción inválida');
+                        return showMenu();
                     }
-                    let tasks = listOfTask;
-                }
-            }
-            printTasks()
-            return showMenu()
-        })
-        // check if the value given is correct (if it's not valid return to menu)
-        // if the value is correct, remove the task with the given index
-        // print the list of tasks updated
-        // show the menu again
-    }
-else if (numberOption === 3)
-    {
-        rl.question("Qué tarea quieres marcar como completada?",function(asnswer){
-            const numberOption = parseInt(answer);
-            if (isNaN(numberOption) || numberOption < 0 || numberOption > tasks.length) {
-                console.log('Opción inválida');
-                return showMenu();
-            }
+                    try {
+                        taskManager.deleteTask(numberOption);
+                    } catch (error) {
+                        console.log('Opción inválida');
+                        return showMenu();
+                    }
+                    printTasks();
+                    pauseAndShowMenu();
+                })
+            } else if (numberOption === 3) {
+                printTasks();
+                rl.question("Qué tarea quieres marcar como completada?\n", function (answer) {
+                    const numberOption = parseInt(answer);
+                    if (isNaN(numberOption)) {
+                        console.log('Opción inválida');
+                        return showMenu();
+                    }
 
-        })
-        console.log("Marcar tarea completada.")
-    }
-else if (numberOption === 4)
-    {
-        console.log("Guardar y salir");
-        rl.close();
-    }
-});
+                    try {
+                        taskManager.markAsCompleted(numberOption);
+                    } catch (error) {
+                        console.log('Opción inválida');
+                        return showMenu();
+                    }
+                    printTasks();
+                    pauseAndShowMenu();
+                })
+            } else if (numberOption === 4) {
+                const text = JSON.stringify(taskManager.tasks());
+
+                fs.writeFileSync(fileName, text);
+                rl.close();
+            }
+        });
 }
 
 showMenu();
-
-
-
-
-

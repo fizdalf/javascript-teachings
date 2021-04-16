@@ -81,15 +81,16 @@ const showMenu = () => {
                 return showMenu();
             }
 
-
             if (numberOption === 0) {
                 printTasks();
                 return showMenu();
             } else if (numberOption === 1) {
-                // request the description of the task
-                // add the task to the list of tasks
-                // print the list of tasks updated
-                // show the menu again
+
+                return rl.question('Introduce la descripción de la nueva tarea', description => {
+                    tasks.push({description, completed: false});
+                    printTasks();
+                    showMenu();
+                })
             } else if (numberOption === 2) {
                 // request the index of the task to remove
                 // check if the value given is correct (if it's not valid return to menu)
