@@ -28,3 +28,17 @@ test('TaskManager: markTaskUncompleted checks that the task exists and if not th
     const taskManager = TaskManager();
     expect(() => taskManager.markTaskUncompleted(-50)).toThrow();
 })
+
+test('TaskManager: confirm that the task is added',
+    () => {
+        const taskManager = TaskManager();
+        taskManager.addNewTask("perro");
+        expect(taskManager.tasks().length).toBe(1)
+    }
+)
+test('TaskManager: should error when adding a task with no string or empty string',
+    () => {
+        const taskManager = TaskManager();
+        expect(() => taskManager.addNewTask(1)).toThrow()
+    }
+)
