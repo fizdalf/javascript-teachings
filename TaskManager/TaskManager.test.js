@@ -1,4 +1,4 @@
-const {TaskManager} = require('./TaskManager');
+ const {TaskManager} = require('./TaskManager');
 
 test('TaskManager: it gets created with an empty array of tasks when nothing is passed as argument', () => {
     const taskManager = TaskManager();

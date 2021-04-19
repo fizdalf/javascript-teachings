@@ -39,3 +39,4 @@ exports.TaskManager = function (initialTasks = []) {
     }
 }
 
+exports.test = 4;
