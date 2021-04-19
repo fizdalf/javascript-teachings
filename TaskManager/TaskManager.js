@@ -1,3 +1,4 @@
+const {format} = require('date-fns');
 exports.TaskManager = function (initialTasks = []) {
 
     let tasks = [...initialTasks];
@@ -14,10 +15,10 @@ exports.TaskManager = function (initialTasks = []) {
 
     return {
         addNewTask(description) {
-            if(description === "" || typeof description !== "string"){
+            if (description === "" || typeof description !== "string") {
                 throw Error("pon letras cerdo")
             }
-            tasks.push({description, completed: false});
+            tasks.push({description, completed: false, completedDate: null});
         },
         deleteTask(taskIndex) {
             checkIndexExists(taskIndex);
@@ -28,10 +29,17 @@ exports.TaskManager = function (initialTasks = []) {
         markAsCompleted(taskIndex) {
             checkIndexExists(taskIndex);
             tasks[taskIndex].completed = true;
+            tasks[taskIndex].completedDate = format(new Date(), 'yyyy-MM-dd HH:mm:ss');
         },
         markTaskUncompleted(taskIndex) {
             checkIndexExists(taskIndex);
             tasks[taskIndex].completed = false;
+            tasks[taskIndex].completedDate = null;
+        },
+        pendingTasks() {
+            return tasks.filter((task, index, array) => {
+                return task.completed === false;
+            });
         },
         tasks() {
             return [...tasks];
