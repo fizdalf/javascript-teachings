@@ -14,6 +14,9 @@ exports.TaskManager = function (initialTasks = []) {
 
     return {
         addNewTask(description) {
+            if(description === "" || typeof description !== "string"){
+                throw Error("pon letras cerdo")
+            }
             tasks.push({description, completed: false});
         },
         deleteTask(taskIndex) {
