@@ -28,3 +28,4 @@ test('TaskManager: markTaskUncompleted checks that the task exists and if not th
     const taskManager = TaskManager();
     expect(() => taskManager.markTaskUncompleted(-50)).toThrow();
 })
+
