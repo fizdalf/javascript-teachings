@@ -1,4 +1,4 @@
- const {TaskManager} = require('./TaskManager');
+const {TaskManager} = require('./TaskManager');
 
 test('TaskManager: it gets created with an empty array of tasks when nothing is passed as argument', () => {
     const taskManager = TaskManager();
@@ -42,3 +42,14 @@ test('TaskManager: should error when adding a task with no string or empty strin
         expect(() => taskManager.addNewTask(1)).toThrow()
     }
 )
+
+test('TaskManager: deleteTask erase certain task given the id of the task itself', () => {
+    const taskManager = TaskManager([{description: "Recoger las cacas del perro", completed: true}, {
+        description: "Tirar las cacas por el balcón",
+        completed: true
+    }]);
+    const taskIndex = 0
+    taskManager.deleteTask(taskIndex)
+    const itExist = taskManager.checkIndexExists(taskIndex)
+    expect(itExist).toBe(false)
+})
