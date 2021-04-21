@@ -4,7 +4,8 @@ console.log(2)
 console.log(2.6)
 // muestra por pantalla el resultado de la suma de dos números
 console.log(2 + 5)
-// muestra por pantalla el resto de la división entera entre 7 y 5
+// muestra por pant
+// alla el resto de la división entera entre 7 y 5
 console.log(7 % 5);
 // muestra por pantalla el resultado de la división de dos números
 console.log(10 / 2)
