@@ -3,25 +3,13 @@
 // Example: forEach([1,2,3], console.log)  -> shows 1 then 2 and the 3 in the terminal
 // Example: forEach(["hola", "adios", "tolete"], (x) => console.log(x.split('').reverse().join('')) -> shows "aloh" then "soida" then "etelot" in the terminal
 
-function forEach(array, callBackFunction){
-    let index = 0
-    while (index <= array.length){
-        callBackFunction = true
-        index++
-    }
-    return console.log(array[index])
-}
-
-forEach(["hola", "pedazo", "de", "tonto"], console.log)
-
-
-*********************************************************************************************************
-
 function forEach(array, callbackFn) {
     for (let i = 0; i <= array.length - 1; i++) {
-        callbackFn(array[i], i, array);
+        callbackFn(array[i]);
     }
 }
+
+
 
 forEach([1, 2, 3], console.log);
 const myReverseFunction = (item) => console.log(item.split('').reverse().join(''));

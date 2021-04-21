@@ -11,22 +11,25 @@
 //      + isLibraryOpen(hours)  This is a method that receives hours, a number between 0 and 24 as argument and returns true if the hours are within the open/close hours, returns false otherwise
 
 let library = {
-    address: "calle Fajardo",
-    openHours: 10,
-    closeHours: 14,
-    books: ["learning with Xavi", "learning programming", "functions will be your nightmare"],
+    address: 'Antonio Machado st, number 23, Fuenteovejuna',
+    openHours: 8,
+    closeHours: 20,
+    books: ['Harry Potter Saga', 'The Lord of the Rings Saga', 'The Lord of the Flies'],
+    addBook: function (bookTitle) {
+        this.books.push(bookTitle)
+    },
+    borrowBook: function (bookTitle) {
+        let books = [];
+        let index = 0
+        while (index < this.books.length) {
+            if (bookTitle !== this.books[index]) {
+                books.push(this.books[index])
+            }
+            index++
+        }
+        this.books = books;
+    },
+    isLibraryOpen: function (hour) {
+        return (hour > this.openHours && hour < this.closeHours);
+    }
 }
-
-library.books.push("other book about functions")
-library["books"] = ["learning with Xavi", "functions will be your nightmare", "other book about functions"]
-
-const [, , hour] = process.argv
-const openHours = 10
-const closeHours = 14
-library.isLibraryOpen = true
-if (hour < openHours) {
-    library.isLibraryOpen = false
-} else if (hour > closeHours) {
-    library.isLibraryOpen = false
-}
-console.log(library)
