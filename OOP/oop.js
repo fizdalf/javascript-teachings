@@ -55,7 +55,7 @@ class HealthPowerUp extends PowerUp {
 }
 
 class IncreaseDamagePowerUp extends PowerUp {
-    applyPowerUp(objective: Enemy) {
+    applyPowerUp(objective) {
         objective.damage *= 4;
     }
 }
