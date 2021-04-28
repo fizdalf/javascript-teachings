@@ -11,7 +11,7 @@
 // quedándonos const exerciseLibrary = require('../../exercises/functions/functions.exercise.library.js');
 
 'use strict';
-const exerciseLibrary = require("./../exercises/functions/functions.exercise.library");
+const exerciseLibrary = require("../../exercises/functions/functions.exercise.library");
 exerciseLibrary.rectanglePerimeter();
 
 const terminal = process.argv;

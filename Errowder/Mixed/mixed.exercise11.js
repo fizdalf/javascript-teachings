@@ -1,7 +1,7 @@
 // Create a function Smiley(size, linePixelColor, fillPixelColor) that returns a Shape with a smiley face in it
 // you can as assume width = height = size use the linePixelColor for the lines and fillPixelColor for the fill of the
 // smiley
-const {Shape, drawShape, Pixel} = require("../resources/drawingLibrary");
+const {Shape, drawShape, Pixel} = require("../../resources/drawingLibrary");
 
 const {Circle} = require('./mixed.exercise10');
 

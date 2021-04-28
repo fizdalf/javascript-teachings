@@ -1,9 +1,9 @@
 // Create a function TriangleFilled(width,height,linePixel,fillPixel) this function returns the same Triangle as in
 // the Triangle function, except now paints the inside of the triangle with fillPixel
 
-const {Pixel} = require("../resources/drawingLibrary");
-const {Shape} = require("../resources/drawingLibrary");
-const {drawShape} = require("../resources/drawingLibrary");
+const {Pixel} = require("../../resources/drawingLibrary");
+const {Shape} = require("../../resources/drawingLibrary");
+const {drawShape} = require("../../resources/drawingLibrary");
 
 function TriangleFilled(width, height, linePixel, fillPixel) {
     const triangleShape = Shape(width, height)

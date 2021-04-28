@@ -15,9 +15,9 @@
 // angle    is the angle of the pixel we are trying to draw (
 
 
-const {Pixel} = require("../resources/drawingLibrary");
-const {Shape} = require("../resources/drawingLibrary");
-const {drawShape} = require("../resources/drawingLibrary");
+const {Pixel} = require("../../resources/drawingLibrary");
+const {Shape} = require("../../resources/drawingLibrary");
+const {drawShape} = require("../../resources/drawingLibrary");
 
 function Circumference(radius, linePixelColor) {
     const cx = radius;

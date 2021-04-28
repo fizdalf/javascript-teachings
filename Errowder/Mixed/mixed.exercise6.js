@@ -1,7 +1,7 @@
 //Create a drawing that grows according to the size of width and height from the previous exercises
 
 const {Shape} = require("./mixed.exercise2");
-const {drawComposition} = require("../resources/drawingLibrary")
+const {drawComposition} = require("../../resources/drawingLibrary")
 const {Pixel} = require("./mixed.exercise1");
 const {Square} = require("./mixed.exercise3");
 

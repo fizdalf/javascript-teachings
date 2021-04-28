@@ -2,7 +2,7 @@
 // and drawn with the given linePixelColor, you can assume background is white, and fill the circumference with the given
 // fillPixelColor
 
-const {Shape, drawShape, Pixel} = require("../resources/drawingLibrary");
+const {Shape, drawShape, Pixel} = require("../../resources/drawingLibrary");
 
 function Circle(radius, linePixelColor, fillPixelColor) {
     const cx = radius + 1;
