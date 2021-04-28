@@ -4,6 +4,8 @@ class burger {
     ingredientes = "lechuga, tomate, huevo"
     salsa = "mayonesa"
     carne = "cerdo"
+    extras = ""
+    drink = ""
 }
 
 class carnivorous extends burger {
@@ -14,6 +16,9 @@ class carnivorous extends burger {
 
 class vegetarian extends burger {
     ingredientes = "lechuga"
+    salsa = ""
+    carne = ""
+
 }
 
 class addExtra {
@@ -36,20 +41,20 @@ class onionRings extends addExtra {
 
 
 class addDrink {
-    applyDrink(objetive){
+    applyDrink(objetivo){
 
     }
 }
 
 class cola extends addDrink {
-    applyDrink(objetive) {
-        objetive.drink += "cola"
+    applyDrink(objetivo) {
+        objetivo.drink += "cola"
     }
 }
 
 class waterForVegetarians extends addDrink {
-    applyDrink(objetive) {
-        objetive.drink += "water"
+    applyDrink(objetivo) {
+        objetivo.drink += "water"
     }
 }
 

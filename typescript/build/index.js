@@ -19,63 +19,23 @@ var Enemy = /** @class */ (function () {
         this.healthPoints = 50;
         this.speed = 10;
         this.damage = 10;
-        this.isDead = false;
     }
     Enemy.prototype.attackObjective = function (objective) {
-        objective.takeDamage(this.damage);
-    };
-    Enemy.prototype.getHealthPoints = function () {
-        return this.healthPoints;
-    };
-    Enemy.prototype.takeDamage = function (damageToTake) {
-        this.healthPoints -= damageToTake;
-        if (this.healthPoints <= 0) {
-            this.healthPoints = 0;
-            this.isDead = true;
-        }
-    };
-    Enemy.prototype.modifySpeed = function (newSpeed) {
-        this.speed = newSpeed;
-    };
-    Enemy.prototype.getSpeed = function () {
-        return this.speed;
-    };
-    Enemy.prototype.modifyHealthPoints = function (number) {
-        this.healthPoints = number;
-    };
-    Enemy.prototype.modifyDamage = function (number) {
-        this.damage = number;
-    };
-    Enemy.prototype.getDamage = function () {
-        return this.damage;
-    };
-    Enemy.prototype.healHealthPoints = function (healingDone) {
-        if (this.isDead) {
-            throw new Error('You cannot heal what is dead!');
-        }
-        this.healthPoints += healingDone;
+        objective.healthPoints -= this.damage;
     };
     return Enemy;
 }());
-var UndyingEnemy = /** @class */ (function (_super) {
-    __extends(UndyingEnemy, _super);
-    function UndyingEnemy() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    UndyingEnemy.prototype.takeDamage = function (damageToTake) {
-    };
-    return UndyingEnemy;
-}(Enemy));
 var StrongEnemy = /** @class */ (function (_super) {
     __extends(StrongEnemy, _super);
     function StrongEnemy() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.healthPoints = 100;
         _this.speed = 5;
         _this.damage = 20;
         return _this;
     }
     StrongEnemy.prototype.attackObjective = function (objective) {
-        objective.takeDamage(this.damage * 2);
+        objective.healthPoints -= this.damage * 2;
     };
     return StrongEnemy;
 }(Enemy));
@@ -85,19 +45,17 @@ var Healer = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.speed = 5;
         _this.damage = 10;
-        _this.healing = _this.damage;
         return _this;
     }
     Healer.prototype.attackObjective = function (objective) {
-        objective.healHealthPoints(this.healing);
+        console.log(_super.prototype.healthPoints);
     };
     return Healer;
 }(Enemy));
 var enemy = new Healer();
-enemy.takeDamage(10);
-var objective = new Healer();
+var objective = { healthPoints: 30 };
 enemy.attackObjective(objective);
-console.log(objective, enemy.getHealthPoints());
+console.log(objective, enemy.healthPoints);
 var PowerUp = /** @class */ (function () {
     function PowerUp() {
     }
@@ -111,7 +69,7 @@ var SpeedPowerUp = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     SpeedPowerUp.prototype.applyPowerUp = function (objective) {
-        objective.modifySpeed(objective.getSpeed() * 2);
+        objective.speed *= 2;
     };
     return SpeedPowerUp;
 }(PowerUp));
@@ -121,7 +79,7 @@ var HealthPowerUp = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     HealthPowerUp.prototype.applyPowerUp = function (objective) {
-        objective.modifyHealthPoints(objective.getHealthPoints() * 1.5);
+        objective.healthPoints *= 1.5;
     };
     return HealthPowerUp;
 }(PowerUp));
@@ -131,7 +89,7 @@ var IncreaseDamagePowerUp = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     IncreaseDamagePowerUp.prototype.applyPowerUp = function (objective) {
-        objective.modifyDamage(objective.getDamage() * 4);
+        objective.damage *= 4;
     };
     return IncreaseDamagePowerUp;
 }(PowerUp));

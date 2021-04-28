@@ -5,7 +5,8 @@ class powerGeneratorPlant {
     generateUnlimitedEnergy = true
 }
 
-class oilPlant extends powerGeneratorPlant{
+
+class oilPlant extends powerGeneratorPlant {
     description = "Energía producida mediante la quema de petróleo, el cual se encuentra en bolsas de aire bajo la corteza terrestre"
     cons = "Desgasta la capa de ozono, posibilidad de crear chapapote, peligrosidad de extracción y transporte"
     generateUnlimitedEnergy = false
@@ -36,5 +37,8 @@ class windPowerGenerator extends renewableEnergyGenerationPlant {
     energyCreateByHour = 4000
 }
 
+class sergioPoweredGenerator extends renewableEnergyGenerationPlant {
+    method = "Usa los pedos de sergio para generar energía, es renovable porque el tambien los huele"
+}
 const generatorPlant = new oilPlant
 console.log(generatorPlant)
