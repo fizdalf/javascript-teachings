@@ -1,9 +1,9 @@
 // Create a function Triangle(width, height,linePixel) that returns a Shape with white background an a triangle in it
 // the color of the line should be the one given by linePixel
 
-const {Pixel} = require("../resources/drawingLibrary");
-const {Shape} = require("../resources/drawingLibrary");
-const {drawShape} = require("../resources/drawingLibrary");
+const {Pixel} = require("../../resources/drawingLibrary");
+const {Shape} = require("../../resources/drawingLibrary");
+const {drawShape} = require("../../resources/drawingLibrary");
 
 
 function Triangle(width, height, linePixel) {

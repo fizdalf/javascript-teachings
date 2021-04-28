@@ -132,7 +132,7 @@ function test(string, reversed) {
     return test(string, reversed);
 }
 
-const thing = require('./../Errowder/functions.exercise7');
+const thing = require('../Errowder/Functions/functions.exercise7');
 const reverse = thing.reverseCharacters("");
 
 console.log(reverse);
