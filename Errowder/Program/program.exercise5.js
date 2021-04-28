@@ -9,7 +9,7 @@
 // The program is required to load a from a file with the same name of the list (if exits) upon initialization
 const fs = require('fs');
 const readline = require("readline");
-const {TaskManager} = require('../TaskManager/TaskManager');
+const {TaskManager} = require('../../TaskManager/TaskManager');
 const [, , ...fileNameArray] = process.argv
 
 const fileName = fileNameArray.join('_');

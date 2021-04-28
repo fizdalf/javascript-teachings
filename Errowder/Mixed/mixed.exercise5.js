@@ -8,7 +8,7 @@
 //      + getPixelAt(x,y) => Pixel  This is a method that receives an x, and y position and returns a Pixel, which will be the result of mixing all the pixels form all the shapes that intersect at that point,
 //      if there's no shape at that point, then return a black transparent pixel (R:0,G:0,B:0,A:0), check that x and y are within the bounds of the DrawingComposition
 // Example:
-const {drawComposition} = require("../resources/drawingLibrary");
+const {drawComposition} = require("../../resources/drawingLibrary");
 const {Pixel} = require("./mixed.exercise1"); // make sure to import correctly from the previous exercise
 const {Square} = require("./mixed.exercise3");
 const {ShapePosition} = require("./mixed.exercise4.solutions");
