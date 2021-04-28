@@ -16,63 +16,16 @@ class puzzle {
             this.ageRecommendation = 18 - 99
         }
     }
-
-    class
-    StrongEnemy
-    extends
-    Enemy {
-    healthPoints = 100;
-    speed = 5;
-    damage = 20;
-
-    attackObjective(objective) {
-        objective.healthPoints -= this.damage * 2;
-    }
 }
 
-class Healer extends Enemy {
-    speed = 5;
-    damage = 10;
+class shapedPuzzle extends puzzle {
+    numberOfPieces = 1000;
+    long = 50;
+    wide = 50;
+    shape = 'especial';
 
-    attackObjective(objective) {
-        console.log(super.healthPoints);
-    }
-}
-
-
-const enemy = new Healer();
-
-const objective = {healthPoints: 30};
-enemy.attackObjective(objective);
-
-console.log(objective, enemy.healthPoints);
-
-
-class PowerUp {
-    applyPowerUp(objective) {
+    determineAgeRecommendation(numberOfPieces) {
 
     }
 }
 
-class SpeedPowerUp extends PowerUp {
-    applyPowerUp(objective) {
-        objective.speed *= 2;
-    }
-}
-
-class HealthPowerUp extends PowerUp {
-    applyPowerUp(objective) {
-        objective.healthPoints *= 1.5;
-    }
-}
-
-class IncreaseDamagePowerUp extends PowerUp {
-    applyPowerUp(objective) {
-        objective.damage *= 4;
-    }
-}
-
-const player = new Healer();
-const speedPowerUp = new IncreaseDamagePowerUp();
-speedPowerUp.applyPowerUp(player);
-console.log(player);
