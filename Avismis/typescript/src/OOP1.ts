@@ -42,7 +42,7 @@ class shapedPuzzle extends puzzle {
 
 class threeDPuzzle extends shapedPuzzle {
     numberOfPieces = 500;
-    long = 80;
+    height = 80;
     wide = 60;
     shape = '3D';
 }
