@@ -1,60 +1,60 @@
 //Create a class
 
 class burger {
-    ingredientes = ["lechuga","tomate","huevo"]
+    ingredientes = ["lechuga", "tomate", "huevo"]
     salsa = "mayonesa"
     carne = "cerdo"
     extras = ""
-    drink = ""
+    drink = "";
 }
 
 class carnivorous extends burger {
-    ingredientes.push("bacon")
+    ingredientes = ["lechuga", "tomate", "huevo", "bacon"];
     salsa = "ketchup"
     carne = "doble cerdo"
 }
 
 class vegetarian extends burger {
-    ingredientes = "lechuga"
+    ingredientes = ["lechuga"];
     salsa = ""
     carne = ""
 
 }
 
 class addExtra {
-    applyExtra(objetivo: burger){
+    applyExtra(objetivo: burger) {
 
     }
 }
 
 class nuggets extends addExtra {
-    applyExtra(objetivo: burger){
+    applyExtra(objetivo: burger) {
         objetivo.extras += "nuggets"
     }
 }
 
 class onionRings extends addExtra {
-    applyExtra(objetivo: burger){
+    applyExtra(objetivo: burger) {
         objetivo.extras += "onionRings"
     }
 }
 
 
 class addDrink {
-    applyDrink(objetivo: burger){
+    applyDrink(objetivo: burger) {
 
     }
 }
 
 class cola extends addDrink {
     applyDrink(objetivo: burger) {
-        objetivo.drink += "cola"
+        objetivo.drink = "cola"
     }
 }
 
 class waterForVegetarians extends addDrink {
     applyDrink(objetivo: burger) {
-        objetivo.drink += "water"
+        objetivo.drink = "water"
     }
 }
 

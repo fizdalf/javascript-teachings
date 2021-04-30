@@ -4,12 +4,15 @@ class BoardGame {
     wide = 50;
     shape = 'rectangle';
     ageRecommendation = 15 - 99;
+    minAgeRecommendation = 15;
+    maxAgeRecommendation = 99;
     board = false
 
     determineAgeRecommendation(numberOfPieces: number) {
         this.numberOfPieces = numberOfPieces;
         if (this.numberOfPieces > 0 && this.numberOfPieces < 20) {
-            this.ageRecommendation = 6 - 10
+            this.minAgeRecommendation = 6;
+            this.maxAgeRecommendation = 10;
         } else if (this.numberOfPieces > 20 && this.numberOfPieces < 100) {
             this.ageRecommendation = 10 - 15;
         } else if (this.numberOfPieces > 100 && this.numberOfPieces < 500) {
@@ -34,8 +37,6 @@ class shapedPuzzle extends puzzle {
     shape = 'especial';
 
     determineAgeRecommendation(numberOfPieces: number) {
-        this.numberOfPieces = numberOfPieces;
-
     }
 }
 
@@ -48,17 +49,9 @@ class threeDPuzzle extends shapedPuzzle {
 
 
 class rolGame extends BoardGame {
-    cards = 'treasures';
-    // @ts-ignore
-    'events';
-    // @ts-ignore
-    'characters';
-    // @ts-ignore
-    'monsters';
+    cards = ['treasures', 'events', 'characters', 'monsters'];
     numberOfCards = 200
-    figures = 'monsters';
-    // @ts-ignore
-    'characters'
+    figures = ['monsters', 'characters'];
     numberOfFigures = 50
     numberOfTotems = 6
     board = true
