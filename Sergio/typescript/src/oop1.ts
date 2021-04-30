@@ -1,160 +1,46 @@
-class Enemy {
-    private healthPoints = 50;
-    protected speed = 10;
-    protected damage = 10;
-    protected isDead = false;
+class electronicDevices {
 
-    attackObjective(objective: Enemy) {
-        objective.takeDamage(this.damage)
+    playsSound(){
+        console.log("depende del aparato electrónico tendrá un sonido u otro")
     }
+}
 
-    getHealthPoints() {
-        return this.healthPoints;
+class radio extends electronicDevices {
+    playsSound(){
+        console.log("los cuarentaaaa")
     }
+}
 
-    takeDamage(damageToTake: number) {
-        this.healthPoints -= damageToTake;
-        if (this.healthPoints <= 0) {
-            this.healthPoints = 0;
-            this.isDead = true;
+class phone extends electronicDevices {
+    playsSound(){
+        console.log("Laura está a 5 km de ti")
+    }
+    callOfYourMom(answer:string){
+        if(!answer){
+            throw Error("como le cuelgas a tu madre?? te la vas a cargar !!")
+        }else{
+            console.log("Quien narices es laura y porque vino a verte?")
         }
     }
+}
 
-    modifySpeed(newSpeed: number) {
-        this.speed = newSpeed;
+class computer extends  electronicDevices {
+    playsSound(){
+        console.log("!!PIM PIM PIM, SE HA DETECTADO UNA AMENAZA")
     }
-
-    getSpeed() {
-        return this.speed;
-    }
-
-    modifyHealthPoints(number: number) {
-        this.healthPoints = number;
-    }
-
-    modifyDamage(number: number) {
-        this.damage = number;
-    }
-
-    getDamage() {
-        return this.damage;
-    }
-
-    healHealthPoints(healingDone: number) {
-        if (this.isDead) {
-            throw new Error('You cannot heal what is dead!');
-        }
-        this.healthPoints += healingDone;
+    editText(edit: string){
+        const savedText = "texto por defecto"
+        return savedText + edit
     }
 }
 
-class UndyingEnemy extends Enemy {
-    takeDamage(damageToTake: number) {
-
-    }
-}
-
-class StrongEnemy extends Enemy {
-    speed = 5;
-    damage = 20;
-
-    attackObjective(objective: Enemy) {
-        objective.takeDamage(this.damage * 2);
-    }
-}
-
-class Healer extends Enemy {
-    speed = 5;
-    protected damage = 10;
-    private healing = this.damage;
-
-    attackObjective(objective: Enemy) {
-        objective.healHealthPoints(this.healing);
-    }
-}
-
-
-const enemy = new Healer();
-enemy.takeDamage(10);
-const objective = new Healer();
-enemy.attackObjective(objective);
-
-console.log(objective, enemy.getHealthPoints());
-
-
-class PowerUp {
-    applyPowerUp(objective: Enemy) {
-
-    }
-}
-
-class SpeedPowerUp extends PowerUp {
-    applyPowerUp(objective: Enemy) {
-        objective.modifySpeed(objective.getSpeed() * 2);
-    }
-}
-
-class HealthPowerUp extends PowerUp {
-    applyPowerUp(objective: Enemy) {
-        objective.modifyHealthPoints(objective.getHealthPoints() * 1.5);
-    }
-}
-
-class IncreaseDamagePowerUp extends PowerUp {
-    applyPowerUp(objective: Enemy) {
-        objective.modifyDamage(objective.getDamage() * 4)
-    }
-}
-
-const player = new Healer();
-const speedPowerUp = new IncreaseDamagePowerUp();
-speedPowerUp.applyPowerUp(player);
-console.log(player);
-
-
-class Animal {
-    isAlive = true;
-
-    makeSound() {
-
+class gamerComputer extends computer {
+    playsSound(){
+        console.log("*sondios de disparos en gta*")
     }
 
-    shredYourFaceToPiecesWithTheirPaws() {
-        throw Error("ONLY SUBCLASSES OF ANIMAL CAN USE THIS!");
-    }
-}
-
-class Cat extends Animal {
-    shredYourFaceToPiecesWithTheirPaws() {
-        console.log('Your face looks like spaghetti!');
-    }
-
-    makeSound() {
-        console.log('Miau');
-    }
-}
-
-class Dog extends Animal {
-    isBetterThanAFuckingCat = true;
-
-    shredYourFaceToPiecesWithTheirPaws() {
-        console.error('I\'m not a fucking cat!');
-    }
-
-    makeSound() {
-        console.log('Guau');
-    }
-
-    barf() {
-        this.makeSound();
-    }
-}
-
-class MuteDog extends Dog {
-    isBetterThanAFuckingCat = false;
-
-    makeSound() {
-        console.log('');
+    playGames(){
+        console.log("primero estuda y despues juega cerdo!!")
     }
 
 }
