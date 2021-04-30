@@ -6,7 +6,8 @@ class BoardGame {
     ageRecommendation = 15 - 99;
     board = false
 
-    determineAgeRecommendation(numberOfPieces) {
+    determineAgeRecommendation(numberOfPieces: number) {
+        this.numberOfPieces = numberOfPieces;
         if (this.numberOfPieces > 0 && this.numberOfPieces < 20) {
             this.ageRecommendation = 6 - 10
         } else if (this.numberOfPieces > 20 && this.numberOfPieces < 100) {
@@ -32,7 +33,8 @@ class shapedPuzzle extends puzzle {
     wide = 50;
     shape = 'especial';
 
-    determineAgeRecommendation(numberOfPieces) {
+    determineAgeRecommendation(numberOfPieces: number) {
+        this.numberOfPieces = numberOfPieces;
 
     }
 }
@@ -47,11 +49,15 @@ class threeDPuzzle extends shapedPuzzle {
 
 class rolGame extends BoardGame {
     cards = 'treasures';
+    // @ts-ignore
     'events';
+    // @ts-ignore
     'characters';
+    // @ts-ignore
     'monsters';
     numberOfCards = 200
     figures = 'monsters';
+    // @ts-ignore
     'characters'
     numberOfFigures = 50
     numberOfTotems = 6
