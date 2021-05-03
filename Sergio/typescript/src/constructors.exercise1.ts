@@ -22,7 +22,7 @@ class MegaEnemy extends Enemy {
     power = 1000;
 
     constructor(health = 500, power = 200) {
-        super(health,power)
+        super(health, power)
     }
 
     UltraAttack() {
@@ -31,11 +31,13 @@ class MegaEnemy extends Enemy {
 }
 
 class InoffensiveEnemy extends Enemy {
-    constructor(health = 5, power = 2) {
-        super(health,power)
-    }
     health = 1;
     power = 0
+    constructor(health = 5, power = 2) {
+        super(health, power)
+    }
+
+
 }
 
 class Match {
