@@ -5,7 +5,7 @@ class Robot {
     private madeIn = "Ye";
     private Robot: undefined;
 
-    constructor(){
+    constructor(materials = [metal", "iron", "plastic", "sugar", "spices", "lots of pretty things"], shape: "Humanoide"){
 
 
     }
