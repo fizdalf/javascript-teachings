@@ -1,7 +1,7 @@
 
 export class TreasureFinder {
 
-    constructor(private map: any) {
+    constructor(private map: string[][]) {
 
     }
 

@@ -37,13 +37,13 @@ describe('TreasureFinder Class', function () {
                 map             |      result
             ${solvable5x5Map}  | ${[4, 0]}
             ${solvable3x3Map}  | ${[3, 0]}
-        `('findTreasurePosition should return a tuple of the treasure\'s position given a valid map ', ({
-                                                                                                                                                                                                                map,
-                                                                                                                                                                                                                result
-                                                                                                                                                                                                            }) => {
-            const treasureFinder = new TreasureFinder(`${map}`);
-            expect(treasureFinder.findTreasurePosition()).toBe(result);
-        })
+        `(
+            'findTreasurePosition should return a tuple of the treasure\'s position given a valid map ',
+            ({map, result}) => {
+                const treasureFinder = new TreasureFinder(`${map}`);
+                expect(treasureFinder.findTreasurePosition()).toBe(result);
+            }
+        )
 
         test('findTreasurePosition should return null when there is a wrong direction indicated in the map ', () => {
             const treasureFinder = new TreasureFinder(wrongDirectionsMap);
