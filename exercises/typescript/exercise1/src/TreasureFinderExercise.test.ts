@@ -40,7 +40,7 @@ describe('TreasureFinder Class', function () {
         `(
             'findTreasurePosition should return a tuple of the treasure\'s position given a valid map ',
             ({map, result}) => {
-                const treasureFinder = new TreasureFinder(`${map}`);
+                const treasureFinder = new TreasureFinder(map);
                 expect(treasureFinder.findTreasurePosition()).toBe(result);
             }
         )
