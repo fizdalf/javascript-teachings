@@ -1,4 +1,5 @@
-import {TreasureFinder} from "./TreasureFinder";
+import {TreasureFinder} from "./TreasureFinderBest";
+
 
 const solvable5x5Map = [
     ["X", "W3", "E2", "S3", "S4"],
@@ -12,6 +13,13 @@ const solvable3x3Map = [
     ["N1", "W1", "S1",],
     ["X", "W1", "W1",],
 ]
+
+const twoStepsSolvable3x3Map = [
+    ["E1", "E1", "S1",],
+    ["N1", "S1", "S1",],
+    ["X", "W1", "W1",],
+]
+
 const xInTheMiddle3x3Map = [
     ["W1", "S1", "S1"],
     ["N1", "X", "S1"],
@@ -95,6 +103,8 @@ const wrongDirectionsMap = [
     ["N1", "X", "S2", "E1", "W4"],
     ["X", "E3", "X", "N2", "W4"]
 ];
+
+
 const loopingMap = [
     ["X", "W3", "E2", "S3", "S2"],
     ["S1", "E1", "N1", "S2", "W1"],
@@ -110,12 +120,12 @@ describe('TreasureFinder Class', function () {
         it.each`
                 map             |      result
             ${solvable5x5Map}  | ${[4, 0]}
-            ${solvable3x3Map}  | ${[3, 0]}
+            ${solvable3x3Map}  | ${[2, 0]}
         `(
             'findTreasurePosition should return a tuple of the treasure\'s position given a valid map ',
             ({map, result}) => {
                 const treasureFinder = new TreasureFinder(map);
-                expect(treasureFinder.findTreasurePosition()).toBe(result);
+                expect(treasureFinder.findTreasurePosition()).toStrictEqual(result);
             }
         )
 
@@ -128,6 +138,15 @@ describe('TreasureFinder Class', function () {
             const treasureFinder = new TreasureFinder(loopingMap);
             expect(treasureFinder.findTreasurePosition()).toBe(null);
         })
+
+        // [
+        //  ["X"]
+        // ]
+        // [
+        //  ["S1", "S2", "S3"],
+        //  ["S1", "X" , "S3"],
+        //  ["S1", "S2", "S3"],
+        // ]
 
         test('findTreasurePosition should return the tuple of the treasure\'s position if is in the default position (the middle of the map)',
             () => {
@@ -205,11 +224,79 @@ describe('TreasureFinder Class', function () {
             }
         )
 
+
+        const twoStepNW3x3Map = [
+            ["X", "W1", "S2"],
+            ["S2", "N1", "S2"],
+            ["S2", "S2", "S2"],
+        ]
+        const twoStepNE3x3Map = [
+            ["S2", "E1", "X"],
+            ["S2", "N1", "S2"],
+            ["S2", "S2", "S2"],
+        ]
+        const twoStepSW3x3Map = [
+            ["S2", "S2", "S2"],
+            ["S2", "S1", "S2"],
+            ["X", "W1", "S2"],
+        ]
+        const twoStepSE3x3Map = [
+            ["X", "W1", "S2"],
+            ["S2", "S1", "S2"],
+            ["S2", "E1", "X"],
+        ];
+
+        const twoStepWS3x3Map = [
+            ["S2", "E1", "X"],
+            ["S1", "W1", "S2"],
+            ["X", "S2", "S2"],
+        ];
+
+        const twoStepWN3x3Map = [
+            ["X", "S2", "S2"],
+            ["N1", "W1", "S2"],
+            ["S2", "S2", "S2"],
+        ];
+
+        const twoStepES3x3Map = [
+            ["S2", "E1", "E2"],
+            ["S1", "E1", "S1"],
+            ["X", "S2", "X"],
+        ];
+
+        const twoStepEN3x3Map = [
+            ["S2", "S2", "X"],
+            ["S2", "E1", "N1"],
+            ["S2", "S2", "S2"],
+        ];
+
+        it.each`
+                map            |      result
+            ${twoStepNW3x3Map}  | ${[0, 0]}
+            ${twoStepNE3x3Map}  | ${[0, 2]}
+            ${twoStepSW3x3Map}  | ${[2, 0]}
+            ${twoStepSE3x3Map}  | ${[2, 2]}
+            ${twoStepWS3x3Map}  | ${[2, 0]}
+            ${twoStepWN3x3Map}  | ${[0, 0]}
+            ${twoStepES3x3Map}  | ${[2, 2]}
+            ${twoStepEN3x3Map}  | ${[0, 2]}
+        `('should return the position of the treasure after two movements following the directions',
+            ({map, result}) => {
+                const treasureFinder = new TreasureFinder(map);
+                expect(treasureFinder.findTreasurePosition()).toStrictEqual(result);
+            }
+        )
+
+        const smallLoopingMap = [
+            ["S2", "S1", "X"],
+            ["S2", "N1", "N1"],
+            ["S2", "S2", "S2"],
+        ]
         test('findTreasurePosition should return null if we enter in a loop',
             () => {
-                const treasureFinder = new TreasureFinder(loopingMap);
+                const treasureFinder = new TreasureFinder(smallLoopingMap);
                 expect(treasureFinder.findTreasurePosition()).toStrictEqual(null);
-            }
+            }, 500
         )
     })
 })

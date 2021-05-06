@@ -29,8 +29,6 @@ const loopingMap = [
     ["X", "E3", "X", "N2", "E4"]
 ];
 describe('TreasureFinder Class', function () {
-
-
     describe('findTreasurePosition', function () {
         const firstLine = solvable3x3Map[0]
         const thirdLine = solvable3x3Map [2]

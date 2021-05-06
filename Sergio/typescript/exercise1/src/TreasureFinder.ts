@@ -1,4 +1,4 @@
-export class TreasureFinder {
+export class TreasureFinderShitVersion {
 
     constructor(private map: string[][]) {
 
