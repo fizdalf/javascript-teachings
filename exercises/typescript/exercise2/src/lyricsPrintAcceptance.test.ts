@@ -31,7 +31,7 @@ describe('LyricsPrint Function', function () {
             ]
         );
     });
-    it("Long lyrics advenced test", function () {
+    it("Long lyrics advanced test", function () {
         const lyrics = [
             [
                 'Well here we are again',
