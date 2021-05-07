@@ -1,3 +1,3 @@
-export function LyricsPrint(lyrics: string[][]): string[] {
+export function LyricsPrint(lyrics: string[][]): string[][] {
     return []
 }
