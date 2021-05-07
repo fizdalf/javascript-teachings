@@ -1,11 +1,31 @@
 //Create a class
 
+class keysOfMotorVehicle {
+    turnOnTheMotor = true
+}
+
+class manualKeys extends keysOfMotorVehicle {
+    methodToOpen = "manual"
+}
+
+class remoteKeys extends keysOfMotorVehicle {
+    methodToOpen = "remote"
+}
+
+
 class motorVehicle {
     maxSpeed = 200
     fuel = "Gasoline"
     price = 35000
     wheels = 4
     travelByRoad = true
+    turnOnTheMotor = false
+    keys: keysOfMotorVehicle;
+    constructor(keysOfMotorVehicle: keysOfMotorVehicle){
+        if(keysOfMotorVehicle){
+            this.keys = keysOfMotorVehicle
+        }
+    }
 }
 
 class car extends motorVehicle {
