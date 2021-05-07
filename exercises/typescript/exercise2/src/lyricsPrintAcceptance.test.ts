@@ -35,6 +35,7 @@ describe('LyricsPrint Function', function () {
         const lyrics = [
             [
                 'Well here we are again',
+
                 'Its always such a pleasure',
             ],
             [
