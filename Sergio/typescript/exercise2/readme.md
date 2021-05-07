@@ -1,8 +1,8 @@
 Text printing like Portal 2 end credits
-Now you have finished this brilliant game and want to create some similar that you saw after.
+Now you finished this brilliant game and wanna create some simillar that you saw after.
 
 Task:
-Create a function, that takes a song text and then return symbols step by step out like it computer console printing. You have song as an array:
+Create function, that take song text and then return symbols step by step out like it computer console printing. You have song as an array:
 ```javascript
 //lyrics.length >= 0 && lyrics[any].length >= 0
 const lyrics = [

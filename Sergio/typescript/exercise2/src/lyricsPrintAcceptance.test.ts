@@ -1,6 +1,6 @@
 import {LyricsPrint} from "./lyricsPrint";
 
-describe('LyricsPrint Function', function () {
+describe('LyricsPrint', function () {
     it("Short simple test", function () {
         const lyrics = [
             [
@@ -35,7 +35,6 @@ describe('LyricsPrint Function', function () {
         const lyrics = [
             [
                 'Well here we are again',
-
                 'Its always such a pleasure',
             ],
             [
