@@ -1,5 +1,6 @@
 import {LyricsPrint} from "./lyricsPrint";
 
+
 describe('LyricsPrint Function', function () {
     it("Short simple test", function () {
         const lyrics = [
@@ -31,7 +32,7 @@ describe('LyricsPrint Function', function () {
             ]
         );
     });
-    it("Long lyrics advanced test", function () {
+    it("Long lyrics advenced test", function () {
         const lyrics = [
             [
                 'Well here we are again',
