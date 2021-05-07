@@ -1,6 +1,6 @@
 import {LyricsPrint} from "./lyricsPrint";
 
-describe('LyricsPrint Function', function () {
+describe('Acceptance', function () {
     it("Short simple test", function () {
         const lyrics = [
             [
