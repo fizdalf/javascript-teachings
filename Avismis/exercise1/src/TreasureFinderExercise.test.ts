@@ -30,39 +30,6 @@ const loopingMap = [
 ];
 describe('TreasureFinder Class', function () {
     describe('findTreasurePosition', function () {
-        const firstLine = solvable3x3Map[0]
-        const thirdLine = solvable3x3Map [2]
-        const startLine = solvable3x3Map[1]
-        const startElement = startLine[1]
-        if (startElement === "W1"){
-            let currentPosition = startLine[0];
-            if (startLine[0] === "N1"){
-                let currentPosition = firstLine[0];
-                if (firstLine[0] === "E1"){
-                    let currentPosition = firstLine[1];
-                    if (firstLine[1] === "E1"){
-                        let currentPosition = firstLine[2];
-                        if (firstLine[2] === "S1"){
-                            let currentPosition = startLine[2];
-                            if (startLine[2] === "S1"){
-                                let currentPosition = thirdLine[2];
-                                if (thirdLine[2] === "W1"){
-                                    let currentPosition = thirdLine[1];
-                                    if (thirdLine[1] === "W1"){
-                                        let currentPosition = thirdLine[0];
-                                        if (thirdLine[0] === "X"){
-                                            let currentPosition = thirdLine[0];
-                                            return currentPosition
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 
         it.each`
                 map             |      result
