@@ -47,23 +47,20 @@ describe('LyricsPrint ', function () {
         expect(LyricsPrint(lyrics)).toStrictEqual(expected);
     });
 
-    const oneArrayInsideTheArray = [[]];
-    const oneArrayInsideTheArrayExpected = [[""]];
-    const twoArraysInsideTheArray =[[], []];
-    const twoArraysInsideTheArrayExpected =[[""], [""]];
-    const threeArraysInsideTheArray = [[], [], []];
-    const threeArraysInsideTheArrayExpected = [[""], [""], [""]];
+    const twoArraysInsideTheArray = [["Well"],["here"]]
+    const twoArraysInsideTheArrayExpected = [["W_"],["We_"],["Wel_"],["Well_"],["h_"], ["he_"],["her_"], ["here_"]]
+    const threeArraysInsideTheArray = [["Well"],["here"],["we"]]
+    const threeArraysInsideTheArrayExpected = [["W_"],["We_"],["Wel_"],["Well_"],["h_"], ["he_"],["her_"], ["here_"], ["w_"], ["we_"]]
 
 
     it.each`
            Array                     | expectedArray
-        ${oneArrayInsideTheArray}    | ${oneArrayInsideTheArrayExpected}
-        ${twoArraysInsideTheArray}  | ${twoArraysInsideTheArrayExpected}
-        ${threeArraysInsideTheArray}   | ${threeArraysInsideTheArrayExpected} 
+        ${twoArraysInsideTheArray}   | ${twoArraysInsideTheArrayExpected}
+        ${threeArraysInsideTheArray} | ${threeArraysInsideTheArrayExpected} 
     `
-    ('should return a valid output with one array that has any number of arrays', ({array, expectedArray}) => {
-        let lyrics = [array];
-        expect(LyricsPrint(lyrics)).toStrictEqual(expectedArray);
+    ('should return a valid output with one array that has any number of arrays', ({newArray, expectedArray}) => {
+        let array = [newArray];
+        expect(LyricsPrint(array)).toStrictEqual(expectedArray);
     });
 
 });
