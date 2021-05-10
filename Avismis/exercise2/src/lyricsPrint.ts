@@ -13,6 +13,7 @@ export function LyricsPrint(lyrics: string[][]): string[][] {
 
     const toReturn = [];
     const previousWords = [];
+
     for (let wordIndex = 0; wordIndex < lyrics[0].length; wordIndex++) {
         let word = "";
         for (let characterIndex = 0; characterIndex < lyrics[0][wordIndex].length; characterIndex++) {
@@ -24,5 +25,21 @@ export function LyricsPrint(lyrics: string[][]): string[][] {
         }
         previousWords.push(word);
     }
+
+    const nextWords = [];
+
+    for (let wordIndex = 0; wordIndex < lyrics[0].length; wordIndex++) {
+        let word = "";
+        for (let characterIndex = 0; characterIndex < lyrics[0][wordIndex].length; characterIndex++) {
+            word += getCharacter(lyrics, wordIndex, characterIndex);
+            const wordsArray = [];
+            nextWords.forEach(w => wordsArray.push(w));
+            wordsArray.push(`${word}_`);
+            toReturn.push(wordsArray);
+        }
+        nextWords.push(word);
+    }
+
     return toReturn;
 }
+

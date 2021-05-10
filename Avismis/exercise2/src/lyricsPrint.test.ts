@@ -61,7 +61,7 @@ describe('LyricsPrint ', function () {
         ${twoArraysInsideTheArray}  | ${twoArraysInsideTheArrayExpected}
         ${threeArraysInsideTheArray}   | ${threeArraysInsideTheArrayExpected} 
     `
-    ('should return valid output with one array that has any number of arrays', ({array, expectedArray}) => {
+    ('should return a valid output with one array that has any number of arrays', ({array, expectedArray}) => {
         let lyrics = [array];
         expect(LyricsPrint(lyrics)).toStrictEqual(expectedArray);
     });
