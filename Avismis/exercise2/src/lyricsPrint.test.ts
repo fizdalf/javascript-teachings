@@ -1,31 +1,69 @@
 import {LyricsPrint} from "./lyricsPrint";
 
-const firstSentence = [
-    "Well, here we are again"
-]
-
-describe('LyricsPrint Function',  () => {
-
-    it("should print nothing at all", () => {
-        const lyricsPrint = LyricsPrint([]);
-        expect(lyricsPrint).toBe([])
+describe('LyricsPrint ', function () {
+    it("should return an empty array if called with empty array", function () {
+        let lyrics: string[][] = [];
+        expect(LyricsPrint(lyrics)).toStrictEqual(
+            []
+        );
+    });
+    it('should return an empty array if called with an empty array in an empty array', () => {
+        let lyrics = [[]];
+        expect(LyricsPrint(lyrics)).toStrictEqual(
+            []
+        );
     })
 
-    test("It has to print the letter 'w_' as a computer would do", () => {
-        const lyricsPrint = LyricsPrint([["w"]]);
-        expect(lyricsPrint).toBe([
-            ["w_"]
-        ])
-    })
+    it.each`
+            word        | expectedResult
+            ${"H"}      | ${[["H_"],]}
+            ${"Ho"}     | ${[["H_"], ["Ho_"],]}
+            ${"Hol"}    | ${[["H_"], ["Ho_"], ["Hol_"],]}
+            ${"F"}      | ${[["F_"],]} 
+            ${"Fr"}     | ${[["F_"], ["Fr_"],]} 
+            ${"Fri"}    | ${[["F_"], ["Fr_"], ["Fri_"],]} 
+            ${""}       | ${[]} 
+        `('should return valid output with a word',
+        ({word, expectedResult}) => {
+            let lyrics = [[word]];
+            expect(LyricsPrint(lyrics)).toStrictEqual(expectedResult);
+        });
 
-    test("It has to print the letters 'we_' as a computer would do", () => {
-        const lyricsPrint = LyricsPrint([["we"]]);
-        expect(lyricsPrint).toBe([
-            ["w_"],
-            ["we_"]
-        ])
-    })
+    const twoWords = ["hola", "friend"];
+    const twoWordsExpected = [['h_'], ['ho_'], ['hol_'], ['hola_'], ['hola', 'f_'], ['hola', 'fr_'], ['hola', 'fri_'], ['hola', 'frie_'], ['hola', 'frien_'], ['hola', 'friend_'],];
+    const threeWords = ["hola", "my", "friend"]
+    const threeWordsExpected = [['h_'], ['ho_'], ['hol_'], ['hola_'], ['hola', 'm_'], ['hola', 'my_'], ['hola', 'my', 'f_'], ['hola', 'my', 'fr_'], ['hola', 'my', 'fri_'], ['hola', 'my', 'frie_'], ['hola', 'my', 'frien_'], ['hola', 'my', 'friend_'],];
+    const fourWords = ["hola", "my", "friend", 'I'];
+    const fourWordsExpected = [['h_'], ['ho_'], ['hol_'], ['hola_'], ['hola', 'm_'], ['hola', 'my_'], ['hola', 'my', 'f_'], ['hola', 'my', 'fr_'], ['hola', 'my', 'fri_'], ['hola', 'my', 'frie_'], ['hola', 'my', 'frien_'], ['hola', 'my', 'friend_'], ['hola', 'my', 'friend', 'I_'],];
+
+    it.each`
+           words       | expected
+        ${twoWords}    | ${twoWordsExpected}
+        ${threeWords}  | ${threeWordsExpected}
+        ${fourWords}   | ${fourWordsExpected} 
+    `
+    ('should return valid output with one array that has any number of words', ({words, expected}) => {
+        let lyrics = [words];
+        expect(LyricsPrint(lyrics)).toStrictEqual(expected);
+    });
+
+    const oneArrayInsideTheArray = [[]];
+    const oneArrayInsideTheArrayExpected = [[""]];
+    const twoArraysInsideTheArray =[[], []];
+    const twoArraysInsideTheArrayExpected =[[""], [""]];
+    const threeArraysInsideTheArray = [[], [], []];
+    const threeArraysInsideTheArrayExpected = [[""], [""], [""]];
 
 
-})
+    it.each`
+           Array                     | expectedArray
+        ${oneArrayInsideTheArray}    | ${oneArrayInsideTheArrayExpected}
+        ${twoArraysInsideTheArray}  | ${twoArraysInsideTheArrayExpected}
+        ${threeArraysInsideTheArray}   | ${threeArraysInsideTheArrayExpected} 
+    `
+    ('should return valid output with one array that has any number of arrays', ({array, expectedArray}) => {
+        let lyrics = [array];
+        expect(LyricsPrint(lyrics)).toStrictEqual(expectedArray);
+    });
 
+});
