@@ -54,13 +54,13 @@ describe('LyricsPrint ', function () {
 
 
     it.each`
-           Array                     | expectedArray
-        ${twoArraysInsideTheArray}   | ${twoArraysInsideTheArrayExpected}
-        ${threeArraysInsideTheArray} | ${threeArraysInsideTheArrayExpected} 
+              Array                     |       expectedArray
+        ${twoArraysInsideTheArray}      | ${twoArraysInsideTheArrayExpected}
+        ${threeArraysInsideTheArray}    | ${threeArraysInsideTheArrayExpected} 
     `
-    ('should return a valid output with one array that has any number of arrays', ({newArray, expectedArray}) => {
-        let array = [newArray];
-        expect(LyricsPrint(array)).toStrictEqual(expectedArray);
+    ('should return a valid output with one array that has any number of arrays', ({Array, expectedArray}) => {
+
+        expect(LyricsPrint(Array)).toStrictEqual(expectedArray);
     });
 
 });
