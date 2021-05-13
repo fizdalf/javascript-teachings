@@ -1,7 +1,7 @@
 import {LyricsPrint} from "./lyricsPrint";
 
 
-describe('Sergio', function () {
+describe('LyricsPrint ', function () {
     it("should return an empty array if called with empty array", function () {
         let lyrics: string[][] = [];
         expect(LyricsPrint(lyrics)).toStrictEqual(
@@ -48,6 +48,28 @@ describe('Sergio', function () {
         expect(LyricsPrint(lyrics)).toStrictEqual(expected);
     });
 
+    // const twoArray = [["Hola"],["Pepe"]]
+    // const twoArrayExpected = [["H_"],["Ho_"],["Hol_"],["Hola_"],["P_"],["Pe_"],["Pep_"],["Pepe_"]]
+    // const threeArray = [["Hola"],["Pepe"],["Feo"]]
+    // const threeArrayExpected = [["H_"],["Ho_"],["Hol_"],["Hola_"],["P_"],["Pe_"],["Pep_"],["Pepe_"],["F_"],["Fe_"],["Feo_"]]
+    //
+    // it.each`
+    //        words       | expected
+    //     ${twoArray}    | ${twoArrayExpected}
+    //     ${threeArray}   | ${threeArrayExpected}
+    // `
+    // ('should return valid output with one array that has more arrays with words', ({words, expected}) => {
+    //     let lyrics = [words];
+    //     expect(LyricsPrint(lyrics)).toStrictEqual(expected);
+    // });
 
+    it('should return valid output with 2 arrays in an array', () => {
+        let lyrics = [["Hola"], ["Pepe"]];
+        expect(LyricsPrint(lyrics)).toStrictEqual([["H_"], ["Ho_"], ["Hol_"], ["Hola_"], ["P_"], ["Pe_"], ["Pep_"], ["Pepe_"]]);
+    })
 
+    it('shourld return valid output with 3 arrays in an array', () => {
+        let lyrics = [["Hola"], ["Pepe"], ["Feo"]];
+        expect(LyricsPrint(lyrics)).toStrictEqual([["H_"], ["Ho_"], ["Hol_"], ["Hola_"], ["P_"], ["Pe_"], ["Pep_"], ["Pepe_"], ["F_"], ["Fe_"], ["Feo_"]]);
+    })
 });
