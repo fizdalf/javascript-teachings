@@ -1,4 +1,4 @@
-import {LyricsPrint} from "./lyricsPrint";
+import {LyricsPrint} from "./getCharacter";
 
 describe('LyricsPrint ', function () {
     it("should return an empty array if called with empty array", function () {
@@ -47,20 +47,22 @@ describe('LyricsPrint ', function () {
         expect(LyricsPrint(lyrics)).toStrictEqual(expected);
     });
 
-    const twoArraysInsideTheArray = [["Well"],["here"]]
-    const twoArraysInsideTheArrayExpected = [["W_"],["We_"],["Wel_"],["Well_"],["h_"], ["he_"],["her_"], ["here_"]]
+    const twoArraysInsideTheArray = [["Well", "hello"], ["here", "we", "are"]]
+    const twoArraysInsideTheArrayExpected = [["W_"], ["We_"], ["Wel_"], ["Well_"], ["Well", "h_"], ["Well", "he_"], ["Well", "hel_"], ["Well", "hell_"], ["Well", "hello_"], ["h_"], ["he_"], ["her_"], ["here_"], ["here", "w_"], ["here", "we_"], ["here", "we", "a_"], ["here", "we", "ar_"], ["here", "we", "are_"]]
     const threeArraysInsideTheArray = [["Well"],["here"],["we"]]
     const threeArraysInsideTheArrayExpected = [["W_"],["We_"],["Wel_"],["Well_"],["h_"], ["he_"],["her_"], ["here_"], ["w_"], ["we_"]]
 
-
-    it.each`
+    describe('myTest', () => {
+        it.each`
               Array                     |       expectedArray
         ${twoArraysInsideTheArray}      | ${twoArraysInsideTheArrayExpected}
-        ${threeArraysInsideTheArray}    | ${threeArraysInsideTheArrayExpected} 
+        ${threeArraysInsideTheArray}      | ${threeArraysInsideTheArrayExpected}
+   
     `
-    ('should return a valid output with one array that has any number of arrays', ({Array, expectedArray}) => {
+        ('should return a valid output with one array that has any number of arrays', ({Array, expectedArray}) => {
 
-        expect(LyricsPrint(Array)).toStrictEqual(expectedArray);
-    });
+            expect(LyricsPrint(Array)).toStrictEqual(expectedArray);
+        });
+    })
 
 });
