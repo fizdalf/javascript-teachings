@@ -1,4 +1,4 @@
-import {LyricsPrint} from "./getCharacter";
+import {LyricsPrint} from "./Lyrics.Print";
 
 
 describe('LyricsPrint Function', function () {

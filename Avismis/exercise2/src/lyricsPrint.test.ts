@@ -1,4 +1,4 @@
-import {LyricsPrint} from "./getCharacter";
+import {LyricsPrint} from "./Lyrics.Print";
 
 describe('LyricsPrint ', function () {
     it("should return an empty array if called with empty array", function () {
