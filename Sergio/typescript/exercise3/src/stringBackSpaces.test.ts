@@ -11,7 +11,7 @@ describe("cleanString acceptation tests", () => {
 
 describe("cleanString my tests", () => {
     it("should return an empty string if we get only #", () => {
-        expect(cleanString('#######')).toStrictEqual("")
+        expect(cleanString('####')).toStrictEqual("")
     })
     it("should return an empty string if we get an epty string", () => {
         expect(cleanString('')).toStrictEqual("")
