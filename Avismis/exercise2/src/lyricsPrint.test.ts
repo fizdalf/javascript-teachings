@@ -1,4 +1,4 @@
-import {LyricsPrint} from "./lyricsPrint";
+import {LyricsPrint} from "./Lyrics.Print";
 
 describe('LyricsPrint ', function () {
     it("should return an empty array if called with empty array", function () {
@@ -47,23 +47,22 @@ describe('LyricsPrint ', function () {
         expect(LyricsPrint(lyrics)).toStrictEqual(expected);
     });
 
-    const oneArrayInsideTheArray = [[]];
-    const oneArrayInsideTheArrayExpected = [[""]];
-    const twoArraysInsideTheArray =[[], []];
-    const twoArraysInsideTheArrayExpected =[[""], [""]];
-    const threeArraysInsideTheArray = [[], [], []];
-    const threeArraysInsideTheArrayExpected = [[""], [""], [""]];
+    const twoArraysInsideTheArray = [["Well", "hello"], ["here", "we", "are"]]
+    const twoArraysInsideTheArrayExpected = [["W_"], ["We_"], ["Wel_"], ["Well_"], ["Well", "h_"], ["Well", "he_"], ["Well", "hel_"], ["Well", "hell_"], ["Well", "hello_"], ["h_"], ["he_"], ["her_"], ["here_"], ["here", "w_"], ["here", "we_"], ["here", "we", "a_"], ["here", "we", "ar_"], ["here", "we", "are_"]]
+    const threeArraysInsideTheArray = [["Well"],["here"],["we"]]
+    const threeArraysInsideTheArrayExpected = [["W_"],["We_"],["Wel_"],["Well_"],["h_"], ["he_"],["her_"], ["here_"], ["w_"], ["we_"]]
 
-
-    it.each`
-           Array                     | expectedArray
-        ${oneArrayInsideTheArray}    | ${oneArrayInsideTheArrayExpected}
-        ${twoArraysInsideTheArray}  | ${twoArraysInsideTheArrayExpected}
-        ${threeArraysInsideTheArray}   | ${threeArraysInsideTheArrayExpected} 
+    describe('myTest', () => {
+        it.each`
+              Array                     |       expectedArray
+        ${twoArraysInsideTheArray}      | ${twoArraysInsideTheArrayExpected}
+        ${threeArraysInsideTheArray}      | ${threeArraysInsideTheArrayExpected}
+   
     `
-    ('should return valid output with one array that has any number of arrays', ({array, expectedArray}) => {
-        let lyrics = [array];
-        expect(LyricsPrint(lyrics)).toStrictEqual(expectedArray);
-    });
+        ('should return a valid output with one array that has any number of arrays', ({Array, expectedArray}) => {
+
+            expect(LyricsPrint(Array)).toStrictEqual(expectedArray);
+        });
+    })
 
 });
