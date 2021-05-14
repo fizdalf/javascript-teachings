@@ -9,10 +9,10 @@ export function deleteThePreviousLetter(word: string) {
     let index = 0
     let resultIndex = -1
     let finalResult = []
-    for(let currentWord = word[index]; index < word.length; index++){
-        result.push(currentWord)
+    for(let currentCharacter = word[index]; index < word.length; index++){
+        result.push(currentCharacter)
         resultIndex++
-        if(currentWord === "#"){
+        if(currentCharacter === "#"){
             resultIndex = resultIndex -2
             finalResult.push(word[resultIndex])
         }
