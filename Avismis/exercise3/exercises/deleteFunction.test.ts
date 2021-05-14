@@ -31,4 +31,19 @@ describe('cleanString Acceptance Test', function () {
             ""
         );
     })
+    it("One # after a letter", function () {
+        const s = "a#"
+        expect (cleanString(s)).toStrictEqual(
+            ""
+        );
+    })
+
+
+    it("One # among a string", function () {
+        const s = "#hola##avismis#"
+        expect (cleanString(s)).toStrictEqual(
+            "hoavismi"
+        );
+    })
 })
+
