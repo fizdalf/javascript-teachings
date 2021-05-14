@@ -48,6 +48,16 @@ describe('LyricsPrint ', function () {
         expect(LyricsPrint(lyrics)).toStrictEqual(expected);
     });
 
-
+    it('should return valid output with more than one array that has any number of words', () => {
+        let lyrics: string[][] = [
+            [
+                "hola"
+            ],
+            [
+                "adiós"
+            ]
+        ];
+        expect(LyricsPrint(lyrics)).toStrictEqual([["h_"], ["ho_"], ["hol_"], ["hola_",], ['a_'], ['ad_'], ['adi_'], ['adió_'], ['adiós_']]);
+    })
 
 });

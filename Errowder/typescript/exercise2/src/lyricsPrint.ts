@@ -18,7 +18,7 @@ export function LyricsPrint(lyrics: string[][]): string[][][] {
     const toReturn = [];
     const toReturn2 = []
     const previousWords = [];
-    const previousWords2 = []
+    const previousWords2: string[] = []
 
     for (let wordIndex = 0; wordIndex < lyrics[0].length; wordIndex++) {
         let word = "";

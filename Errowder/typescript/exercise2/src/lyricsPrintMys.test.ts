@@ -48,14 +48,14 @@ describe('LyricsPrint ', function () {
         expect(LyricsPrint(lyrics)).toStrictEqual(expected);
     });
 
-    const oneArray = [];
-    const oneArrayExpected = [];
-    const twoArray = [][];
-    const twoArrayExpected = [][];
-    const threeArray = [][][];
-    const threeArrayExpected = [][][];
-    const fourArray = [][][][];
-    const fourArrayExpected = [][][][];
+    const oneArray: string[][] = [];
+    const oneArrayExpected: string[][] = [];
+    const twoArray: string[][] = [[], []];
+    const twoArrayExpected: string[][] = [[], []];
+    const threeArray: string[][] = [[], [], []];
+    const threeArrayExpected: string[][] = [[], [], []];
+    const fourArray: string[][] = [[], [], [], []];
+    const fourArrayExpected: string[][] = [[], [], [], []];
 
     it.each`
             array       |         expected
@@ -64,9 +64,9 @@ describe('LyricsPrint ', function () {
         ${threeArray}   |   ${threeArrayExpected}
         ${fourArray}    |   ${fourArrayExpected}
         `
-    ('should return valid output one array that has any number of arrays', ({array,expected}) => {
+    ('should return valid output one array that has any number of arrays', ({array, expected}) => {
         let lyrics = [array];
         expect(LyricsPrint(lyrics)).toStrictEqual(expected)
-    },
+    },)
 
 });
