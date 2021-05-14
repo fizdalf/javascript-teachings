@@ -16,9 +16,9 @@ export function LyricsPrint(lyrics: string[][]): string[][][] {
     }
 
     const toReturn = [];
-    const toReturn2 = []
+    const toReturn2 = [];
     const previousWords = [];
-    const previousWords2: string[] = []
+    const previousWords2: [] = [];
 
     for (let wordIndex = 0; wordIndex < lyrics[0].length; wordIndex++) {
         let word = "";
@@ -42,6 +42,5 @@ export function LyricsPrint(lyrics: string[][]): string[][][] {
         }
         previousWords.push(word);
     }
-    const finalReturn = [toReturn, toReturn2]
-    return finalReturn;
+    return [toReturn, toReturn2];
 }
