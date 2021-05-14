@@ -11,10 +11,9 @@ export function cleanString(s: string) {
     // }
     for (let index = 0; s.length < index; index++) {
         if (s[index] !== "#") {
-            givenString += s[index]
+        } else {
+            givenString = givenString.slice(0, -1);
         }
     }
-    return s
+    return givenString
 }
-
-
