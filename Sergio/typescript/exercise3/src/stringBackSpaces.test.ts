@@ -19,4 +19,7 @@ describe("cleanString my tests", () => {
     it('should return the string recived if there are not #', () => {
         expect(cleanString('abejsif')).toStrictEqual('abejsif')
     })
+    it("One # among a string", function () {
+        expect (cleanString("hola#avismis#")).toStrictEqual("holavismi");
+    })
 })
