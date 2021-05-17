@@ -5,25 +5,14 @@
 
 export function reverseWordsWith5OrMoreCharacters(sentence: string) {
     let test = sentence.split(" ")
-    if (test.length === 1) {
-        if(sentence.length < 5){
-            return sentence
+    let finalSentence: string [] = []
+    test.forEach((x) => {
+        if (x.length < 5) {
+            finalSentence.push(x)
         }
-        if(sentence.length > 4){
-            return sentence.split("").reverse().join("")
+        if (x.length > 4) {
+            finalSentence.push(x.split("").reverse().join(""))
         }
-    }
-    if(test.length > 1){
-        let finalSentence: string [] = []
-        test.forEach((x)=>{
-            if(x.length < 5){
-                finalSentence.push(x)
-            }
-            if(x.length > 4){
-                x.split("").reverse().join("")
-                finalSentence.push(x)
-            }
-        })
-        return finalSentence.join(" ")
-    }
+    })
+    return finalSentence.join(" ")
 }
