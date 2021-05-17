@@ -17,6 +17,5 @@ export function deleteThePreviousLetter(word: string) {
             finalResult.push(word[resultIndex])
         }
     }
-
-    return finalResult.join;
+    return finalResult.join();
 }
