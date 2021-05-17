@@ -6,7 +6,7 @@ export class Kata {
             toReturn.push(this.spinWordIfIsLongerThan5(wordsArray[i]));
         }
         return toReturn.join(" ");
-    }x
+    }
 
     static spinWordIfIsLongerThan5(word : string) : string {
         if (word.length >= 5){
