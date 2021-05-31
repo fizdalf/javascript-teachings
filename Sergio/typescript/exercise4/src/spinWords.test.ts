@@ -7,16 +7,16 @@ describe("spinWords Acceptance Test", function(){
 });
 
 describe("spinWords My Tests",function (){
-    it("should return empty string if we dont get any word",function (){
+    it("should return empty string if we don't get any word",function (){
         expect(Kata.spinWords("")).toStrictEqual("");
     })
-    it("should return the same character if recive only a character", function (){
+    it("should return the same character if receives only a character", function (){
         expect(Kata.spinWords("W")).toStrictEqual("W");
     })
-    it("should invert word if have more than 5 characters",function (){
+    it("should reverse word if it has 5 or more characters",function (){
         expect(Kata.spinWords("Penelope")).toStrictEqual("epoleneP")
     })
-    it("should invert words if the word have more than 5 characters",function (){
+    it("should reverse words that have 5 or more characters",function (){
         expect(Kata.spinWords("Hola Pedro")).toStrictEqual("Hola ordeP")
     })
     it("should return the inverted words",function (){
