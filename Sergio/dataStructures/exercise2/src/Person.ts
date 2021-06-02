@@ -22,6 +22,6 @@ export class Person {
     }
 
     shouldLeave() {
-        return this.waitingTime > this.waitingCapacity;
+        return this._waitingTime > this._waitingCapacity;
     }
 }
