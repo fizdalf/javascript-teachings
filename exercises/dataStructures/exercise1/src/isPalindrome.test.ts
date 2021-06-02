@@ -1,4 +1,4 @@
-import isPalindrome from "./src/isPalindrome";
+import isPalindrome from "./isPalindrome";
 
 describe('isPalindrome', () => {
 
