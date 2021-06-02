@@ -20,7 +20,7 @@ describe('isPalindrome', () => {
     it.each`
                 string    |  result
             ${'arepera'}  | ${true}
-            ${'renera'}   | ${true}
+            ${'arenera'}  | ${true}
             ${'oso'}      | ${true}
             ${'salas'}    | ${true}
         `(
@@ -28,5 +28,6 @@ describe('isPalindrome', () => {
         ({string, result}) => {
             expect(isPalindrome(string)).toStrictEqual(result);
         }
+
     )
 })
