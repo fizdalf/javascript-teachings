@@ -2,7 +2,6 @@ import {Person} from './Person';
 
 export class CinemaBooth {
     waiting = new Map()
-
     timeTick(){
         let time = "0 min"
         for(let minutes = 0; minutes; minutes++){
@@ -16,9 +15,10 @@ export class CinemaBooth {
     addPersonWaiting(person: Person) { this.waiting.set(person.name, person) }
 
     personLeftWithoutTicket(fn: (person: Person) => void) {
-
+        
     }
 
     personWithTicket(fn: (person: Person) => void) {
+
     }
 }
