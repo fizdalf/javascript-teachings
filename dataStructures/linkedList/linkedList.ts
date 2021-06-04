@@ -1,4 +1,3 @@
-
 class LinkedList {
     private _head: any;
     private _tail: any;

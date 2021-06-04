@@ -70,7 +70,7 @@ class IntQueue {
     }
 }
 
-const myQueue = new Queue();
+const myQueue = new IntQueue();
 
 myQueue.enqueue(5);
 myQueue.enqueue(6);

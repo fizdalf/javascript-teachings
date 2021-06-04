@@ -7,7 +7,7 @@
 
 // PALABRA PALINDROMO
 "use strict";
-const palindrome = require('../functions/functions');
+const palindrome = require('../../functions/functions');
 
 const [, , ...wordItems] = process.argv;
 let index = 0;

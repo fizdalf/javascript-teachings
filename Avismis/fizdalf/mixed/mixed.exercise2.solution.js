@@ -36,7 +36,7 @@ shapeSquare.setPixel(4, 1, bluePixel);
 shapeSquare.setPixel(4, 2, bluePixel);
 shapeSquare.setPixel(4, 3, bluePixel);
 shapeSquare.setPixel(4, 4, bluePixel);
-const {drawShape} = require("../../resources/drawingLibrary");
+const {drawShape} = require("../../../resources/drawingLibrary");
 drawShape(shapeSquare);  // The image should be the same as in /resources/mixed/exercise2.png
 
 function Shape(width, height) {

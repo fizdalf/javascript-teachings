@@ -1,6 +1,6 @@
 // Create a CrazyShape function that returns a Shape object with a drawing inside, it should grow and shrink if required
 const {Pixel} = require("./library");
-const {drawShape} = require("../../resources/drawingLibrary");
+const {drawShape} = require("../../../resources/drawingLibrary");
 const {Shape} = require("./library");
 
 function CrazyShape(height, width, linePixel, fillPixel) {

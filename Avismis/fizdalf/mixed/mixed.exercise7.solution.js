@@ -2,9 +2,9 @@
 // the color of the line should be the one given by linePixel
 
 
-const {Pixel} = require("../../resources/drawingLibrary");
-const {Shape} = require("../../resources/drawingLibrary");
-const {drawShape} = require("../../resources/drawingLibrary");
+const {Pixel} = require("../../../resources/drawingLibrary");
+const {Shape} = require("../../../resources/drawingLibrary");
+const {drawShape} = require("../../../resources/drawingLibrary");
 
 
 function Triangle(width, height, linePixel) {
