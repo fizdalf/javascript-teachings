@@ -1,3 +1,5 @@
+import {Person} from "../../../exercises/dataStructures/exercise2/src/Person";
+
 class LinkedQueueList {
     private _firstPersonInQueue: any;
     get peopleQueue(): any {
@@ -41,13 +43,14 @@ class PeopleQueue {
 
 class Queue {
 
+    _array: PeopleQueue[] = []
     private list = new LinkedQueueList();
 
-    enqueue(element: number) {
-
+    enqueue(person: PeopleQueue) {
+        this._array.push(person);
     }
 
-    dequeue(): number | undefined {
-        return 1;
+    dequeue(): PeopleQueue | undefined {
+        return this._array.shift();
     }
 }
