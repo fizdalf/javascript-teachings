@@ -2,12 +2,19 @@ class Stack {
 
     private list = new buffetPlates();
 
-    push(element: number) {
+    plates = []
 
+    push(element: number) {
+        this.plates.push(element);
     }
 
-    pop(): number | undefined {
-        return 1;
+    pop(): undefined {
+        const stackOfPlates = this.plates[this.plates.length - 1];
+        this.plates() = this.plates.filter((element, index) => {
+            return index !== this.plates.length - 1;
+        });
+        console.log(this.plates);
+        return stackOfPlates;
     }
 }
 class buffetPlates {
