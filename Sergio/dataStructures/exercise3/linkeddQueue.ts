@@ -36,7 +36,7 @@ class PeopleQueue {
 
     public next: PeopleQueue = null;
 
-    constructor(person: any) {
+    constructor(person: string) {
         this._person = person;
     }
 }
@@ -54,3 +54,8 @@ class Queue {
         return this._array.shift();
     }
 }
+
+const first = new PeopleQueue('Juan')
+Queue.enqueue()
+const second = new PeopleQueue('Pedro')
+
