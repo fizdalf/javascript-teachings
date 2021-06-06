@@ -75,4 +75,4 @@ function testing() {
 
     myList.head.next
 }
-
+export {LinkedList, ListNode}

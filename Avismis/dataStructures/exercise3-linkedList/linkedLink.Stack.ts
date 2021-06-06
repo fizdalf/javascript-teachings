@@ -1,49 +1,23 @@
+import {LinkedList, ListNode} from "../../../dataStructures/linkedList/linkedList";
+
 class Stack {
 
-    private list = new buffetPlates();
+    private collection = new LinkedList();
 
-    plates = []
-
-    push(element: number) {
-        this.plates.push(element);
+    push(element: any) {
+        let first = this.collection.head()
+        let newFirst = new ListNode(element)
+        newFirst.next = first
+        this.collection = new LinkedList(newFirst)
     }
 
-    pop(): undefined {
-        const stackOfPlates = this.plates[this.plates.length - 1];
-        this.plates() = this.plates.filter((element, index) => {
-            return index !== this.plates.length - 1;
+    pop(): any {
+        const stackOfPlates = this.collection[this.collection.length - 1];
+        this.collection = this.collection.filter((element, index) => {
+            return index !== this.collection.length - 1;
         });
-        console.log(this.plates);
+        console.log(this.collection);
         return stackOfPlates;
     }
 }
-class buffetPlates {
-    private topPlate: any;
-    get plates(): any {
-        return this.topPlate;
-    }
 
-    constructor(head = null) {
-        this.topPlate = head
-    }
-
-    getLast() {
-        let lastPlate = this.topPlate;
-        if (lastPlate) {
-            while (lastPlate.next) {
-                lastPlate = lastPlate.next;
-            }
-        }
-        return lastPlate;
-    }
-
-    size() {
-        let totalAmount = 0;
-        let plate = this.topPlate;
-        while (plate) {
-            totalAmount++;
-            plate = plate.next;
-        }
-        return totalAmount;
-    }
-}
