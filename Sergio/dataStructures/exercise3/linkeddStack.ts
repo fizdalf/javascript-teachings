@@ -37,34 +37,47 @@ class PanquequesList {
     constructor(panqueque: any) {
         this._Panqueque = panqueque;
     }
+
+    cookPanqueque(stack: Stack){
+        stack.push('Panqueque')
+    }
+
+    eatPanqueque(stack: Stack){
+        stack.pop()
+    }
 }
 
 class Stack {
-
+    private _array: any[];
     private list = new LinkedStackList();
 
-    push(element: number) {
-
+    constructor() {
+        this._array = [];
     }
 
-    pop(): number | undefined {
-        return 1;
+    push(element: string) {
+        this._array.push(element);
+    }
+
+    pop(): string {
+        return this._array.pop();
     }
 }
 
 function testing() {
 
 
-    const first = new PanquequesList('Primer Panqueque');
-    const second = new PanquequesList('Segundo Panqueque');
-    const third = new PanquequesList('Tercer Panqueque')
-    const fourth = new PanquequesList('Cuarto Panqueque')
+    const first = new PanquequesList('Panqueque');
+    const second = new PanquequesList('Panqueque');
+    const third = new PanquequesList('Panqueque')
+    const fourth = new PanquequesList('Panqueque')
 
 
     first.next = second;
     second.next = third;
     third.next = fourth;
     const list = new LinkedStackList(first);
+
 
     list.panqueques.next
 }
