@@ -1,11 +1,11 @@
-class LinkedStackList {
+class PanquequesMarcket {
     private _firstpanqueque: any;
     get panqueques(): any {
         return this._firstpanqueque;
     }
 
-    constructor(head = null) {
-        this._firstpanqueque = head
+    constructor(firstpanqueque = null) {
+        this._firstpanqueque = firstpanqueque
     }
 
     getLast() {
@@ -43,40 +43,33 @@ class PanquequesList {
     }
 
     eatPanqueque(stack: Stack){
+        stack = new PanquequesMarcket("Panqueque").getLast()
         stack.pop()
     }
 }
 
 class Stack {
-    private _array: any[];
-    private list = new LinkedStackList();
-
-    constructor() {
-        this._array = [];
-    }
+    private list: PanquequesMarcket = new PanquequesMarcket();
 
     push(element: string) {
-        this._array.push(element);
+
     }
 
     pop(): string {
-        return this._array.pop();
+        return ""
     }
 }
 
 function testing() {
 
 
-    const first = new PanquequesList('Panqueque');
-    const second = new PanquequesList('Panqueque');
-    const third = new PanquequesList('Panqueque')
-    const fourth = new PanquequesList('Panqueque')
+    const first = new PanquequesList("Panqueque 1").cookPanqueque(new Stack)
+    const second = new PanquequesList("Panqueque 2").cookPanqueque(new Stack)
+    const third = new PanquequesList("Panqueque 3").cookPanqueque(new Stack)
+    const fourth = new PanquequesList("Panqueque 4").cookPanqueque(new Stack)
 
 
-    first.next = second;
-    second.next = third;
-    third.next = fourth;
-    const list = new LinkedStackList(first);
+    const list = new PanquequesMarcket(first);
 
 
     list.panqueques.next

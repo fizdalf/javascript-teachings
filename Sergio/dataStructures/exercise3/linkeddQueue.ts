@@ -1,6 +1,6 @@
 import {Person} from "../../../exercises/dataStructures/exercise2/src/Person";
 
-class LinkedQueueList {
+class Theater {
     private _firstPersonInQueue: any;
     get peopleQueue(): any {
         return this._firstPersonInQueue;
@@ -44,7 +44,7 @@ class PeopleQueue {
 class Queue {
 
     _array: PeopleQueue[] = []
-    private list = new LinkedQueueList();
+    private list = new Theater();
 
     enqueue(person: PeopleQueue) {
         this._array.push(person);
@@ -56,6 +56,5 @@ class Queue {
 }
 
 const first = new PeopleQueue('Juan')
-Queue.enqueue()
 const second = new PeopleQueue('Pedro')
 
