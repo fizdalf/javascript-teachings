@@ -25,3 +25,26 @@ class NumberQueue {
 
 const myQueue = new NumberQueue();
 // myQueue.enqueue("hello");
+
+
+class NumberNode {
+    data: number;
+    next: NumberNode
+
+    constructor(data: number) {
+        this.data = data;
+    }
+}
+
+class linkedListQueue {
+
+    head: NumberNode = null;
+
+    enqueue(something: number){
+        const node = new NumberNode(something);
+        if(!this.head){
+
+        }
+    }
+
+}
