@@ -45,7 +45,7 @@ const myQueue = new LinkedListQueue();
 for (let i = 0; ListNode.length < 10000; i++) {
     if (ListNode.length === 10000){
         for (let total = 10000; ListNode.length >= total; total --){
-            myQueue.enqueue(0)
+            myQueue.dequeue()
         }
     }
     myQueue.enqueue(0)
