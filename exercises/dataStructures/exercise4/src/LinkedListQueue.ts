@@ -38,19 +38,19 @@ export class LinkedListQueue {
     }
 }
 
-// const myQueue = new LinkedListQueue();
-//
-// console.log(myQueue.dequeue());
-// myQueue.enqueue('verde');
-// console.log(myQueue.dequeue());
-// myQueue.enqueue('verde');
-// myQueue.enqueue('naranja');
-// console.log(myQueue.dequeue());
-// const myQueue2 = new LinkedListQueue();
-// myQueue2.enqueue('verde');
-// myQueue2.enqueue('naranja');
-// myQueue2.enqueue('rojo');
-// console.log(myQueue2.dequeue(), myQueue2.dequeue(), myQueue2.dequeue());
+const myQueue = new LinkedListQueue();
+
+console.log(myQueue.dequeue());
+myQueue.enqueue('verde');
+console.log(myQueue.dequeue());
+myQueue.enqueue('verde');
+myQueue.enqueue('naranja');
+console.log(myQueue.dequeue());
+const myQueue2 = new LinkedListQueue();
+myQueue2.enqueue('verde');
+myQueue2.enqueue('naranja');
+myQueue2.enqueue('rojo');
+console.log(myQueue2.dequeue(), myQueue2.dequeue(), myQueue2.dequeue());
 //
 //
 
