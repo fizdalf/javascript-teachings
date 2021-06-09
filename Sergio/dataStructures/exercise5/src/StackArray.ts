@@ -21,9 +21,9 @@ for (let i = 0; i < 10000; i++) {
 for (let i = 0; i < 10000; i++) {
     stack.pop()
 }
-for (let i = 0; i === 5000; i++) {
+for (let i = 0; i < 5000; i++) {
     stack.pop()
 }
-for (let i = 0; i === 15000; i++) {
+for (let i = 0; i < 15000; i++) {
     stack.pop()
 }

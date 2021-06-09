@@ -22,8 +22,6 @@ for (let i = 0; i < 10000; i++) {
 }
 console.timeEnd('Queue with linkedList, first scenario');
 
-
-
 // scenario 2
 console.time('Queue with array, second scenario');
 for (let i = 0; i < 10000; i++) {
