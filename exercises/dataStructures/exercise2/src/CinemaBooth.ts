@@ -36,7 +36,7 @@ export class CinemaBooth {
     }
 }
 
-class PersonQueue {
+export class PersonQueue {
     private _array: Person[] = [];
 
     enqueue(person: Person) {

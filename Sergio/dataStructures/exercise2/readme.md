@@ -1,19 +1,21 @@
-Create a class to handle a cinema ticket booth, the class must provide the following methods, use Stack or Queue in your
-implementation
+Create a class to handle a cinema ticket booth, the class must provide the following methods, 
+use Stack or Queue in your implementation
 
 - timeTick() This method will simulate the pass of time, in increments of 1 minute
-- addPersonWaiting(person: Person) This method will add a person waiting to be given a ticket, with their name and how
-  much time in minutes are they willing to wait till they get a ticket
-- personLeftWithoutTicket((person:Person) => {}) This method will receive a function, this function will be called every
-  time a person leaves without a ticket
-- personWithTicket((person:Person) => {}) This method will receive a function, this function will be called every time a
-  person leaves WITH a ticket
+- addPersonWaiting(person: Person) This method will add a person waiting to be given a ticket, 
+  with their name and how much time in minutes are they willing to wait till they get a ticket
+- personLeftWithoutTicket((person:Person) => {}) This method will receive a function, 
+  this function will be called every time a person leaves without a ticket
+- personWithTicket((person:Person) => {}) This method will receive a function, 
+  this function will be called every time a person leaves WITH a ticket
 
-Everytime the time ticks, each person waiting will have their waitingTime incremented by 1 minute, if the waiting time
-is greater than their waitingCapacity they will leave without a ticket, and the corresponding function should be called.
-We can only produce one ticket every two minutes, people that is getting a ticket won't leave without it! So if they are
-already at the booth, they won't leave if they've been waiting longer than their waitingCapacity. Once the person has
-the ticket they can leave with a ticket, and the corresponding function should be called
+Everytime the time ticks, each person waiting will have their waitingTime incremented by 1 minute, 
+if the waiting time is greater than their waitingCapacity they will leave without a ticket, 
+and the corresponding function should be called.
+We can only produce one ticket every two minutes, people that is getting a ticket won't leave without it! 
+So if they are already at the booth, they won't leave if they've been waiting longer than their 
+waitingCapacity. Once the person has the ticket they can leave with a ticket, and the corresponding 
+function should be called
 
 Execution example
 
