@@ -9,7 +9,7 @@ for (let i = 0; i < 10000; i++) {
 for (let i = 0; i < 10000; i++) {
     stack.pop()
 }
-console.timeEnd('Stack with array, firstScenario');
+console.timeEnd('Stack with array, first scenario');
 
 console.time('Stack with linkedList, first scenario');
 import {LinkedListStack} from "./LinkedListStack";
@@ -21,7 +21,7 @@ for (let i = 0; i < 10000; i++) {
 for (let i = 0; i < 10000; i++) {
     linkedStack.pop()
 }
-console.timeEnd('Stack with linkedList, firstScenario');
+console.timeEnd('Stack with linkedList, first scenario');
 
 
 
@@ -36,7 +36,7 @@ for (let i = 0; i < 5000; i++) {
 for (let i = 0; i < 15000; i++) {
     stack.pop()
 }
-console.timeEnd('Stack with array, secondScenario ');
+console.timeEnd('Stack with array, second scenario');
 
 console.time('Stack with linkedList, second scenario');
 for (let i = 0; i < 10000; i++) {
@@ -48,4 +48,4 @@ for (let i = 0; i < 5000; i++) {
 for (let i = 0; i < 15000; i++) {
     linkedStack.pop()
 }
-console.timeEnd('Stack with linkedList, secondScenario ');
+console.timeEnd('Stack with linkedList, second scenario');

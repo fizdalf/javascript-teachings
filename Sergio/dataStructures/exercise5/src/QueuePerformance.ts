@@ -9,7 +9,7 @@ for (let i = 0; i < 10000; i++) {
 for (let i = 0; i < 10000; i++) {
     queueTest.dequeue()
 }
-console.timeEnd('Queue with array, firstScenario');
+console.timeEnd('Queue with array, first scenario');
 
 console.time('Queue with linkedList, first scenario');
 import {LinkedListQueue} from "./LinkedListQueue";
@@ -21,7 +21,7 @@ for (let i = 0; i < 10000; i++) {
 for (let i = 0; i < 10000; i++) {
     linkedQueue.dequeue()
 }
-console.timeEnd('Queue with linkedList, firstScenario');
+console.timeEnd('Queue with linkedList, first scenario');
 
 
 
@@ -36,7 +36,7 @@ for (let i = 0; i < 5000; i++) {
 for (let i = 0; i < 15000; i++) {
     queueTest.dequeue()
 }
-console.timeEnd('Queue with array, secondScenario ');
+console.timeEnd('Queue with array, second scenario');
 
 console.time('Queue with linkedList, second scenario');
 for (let i = 0; i < 10000; i++) {
@@ -48,4 +48,4 @@ for (let i = 0; i < 5000; i++) {
 for (let i = 0; i < 15000; i++) {
     linkedQueue.dequeue()
 }
-console.timeEnd('Queue with linkedList, secondScenario ');
+console.timeEnd('Queue with linkedList, second scenario');
