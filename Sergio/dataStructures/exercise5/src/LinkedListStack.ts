@@ -1,7 +1,7 @@
 class ListNode {
     private _data;
 
-    public next?: ListNode;
+    public next: ListNode | null = null;
 
     constructor(data: any) {
         this._data = data;
@@ -12,25 +12,23 @@ class ListNode {
     }
 }
 
-export class LinkedListQueue {
-    private head?: ListNode;
-    private tail?: ListNode;
+export class LinkedListStack {
 
-    enqueue(element: any) {
-        if (this.tail) {
-            const newNode = new ListNode(element);
-            this.tail.next = newNode;
-            this.tail = newNode;
+    private head: ListNode | null | undefined; //ListNode(element)
+
+    push(element: any) {
+        if (this.head) {
+            const newHead = new ListNode(element);
+            newHead.next = this.head;
+            this.head = newHead;
             return;
         }
         this.head = new ListNode(element);
-        this.tail = this.head;
     }
 
-    dequeue(): any {
+    pop(): any {
         if (this.head) {
             const data = this.head.data;
-            this.tail = this.head.next;
             this.head = this.head.next;
             return data;
         }

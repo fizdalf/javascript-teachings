@@ -1,5 +1,5 @@
-class Queue {
-    private _array: number[] = [];
+export class Queue {
+    private _array: any[] = [];
 
     enqueue(element: number) {
         this._array.push(element);
