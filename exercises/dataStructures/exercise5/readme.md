@@ -1,4 +1,4 @@
-##Using "console.time" and "console.timeEnd" functions measure the difference in performance of the QUEUE implemented with
+## Using "console.time" and "console.timeEnd" functions measure the difference in performance of the QUEUE/STACK implemented with
 an array and with a linkedList in the following scenarios:
 
 - Insert 10k elements, remove 10k elements.
