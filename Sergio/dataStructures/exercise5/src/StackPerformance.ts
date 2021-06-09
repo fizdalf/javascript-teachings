@@ -1,8 +1,10 @@
+import {Stack} from "./StackArray";
+import {LinkedListStack} from "./LinkedListStack";
+const stack = new Stack()
+const linkedStack = new LinkedListStack()
+
 // scenario 1
 console.time('Stack with array, first scenario');
-import {Stack} from "./StackArray";
-
-const stack = new Stack()
 for (let i = 0; i < 10000; i++) {
     stack.push(i)
 }
@@ -12,9 +14,6 @@ for (let i = 0; i < 10000; i++) {
 console.timeEnd('Stack with array, first scenario');
 
 console.time('Stack with linkedList, first scenario');
-import {LinkedListStack} from "./LinkedListStack";
-
-const linkedStack = new LinkedListStack()
 for (let i = 0; i < 10000; i++) {
     linkedStack.push(i)
 }

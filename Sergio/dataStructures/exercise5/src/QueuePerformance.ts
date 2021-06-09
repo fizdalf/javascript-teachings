@@ -1,8 +1,10 @@
+import {Queue} from "./QueueArray";
+import {LinkedListQueue} from "./LinkedListQueue";
+const queueTest = new  Queue()
+const linkedQueue = new LinkedListQueue()
+
 // scenario 1
 console.time('Queue with array, first scenario');
-import {Queue} from "./QueueArray";
-
-const queueTest = new  Queue()
 for (let i = 0; i < 10000; i++) {
     queueTest.enqueue(i)
 }
@@ -12,9 +14,6 @@ for (let i = 0; i < 10000; i++) {
 console.timeEnd('Queue with array, first scenario');
 
 console.time('Queue with linkedList, first scenario');
-import {LinkedListQueue} from "./LinkedListQueue";
-
-const linkedQueue = new LinkedListQueue()
 for (let i = 0; i < 10000; i++) {
     linkedQueue.enqueue(i)
 }
