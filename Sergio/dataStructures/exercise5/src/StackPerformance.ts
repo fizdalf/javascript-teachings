@@ -40,7 +40,7 @@ console.timeEnd('Stack with array, secondScenario ');
 
 console.time('Stack with linkedList, second scenario');
 for (let i = 0; i < 10000; i++) {
-    linkedStack.pop(i)
+    linkedStack.push(i)
 }
 for (let i = 0; i < 5000; i++) {
     linkedStack.pop()
