@@ -20,7 +20,7 @@ describe('isPalindrome', () => {
     it.each`
                 string    |  result
             ${'arepera'}  | ${true}
-            ${'reconocer'}| ${true}
+            ${'arenera'}  | ${true}
             ${'oso'}      | ${true}
             ${'salas'}    | ${true}
         `(
@@ -28,13 +28,6 @@ describe('isPalindrome', () => {
         ({string, result}) => {
             expect(isPalindrome(string)).toStrictEqual(result);
         }
+
     )
-})
-describe('isPalindrome my test', () => {
-    it('should return false if is not a (short) palindrome', () => {
-        expect(isPalindrome('abe')).toStrictEqual(false);
-    })
-    it('should return false if is a (short) palindrome', () => {
-        expect(isPalindrome('aba')).toStrictEqual(true);
-    })
 })

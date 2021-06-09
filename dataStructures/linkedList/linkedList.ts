@@ -1,6 +1,7 @@
 class LinkedList {
     private _head: any;
     private _tail: any;
+
     get head(): any {
         return this._head;
     }
@@ -79,4 +80,6 @@ function testing() {
 
     myList.head.next
 }
+
 export {LinkedList, ListNode}
+
