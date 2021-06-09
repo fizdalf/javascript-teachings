@@ -1,7 +1,7 @@
 // scenario 1
+console.time('Stack with array, first scenario');
 import {Stack} from "./StackArray";
 
-console.time('Stack with array, first scenario');
 const stack = new Stack()
 for (let i = 0; i < 10000; i++) {
     stack.push(i)
