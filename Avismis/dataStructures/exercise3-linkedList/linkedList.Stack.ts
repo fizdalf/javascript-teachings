@@ -1,23 +1,51 @@
-import {LinkedList, ListNode} from "../../../dataStructures/linkedList/linkedList";
+class ListNode {
+    private _data;
 
-class Stack {
+    public next: ListNode | null = null;
 
-    private collection = new LinkedList();
+    constructor(data: any) {
+        this._data = data;
+    }
+
+    get data() {
+        return this._data;
+    }
+}
+
+class LinkedListStack {
+
+    private head: ListNode | null | undefined; //ListNode(element)
 
     push(element: any) {
-        let first = this.collection.head()
-        let newFirst = new ListNode(element)
-        newFirst.next = first
-        this.collection = new LinkedList(newFirst)
+        if (this.head) {
+            const newHead = new ListNode(element);
+            newHead.next = this.head;
+            this.head = newHead;
+            return;
+        }
+        this.head = new ListNode(element);
     }
 
     pop(): any {
-        const stackOfPlates = this.collection[this.collection.length - 1];
-        this.collection = this.collection.filter((element, index) => {
-            return index !== this.collection.length - 1;
-        });
-        console.log(this.collection);
-        return stackOfPlates;
+        if (this.head) {
+            const data = this.head.data;
+            this.head = this.head.next;
+            return data;
+        }
+        return null;
     }
 }
+
+const stack = new LinkedListStack();
+console.log(stack.pop())
+stack.push('violeta');
+console.log(stack.pop());
+stack.push('violeta');
+stack.push('amarillo');
+console.log(stack.pop());
+stack.push('azul');
+stack.push('marrón');
+console.log(stack.pop());
+console.log(stack.pop());
+console.log(stack.pop());
 

@@ -1,49 +1,74 @@
-class Queue {
+class ListNode {
+    private _data;
 
-    private list = new tributesQueue();
+    public next?: ListNode;
 
-    tributes = []
-
-    enqueue(element: number) {
-        this.tributes.push(element);
+    constructor(data: any) {
+        this._data = data;
     }
 
-    dequeue(): number | undefined {
-        if (this.tributes.length === 1) {
-            throw Error('We have our Hunger Games winner!');
-        }
-        const newArray = [];
-        this.tributes.forEach((element, index) => {
-            if (index > 0) {
-                newArray.push(element);
-            }
-        })
-        const firstElement = this.tributes[0]
-        this.tributes = newArray;
-        return firstElement;
+    get data() {
+        return this._data;
     }
 }
 
-class tributesQueue {
-    private firstDeadTribute: any;
+export class LinkedListQueue {
+    private head?: ListNode;
+    private tail?: ListNode;
 
-    get nextTribute(): any {
-        return this.firstDeadTribute;
-    }
-
-    constructor(head = null) {
-        this.firstDeadTribute = head
-    }
-
-    getLast() {
-        let winnerTribute = this.firstDeadTribute;
-        if (winnerTribute) {
-            while (winnerTribute.next) {
-                winnerTribute = winnerTribute.next;
-            }
+    enqueue(element: any) {
+        if (this.tail) {
+            const newNode = new ListNode(element);
+            this.tail.next = newNode;
+            this.tail = newNode;
+            return;
         }
-        return winnerTribute;
+        this.head = new ListNode(element);
+        this.tail = this.head;
+    }
+
+    dequeue(): any {
+        if (this.head) {
+            const data = this.head.data;
+            this.tail = this.head.next;
+            this.head = this.head.next;
+            return data;
+        }
+        return null;
     }
 }
 
+const myQueue = new LinkedListQueue();
 
+console.log(myQueue.dequeue());
+myQueue.enqueue('verde');
+console.log(myQueue.dequeue());
+myQueue.enqueue('verde');
+myQueue.enqueue('naranja');
+console.log(myQueue.dequeue());
+const myQueue2 = new LinkedListQueue();
+myQueue2.enqueue('verde');
+myQueue2.enqueue('naranja');
+myQueue2.enqueue('rojo');
+console.log(myQueue2.dequeue(), myQueue2.dequeue(), myQueue2.dequeue());
+//
+//
+
+// meter 10000, sacar 10000
+// queue con array
+// queue con linkedList
+// meter 10000, sacar 5000, meter 10000, sacar 15000
+// queue con array
+// queue con linkedList
+
+
+console.time('Queue with array');
+//el codigo aqui
+
+console.timeEnd('Queue with array');
+for(let i = 0; i< 1; i++){
+    console.log('test');
+}
+console.time('Queue with array enqueue 10k elements dequeue 10k elements');
+Array(50000).fill(0);
+console.timeEnd('Queue with array enqueue 10k elements dequeue 10k elements');
