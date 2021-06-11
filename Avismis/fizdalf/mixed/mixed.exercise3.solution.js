@@ -14,7 +14,7 @@
 // const redPixel = Pixel(255, 255, 0, 0)
 // const redAndBlueSquare = Square(500, 500, bluePixel, redPixel)
 // drawShape(redAndBlueSquare);  // Running this should open an image of a 50 x 50 pixels square with blue line and filled in red, just like the image in /resources/mixed/exercise3.png
-const {Shape} = require("./mixed.exercise2.solution")
+
 
 function Square(width, height, linePixel, fillPixel) {
     const shapeSquare = Shape(width, height); // width: 3, height: 3
@@ -30,6 +30,6 @@ function Square(width, height, linePixel, fillPixel) {
     return shapeSquare;
 }
 
-exports.Square = Square;
+exports.Square = Square
 
 

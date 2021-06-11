@@ -1,4 +1,4 @@
-import {Square} from "./mixed/mixed.exercise3.solution"
+import {Square} from "./"
 
 const square = document.createElement('div')
 const mina = square.textContent = "MINA" // imagen de una bomba
