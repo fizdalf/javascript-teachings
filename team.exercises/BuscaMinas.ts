@@ -1,4 +1,5 @@
-import {Square} from "./"
+import {Square} from "./../Sergio/mixed/mixed.exercise3.solution"
+import {Pixel} from "./../Sergio/mixed/mixed.exercise1.solution"
 
 const square = document.createElement('div')
 const mina = square.textContent = "MINA" // imagen de una bomba
@@ -25,4 +26,4 @@ function minesWeepers() {
     alert('You Lose')
 }
 
-Square(30, 15, )
+const frame = Square(30, 15, Pixel(0, 0, 0), Pixel(192, 192, 192))
