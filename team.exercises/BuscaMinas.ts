@@ -1,12 +1,23 @@
 import {Square} from "./../Sergio/mixed/mixed.exercise3.solution"
 import {Pixel} from "./../Sergio/mixed/mixed.exercise1.solution"
 
-const square = document.createElement('div')
+const square = Square(300, 150, Pixel(0, 0, 0), Pixel(192, 192, 192))
+const buttons = Square(10, 10, Pixel(0, 0, 0), Pixel(192, 192, 192))
+let buttonsArray =[]
+for (let weight = 0; weight < 300; weight+10){
+    buttons.push(buttonsArray)
+}
+for (let height = 0; height < 150; height+10){
+    buttons.push(buttonsArray)
+}
+// const square = document.createElement('div')
 const mina = square.textContent = "MINA" // imagen de una bomba
 const number = square.textContent = "1" // ya cambiaré los posibles números
 
+
+
 if (square) {
-    squaresArray.forEach((element) => {
+    buttonsArray.forEach((element) => {
         const button = document.createElement('button')
         button.className = "button";
         button.addEventListener("click", () => {
@@ -26,4 +37,8 @@ function minesWeepers() {
     alert('You Lose')
 }
 
-const frame = Square(30, 15, Pixel(0, 0, 0), Pixel(192, 192, 192))
+function timing() {
+    const start = 0
+    return newTiming
+}
+
