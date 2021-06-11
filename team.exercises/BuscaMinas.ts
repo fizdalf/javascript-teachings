@@ -14,14 +14,17 @@ for (let height = 0; height < 150; height+10){
 const mina = square.textContent = "MINA" // imagen de una bomba
 const number = square.textContent = "1" // ya cambiaré los posibles números
 
+let numberOfMines = 100
 
-
-if (square) {
+if (buttons) {
     buttonsArray.forEach((element) => {
         const button = document.createElement('button')
         button.className = "button";
-        button.addEventListener("click", () => {
+        button.addEventListener("leftClick", () => {
             minesWeepers()
+        })
+        button.addEventListener("rightClick", () => {
+            tagging()
         })
     })
 }
@@ -37,8 +40,16 @@ function minesWeepers() {
     alert('You Lose')
 }
 
+function tagging(){
+    const firstClick = "flag"
+    const secondClick = "questionMark"
+    if (firstClick){
+        numberOfMines--
+    }
+}
+
 function timing() {
-    const start = 0
-    return newTiming
+    const currentTiming = 0
+    return currentTiming
 }
 
