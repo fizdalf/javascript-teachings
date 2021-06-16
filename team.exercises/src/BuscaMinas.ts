@@ -19,7 +19,7 @@ class MineSweeper {
 
         //const mineGenerator = new  MineGridCreator(mines, this.size);
         // this.grid = mineGenerator.getGrid()
-
+        //
         // const grid = [
         //     [
         //         new Slot(true), new Slot(false,1), new Slot(false, 1), new Slot(false, 1), new Slot(false, 1), new Slot(), new Slot(), new Slot()
@@ -63,12 +63,12 @@ class MineSweeper {
 
 }
 
-
-const newGame = new MineSweeper();
-
-if (newGame.isGameFinished) {
-    console.log('Juego terminado');
-}
+//
+// const newGame = new MineSweeper();
+//
+// if (newGame.isGameFinished) {
+//     console.log('Game Over');
+// }
 
 
 
