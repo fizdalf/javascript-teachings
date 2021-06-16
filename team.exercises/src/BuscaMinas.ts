@@ -1,55 +1,5 @@
 import {MineGridCreator} from "./MinesGridCreator";
 
-enum TagStates {
-    FLAG = "FLAG",
-    QUESTION = "QUESTION",
-    NONE = "NONE"
-}
-
-class Slot {
-    private value: number;
-    private revealed = false;
-    private tagState: TagStates | undefined
-    private hasMine: boolean;
-
-    constructor(hasMine: boolean, minesAround: number = 0) {
-        this.hasMine = hasMine;
-        this.value = minesAround;
-    }
-
-    isRevealed(): boolean {
-        return this.revealed;
-    };
-
-    isMine(): boolean {
-        return this.hasMine;
-    };
-
-    getContent(): string {
-        if (this.hasMine) {
-            return '*';
-        }
-        return this.value.toString();
-    }
-
-    isFlag(): boolean {
-        return this.tagState === TagStates.FLAG;
-    };
-
-    isQuestion(): boolean {
-        return this.tagState === TagStates.QUESTION;
-    };
-
-    reveal() {
-        this.revealed = true;
-        return this.value;
-    }
-
-    markWithFlag() {
-        this.tagState = TagStates.FLAG;
-    }
-}
-
 class MineSweeper {
 
     private mines = 8;
@@ -58,11 +8,16 @@ class MineSweeper {
     constructor() {
         const mines = [
             [0,1],
-            [0,2],
+            [2,2],
             [0,3],
-            [0,4]
+            [8,4],
+            [8,8],
+            [3,3],
+            [7,8],
+            [5,2],
         ]
-        const mineGenerator = new MineGridCreator(mines,this.size);
+
+        //const mineGenerator = new  MineGridCreator(mines, this.size);
         // this.grid = mineGenerator.getGrid()
 
         // const grid = [
