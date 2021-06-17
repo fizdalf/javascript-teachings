@@ -3,9 +3,26 @@ import {Slot} from "../src/Slot";
 
 describe('MinesGridCreator', () => {
         it('should return empty array if get size 0 or less and dont get minePosition', () => {
-            let mineCreator = new MineGridCreator([], -5);
-            expect(mineCreator.getGrid()).toThrowError('I need the mines positions and the grid can not be 0 or less')
+            let mineCreator = new MineGridCreator([], 0);
+            expect(() => mineCreator.getGrid()).toThrowError('I need the mines positions and the grid can not be 0 or less')
         })
+
+         it('should return the grid with slots (is not important the slot content)', () => {
+              let mineCreator = new MineGridCreator([[0, 1]], 2);
+              expect(mineCreator.getGrid()).toStrictEqual([
+                  [new Slot(false,0),new Slot(false,0)],
+                  [new Slot(false,0),new Slot(false,0)]
+              ])
+         })
+
+        it('should return the grid with slots and if is a mine or not', () => {
+            let mineCreator = new MineGridCreator([[0, 1]], 2);
+            expect(mineCreator.getGrid()).toStrictEqual([
+                [new Slot(false,0),new Slot(true,0)],
+                [new Slot(false,0),new Slot(false,0)]
+            ])
+        })
+
         // it('should return an empty array if minesPosition is not equals than gridSize', () => {
         //     expect(new MineGridCreator([[0, 0], [1, 1], [2, 2], [3, 3]], 8).getGrid()).toStrictEqual([])
         // })
