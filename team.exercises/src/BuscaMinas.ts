@@ -59,9 +59,8 @@ class MineSweeper {
     isGameFinished = false;
     isGameWon = false;
     isGameLost = false;
-
-
 }
+
 
 //
 // const newGame = new MineSweeper();
