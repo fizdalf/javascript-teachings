@@ -75,38 +75,3 @@ class MineSweeper {
     isGameWon = false;
     isGameLost = false;
 }
-
-
-//fggrflñuy78ttg
-// const newGame = new MineSweeper();
-//
-// if (newGame.isGameFinished) {
-//     console.log('Game Over');
-// }
-
-
-//
-// function minesWeepers() {
-//     while (square !== mina) {
-//         if (square === number) {
-//             // el numero debe indicar cuantas minas tiene alrededor
-//             return;
-//         }
-//         //debe mostrar los datos los cuales serán vacios / eliminar el square
-//     }
-//     // Game Over
-// }
-//
-// function tagging() {
-//     const firstClick = "flag"
-//     const secondClick = "questionMark"
-//     if (firstClick) {
-//         numberOfMines--
-//     }
-// }
-//
-// function timing() {
-//     const currentTiming = 0
-//     return currentTiming
-// }
-//
