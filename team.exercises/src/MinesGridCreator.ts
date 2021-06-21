@@ -1,10 +1,12 @@
 import {Slot} from "./Slot";
+import {MinePositionCollection} from "./MinePositions";
 
 export class MineGridCreator {
-    private grid: any;
-    private _minesPositions: number[][];
+    private grid: Slot[][] = [];
+    private _minesPositions: MinePositionCollection;
     private _gridSize: number;
-    constructor(minesPositions: number[][], gridSize: number) {
+
+    constructor(minesPositions: MinePositionCollection, gridSize: number) {
         this._minesPositions = minesPositions;
         this._gridSize = gridSize;
     }
