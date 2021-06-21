@@ -23,7 +23,25 @@ export class Slot {
         return this.hasMine;
     };
 
+    /**
+     *    Returns the following
+     *      f => is not revealed and is a flag
+     *      ? => is not revealed and is a question mark
+     *     '' => is not revealed and is not flag nor question mark
+     *      * => is revealed and is a mine!
+     *    "n" => is revealed and has n mines nearby
+     */
     getContent(): string {
+        if (!this.isRevealed()) {
+            if (this.isFlag()) {
+                return 'f';
+            }
+            if (this.isQuestion()) {
+                return '?';
+            }
+            return '';
+        }
+
         if (this.hasMine) {
             return '*';
         }

@@ -1,9 +1,10 @@
 import {MineGridCreator} from "../src/MinesGridCreator";
 import {Slot} from "../src/Slot";
+import {MinePositionCollection, MinePosition} from "../src/MinePositions";
 
 describe('MinesGridCreator', () => {
-        it('should return empty array if get size 0 or less and dont get minePosition', () => {
-            let mineCreator = new MineGridCreator([], 0);
+        it('should throw if size is 0 or less', () => {
+            let mineCreator = new MineGridCreator(new MinePositionCollection(), 0);
             expect(() => mineCreator.getGrid()).toThrowError('I need the mines positions and the grid can not be 0 or less')
         })
 
@@ -15,11 +16,13 @@ describe('MinesGridCreator', () => {
               ])
          })
 
-        it('should return the grid with slots and if is a mine or not', () => {
-            let mineCreator = new MineGridCreator([[0, 1]], 2);
+        it('should return the grid with slots and with the 1 mine in the correct position', () => {
+            const minePosition = new MinePositionCollection();
+            minePosition.addPosition(new MinePosition(1, 0))
+            let mineCreator = new MineGridCreator(minePosition, 2);
             expect(mineCreator.getGrid()).toStrictEqual([
-                [new Slot(false,0),new Slot(true,0)],
-                [new Slot(false,0),new Slot(false,0)]
+                [new Slot(false, 1), new Slot(true, 0)],
+                [new Slot(false, 1), new Slot(false, 1)]
             ])
         })
 

@@ -1,59 +1,67 @@
 import {MineGridCreator} from "./MinesGridCreator";
+import {MinePositionCollection} from "./MinePositions";
+import {Slot} from "./Slot";
+import {MineRandomizer} from "./MineRandomizer";
+
+function nearbyEmptyOrNumberSlot(row: number, column: number) {
+    let nearbyEmptySlotsCollection: any[] = []
+    const combinations = [
+        [-1, -1],
+        [-1, 0],
+        [-1, 1],
+        [0, -1],
+        [0, 1],
+        [1, -1],
+        [1, 0],
+        [1, 1]
+    ]
+    combinations.forEach(com => {
+        let rowIndex = row + com[0];
+        let columnIndex = column + com[1];
+        const MinesPosition = new MinePositionCollection().hasMine(columnIndex, rowIndex)
+        if (!MinesPosition) {
+            const Slot = new MineSweeper().getSlotInPosition(rowIndex,columnIndex)
+            nearbyEmptySlotsCollection.push(Slot)
+        }
+    })
+    return nearbyEmptySlotsCollection
+}
 
 class MineSweeper {
-
     private mines = 8;
     private size = 8;// 8x8
+    private grid: Slot[][];
 
     constructor() {
-        const mines = [
-            [0,1],
-            [2,2],
-            [0,3],
-            [8,4],
-            [8,8],
-            [3,3],
-            [7,8],
-            [5,2],
-        ]
+        const minePositionCollection: MinePositionCollection = MineRandomizer.getRandomMinePositions(this.mines, this.size);
+        const mineGenerator = new MineGridCreator(minePositionCollection, this.size);
+        this.grid = mineGenerator.getGrid()
+    }
 
-        //const mineGenerator = new  MineGridCreator(mines, this.size);
-        // this.grid = mineGenerator.getGrid()
-        //
-        // const grid = [
-        //     [
-        //         new Slot(true), new Slot(false,1), new Slot(false, 1), new Slot(false, 1), new Slot(false, 1), new Slot(), new Slot(), new Slot()
-        //     ],
-        //     [
-        //         new Slot(), new Slot(false,), new Slot(), new Slot(true), new Slot(), new Slot(), new Slot(), new Slot()
-        //     ],
-        //     [
-        //         new Slot(), new Slot(false,), new Slot(), new Slot(), new Slot(), new Slot(), new Slot(), new Slot()
-        //     ],
-        //     [
-        //         1, 2, 3, 4, 5, 6, 7, 8
-        //     ],
-        //     [
-        //         1, 2, 3, 4, 5, 6, 7, 8
-        //     ],
-        //     [
-        //         1, 2, 3, 4, 5, 6, 7, 8
-        //     ],
-        //     [
-        //         1, 2, 3, 4, 5, 6, 7, 8
-        //     ],
-        //     [
-        //         1, 2, 3, 4, 5, 6, 7, 8
-        //     ],
-        //     [
-        //         1, 2, 3, 4, 5, 6, 7, 8
-        //     ],
-        //     [
-        //         1, 2, 3, 4, 5, 6, 7, 8
-        //     ],
-        // ]
+    /** returns TRUE if there is a mine, returns false otherwise */
+    openSlot(row: number, column: number): boolean {
+        if (row < 0 || row >= this.size || column < 0 || column >= this.size) {
+            throw new Error('Position out of bounds');
+        }
+        const slot = this.getSlotInPosition(row, column)
+        if (slot.isRevealed()) {
+            return false;
+        }
+        slot.reveal()
+        if (!slot.isMine()) {
+            while (slot.getContent() === "0") {
+                const emptySlots = nearbyEmptyOrNumberSlot(row, column);
+                emptySlots.forEach((slot) => {
+                    slot.reveal()
+                })
+            }
+            return false;
+        }
+        return true
+    }
 
-
+    getSlotInPosition(row: number, column: number): Slot {
+        return this.grid[row][column]
     }
 
     isGameFinished = false;
@@ -68,10 +76,6 @@ class MineSweeper {
 // if (newGame.isGameFinished) {
 //     console.log('Game Over');
 // }
-
-
-
-
 
 
 //
