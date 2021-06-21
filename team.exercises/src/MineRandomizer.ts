@@ -1,7 +1,8 @@
 import {MinePosition, MinePositionCollection} from "./MinePositions";
+import {MinePositionGenerator} from "./BuscaMinas";
 
-export class MineRandomizer {
-    static getRandomMinePositions(mines: number, size: number) {
+export class MineRandomizer implements MinePositionGenerator {
+    static getRandomMinePositions(mines: number, size: number): MinePositionCollection {
         const positions = new MinePositionCollection();
         for (let i = 0; i < mines; i++) {
             let minePosition = MineRandomizer.getRandomMinePosition(size)
@@ -11,6 +12,10 @@ export class MineRandomizer {
             positions.addPosition(minePosition);
         }
         return positions;
+    }
+
+    getMinePositions(minesCount: number, gridSize: number): MinePositionCollection {
+        return MineRandomizer.getRandomMinePositions(minesCount, gridSize);
     }
 
     static getRandomMinePosition(size: number) {
