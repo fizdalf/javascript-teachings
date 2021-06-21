@@ -62,7 +62,7 @@ class MineSweeper {
 }
 
 
-//
+//fggrflñuy78ttg
 // const newGame = new MineSweeper();
 //
 // if (newGame.isGameFinished) {
