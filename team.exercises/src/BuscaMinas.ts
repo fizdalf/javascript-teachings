@@ -1,7 +1,6 @@
 import {MineGridCreator} from "./MinesGridCreator";
-import {MinePosition, MinePositionCollection} from "./MinePositions";
+import {MinePositionCollection} from "./MinePositions";
 import {Slot} from "./Slot";
-import {MineRandomizer} from "./MineRandomizer";
 
 export interface MinePositionGenerator {
     getMinePositions(minesCount: number, gridSize: number): MinePositionCollection
@@ -63,15 +62,21 @@ class MineSweeper {
         return true;
     }
 
-    private getSlotInPosition(row: number, column: number): Slot {
+    getSlotInPosition(row: number, column: number): Slot {
         return this.grid[row][column]
     }
 
     getBoard() {
-        // string[][]
+        this.grid.forEach(array => {
+            array.forEach(slot => {
+                slot.getContent()
+            })
+        })
+        return this.grid
     }
 
     isGameFinished = false;
     isGameWon = false;
     isGameLost = false;
 }
+
