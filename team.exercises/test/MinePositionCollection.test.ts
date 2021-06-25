@@ -5,12 +5,12 @@ describe('MinePositionCollection', () => {
     it.each`
 
                 Position                      | Expected
-          ${new MinePosition(0, 1)} | ${1} 
-          ${new MinePosition(1, 0)} | ${1}  
-          ${new MinePosition(2, 0)} | ${1}      
-          ${new MinePosition(0, 2)} | ${1}
-          ${new MinePosition(2, 1)} | ${1}
+          ${new MinePosition(1, 0)} | ${1} 
+          ${new MinePosition(0, 1)} | ${1}  
+          ${new MinePosition(0, 2)} | ${1}      
+          ${new MinePosition(2, 0)} | ${1}
           ${new MinePosition(1, 2)} | ${1}
+          ${new MinePosition(2, 1)} | ${1}
           ${new MinePosition(0, 0)} | ${1}
           ${new MinePosition(2, 2)} | ${1}
 
@@ -34,7 +34,7 @@ describe('MinePositionCollection', () => {
     `('should return the number of mines around', ({Positions, Expected}) => {
         const minesPositions = new MinePositionCollection();
         Positions.forEach((pos: [number, number]) => {
-            minesPositions.addPosition(new MinePosition(pos[0], pos[1]));
+            minesPositions.addPosition(new MinePosition(pos[1], pos[0]));
         })
         expect(minesPositions.nearbyMines(1, 1)).toStrictEqual(Expected)
     })

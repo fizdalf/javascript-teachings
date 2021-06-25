@@ -21,7 +21,7 @@ export class MineRandomizer implements MinePositionGenerator {
     static getRandomMinePosition(size: number) {
         const column = Math.floor(Math.random() * size);
         const row = Math.floor(Math.random() * size);
-        return new MinePosition(column, row);
+        return new MinePosition(row, column);
     }
 }
 

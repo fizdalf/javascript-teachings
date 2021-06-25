@@ -13,24 +13,27 @@ describe('OpenSlot', function () {
         expect(mineSweeper.openSlot(4,6)).toStrictEqual(true)
     })
     it('should return false if is revealed', function () {
-        const minesPositions = new PredeterminedMinesPositions
-        const mineSweeper = new MineSweeper(minesPositions,8,8)
-        const slot = mineSweeper.getSlotInPosition(2, 2)
-        slot.reveal()
-        expect(mineSweeper.openSlot(2,2)).toStrictEqual(false)
+        const minesPositions = new PredeterminedMinesPositions(positions)
+        const mineSweeper = new MineSweeper(minesPositions, 8, 8)
+        mineSweeper.openSlot(2, 2)
+        expect(mineSweeper.openSlot(2, 2)).toStrictEqual(false)
     })
-    it('should return false if the content is not 0', function () {
-        const minesPositions = new PredeterminedMinesPositions
-        const mineSweeper = new MineSweeper(minesPositions,8,8)
-        const slot = mineSweeper.getSlotInPosition(2, 2)
-        slot.getContent()
-        expect(mineSweeper.openSlot(2,2)).toStrictEqual(false)
+    it('should reveal adjacent Slot if not mine', function () {
+        const minesPositions = new PredeterminedMinesPositions(
+            [
+                new MinePosition(0, 0),
+            ]
+        )
+        const mineSweeper = new MineSweeper(minesPositions, 1, 3)
+        mineSweeper.openSlot(2, 1);
+        const theBoard = mineSweeper.getBoard();
+        expect(theBoard).toStrictEqual(
+            [
+                ["", "1", "0"],
+                ["1", "1", "0"],
+                ["0", "0", "0"],
+            ]
+        );
     })
-    it('should return false if the slot content is either a mine nor 0', function () {
-        const minesPositions = new PredeterminedMinesPositions
-        const mineSweeper = new MineSweeper(minesPositions,8,8)
-        const slot = mineSweeper.getSlotInPosition(1, 3)
-        slot.getContent()
-        expect(mineSweeper.openSlot(1,3)).toStrictEqual(false)
-    })
+
 });

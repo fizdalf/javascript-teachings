@@ -38,7 +38,7 @@ export class MinePositionCollection {
 }
 
 export class MinePosition {
-    constructor(column: number, row: number) {
+    constructor(row: number, column: number) {
         this.column = column
         this.row = row
     }

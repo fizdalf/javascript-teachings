@@ -62,12 +62,21 @@ export class MineSweeper {
         return true;
     }
 
-    getSlotInPosition(row: number, column: number): Slot {
+    private getSlotInPosition(row: number, column: number): Slot {
         return this.grid[row][column]
     }
 
-    getBoard() {
-        return this.grid.forEach(array => {array.forEach(slot => {slot.getContent()})})
+    getBoard(): string[][] {
+        const newGrid: string[][] = [];
+        this.grid.forEach(x => {
+            const newRow: string[] = [];
+            x.forEach(slot => {
+                newRow.push(slot.getContent());
+            })
+            newGrid.push(newRow);
+        })
+        return newGrid;
+        // return this.grid.map(row => row.map(slot => slot.getContent()));
     }
 
     isGameFinished = false;

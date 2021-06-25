@@ -18,7 +18,7 @@ describe('MinesGridCreator', () => {
 
         it('should return the grid with slots and with the 1 mine in the correct position', () => {
             const minePosition = new MinePositionCollection();
-            minePosition.addPosition(new MinePosition(1, 0))
+            minePosition.addPosition(new MinePosition(0, 1))
             let mineCreator = new MineGridCreator(minePosition, 2);
             expect(mineCreator.getGrid()).toStrictEqual([
                 [new Slot(false, 1), new Slot(true, 0)],
@@ -30,14 +30,14 @@ describe('MinesGridCreator', () => {
         it('should return the grid with 8 slots in 8 arrays', () => {
 
             const minePosition = new MinePositionCollection();
-            minePosition.addPosition(new MinePosition(1, 0))
+            minePosition.addPosition(new MinePosition(0, 1))
             minePosition.addPosition(new MinePosition(2, 2))
-            minePosition.addPosition(new MinePosition(3, 0))
-            minePosition.addPosition(new MinePosition(4, 7))
+            minePosition.addPosition(new MinePosition(0, 3))
+            minePosition.addPosition(new MinePosition(7, 4))
             minePosition.addPosition(new MinePosition(7, 7))
             minePosition.addPosition(new MinePosition(3, 3))
-            minePosition.addPosition(new MinePosition(7, 6))
-            minePosition.addPosition(new MinePosition(2, 5))
+            minePosition.addPosition(new MinePosition(6, 7))
+            minePosition.addPosition(new MinePosition(5, 2))
 
             expect(new MineGridCreator(minePosition, 8).getGrid()).toStrictEqual([
                 [new Slot(false, 1), new Slot(true, 0), new Slot(false, 2), new Slot(true, 0), new Slot(false, 1), new Slot(false, 0), new Slot(false, 0), new Slot(false, 0),],
