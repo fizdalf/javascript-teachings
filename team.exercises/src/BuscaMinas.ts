@@ -10,6 +10,7 @@ export class MineSweeper {
     private size;
     private grid: Slot[][];
     private minePositionCollection: MinePositionCollection;
+    private flags = 0;
 
     constructor(minePositionGenerator: MinePositionGenerator, mineCount: number, gridSize: number) {
         this.size = gridSize;
@@ -23,7 +24,15 @@ export class MineSweeper {
         if (this.isOutOfBounds(row, column)) {
             throw new Error('Position out of bounds');
         }
+        // TODO: update the function to NOT reveal those slots that have Flags on them
+        // TODO: if the slot to open contains a mine and don't have flags, reveal ALL the mines
+        // TODO: ignore the open slot if the slot has a flag
         return this.revealNext(row, column);
+    }
+
+    toggleFlagSlot(row: number, column:number){
+        //todo: create a function that toggles the flag for a specific slot
+        //todo: make sure to keep count of how many mines are left
     }
 
     private isOutOfBounds(row: number, column: number) {
