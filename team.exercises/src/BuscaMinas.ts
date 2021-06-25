@@ -6,7 +6,7 @@ export interface MinePositionGenerator {
     getMinePositions(minesCount: number, gridSize: number): MinePositionCollection
 }
 
-class MineSweeper {
+export class MineSweeper {
     private size;
     private grid: Slot[][];
     private minePositionCollection: MinePositionCollection;
@@ -19,7 +19,7 @@ class MineSweeper {
     }
 
     /** returns TRUE if there is a mine, returns false otherwise */
-    openSlot(row: number, column: number): boolean {
+     openSlot(row: number, column: number): boolean {
         if (this.isOutOfBounds(row, column)) {
             throw new Error('Position out of bounds');
         }
