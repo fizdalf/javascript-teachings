@@ -19,7 +19,7 @@ export class MineSweeper {
     }
 
     /** returns TRUE if there is a mine, returns false otherwise */
-     openSlot(row: number, column: number): boolean {
+    openSlot(row: number, column: number): boolean {
         if (this.isOutOfBounds(row, column)) {
             throw new Error('Position out of bounds');
         }

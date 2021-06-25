@@ -8,7 +8,7 @@ export class  PredeterminedMinesPositions {
         minePosition.addPosition(new MinePosition(5,5))
         minePosition.addPosition(new MinePosition(2,5))
         minePosition.addPosition(new MinePosition(6,4))
-        minePosition.addPosition(new MinePosition(8,8))
+        minePosition.addPosition(new MinePosition(0,1))
         minePosition.addPosition(new MinePosition(1,2))
         minePosition.addPosition(new MinePosition(1,7))
         return minePosition
