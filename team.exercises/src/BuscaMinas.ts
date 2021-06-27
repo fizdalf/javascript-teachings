@@ -10,7 +10,6 @@ export class MineSweeper {
     private size;
     private grid: Slot[][];
     private minePositionCollection: MinePositionCollection;
-    private flags = 0;
 
     constructor(minePositionGenerator: MinePositionGenerator, mineCount: number, gridSize: number) {
         this.size = gridSize;
@@ -19,20 +18,11 @@ export class MineSweeper {
         this.grid = mineGenerator.getGrid()
     }
 
-    /** returns TRUE if there is a mine, returns false otherwise */
     openSlot(row: number, column: number): boolean {
         if (this.isOutOfBounds(row, column)) {
             throw new Error('Position out of bounds');
         }
-        // TODO: update the function to NOT reveal those slots that have Flags on them
-        // TODO: if the slot to open contains a mine and don't have flags, reveal ALL the mines
-        // TODO: ignore the open slot if the slot has a flag
         return this.revealNext(row, column);
-    }
-
-    toggleFlagSlot(row: number, column:number){
-        //todo: create a function that toggles the flag for a specific slot
-        //todo: make sure to keep count of how many mines are left
     }
 
     private isOutOfBounds(row: number, column: number) {
@@ -68,24 +58,18 @@ export class MineSweeper {
             }
             return false;
         }
+        ****if (slot.isMine()){
+            return this.minePositionCollection.forEach() **** //aquí me atasqué en cómo hacer que todas las minas de minePositionCollection se revelen
+        }
         return true;
     }
 
-    private getSlotInPosition(row: number, column: number): Slot {
+    getSlotInPosition(row: number, column: number): Slot {
         return this.grid[row][column]
     }
 
-    getBoard(): string[][] {
-        const newGrid: string[][] = [];
-        this.grid.forEach(x => {
-            const newRow: string[] = [];
-            x.forEach(slot => {
-                newRow.push(slot.getContent());
-            })
-            newGrid.push(newRow);
-        })
-        return newGrid;
-        // return this.grid.map(row => row.map(slot => slot.getContent()));
+    getBoard() {
+        return this.grid.forEach(array => {array.forEach(slot => {slot.getContent()})})
     }
 
     isGameFinished = false;

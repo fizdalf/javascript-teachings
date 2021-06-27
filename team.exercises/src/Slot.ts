@@ -22,13 +22,6 @@ export class Slot {
         return this.hasMine;
     };
 
-    /**
-     *    Returns the following
-     *      f => is not revealed and is a flag
-     *     '' => is not revealed and is not flag nor question mark
-     *      * => is revealed and is a mine!
-     *    "n" => is revealed and has n mines nearby
-     */
     getContent(): string {
         if (!this.isRevealed()) {
             if (this.isFlag()) {
@@ -36,8 +29,13 @@ export class Slot {
             }
             return '';
         }
-
         //todo: if the state is wrong mine return "#"
+        //todo esto pasa una vez se ha terminado el juego porque has pisado una mina
+        ****if (this.isRevealed()) {
+            if (this.isFlag() && !this.hasMine) {
+                return '#'
+            }
+        }****
         if (this.hasMine) {
             return '*';
         }
@@ -49,8 +47,8 @@ export class Slot {
     };
 
     reveal() {
-         // todo: if the slot is revealed and there was a flag, but NO mine, we have to set a new state
-         // that will indicate it was a "wrong" flag
+        // todo: if the slot is revealed and there was a flag, but NO mine, we have to set a new state
+        // that will indicate it was a "wrong" flag
         this.revealed = true;
         this.tagState = TagStates.NONE;
         return this.value;
@@ -59,5 +57,11 @@ export class Slot {
     markWithFlag() {
         this.tagState = TagStates.FLAG;
     }
+
     // todo: create function to remove the flag
+    ****unmarkFlag() {
+        if (this.isFlag()) {
+            this.tagState = TagStates.NONE
+        }
+    }****
 }
