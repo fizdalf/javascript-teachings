@@ -1,3 +1,7 @@
+import {MineSweeper} from "./BuscaMinas";
+import {PredeterminedMinesPositions} from "./PredeterminedMinesPositions";
+import {MinePosition} from "./MinePositions";
+
 enum TagStates {
     FLAG = "FLAG",
     NONE = "NONE"
@@ -31,9 +35,11 @@ export class Slot {
         }
         //todo: if the state is wrong mine return "#"
         //todo esto pasa una vez se ha terminado el juego porque has pisado una mina
-        if (this.isFlag() && !this.hasMine) {
-            return '#'
-        }
+        if (new MineSweeper(new PredeterminedMinesPositions([new MinePosition(1, 1)]), 8, 8).lose()) {
+            if (this.isFlag() && !this.hasMine) {
+                return '#'
+            }
+        } // no se como decir bien que solo haga eso si pierdes
         if (this.hasMine) {
             return '*';
         }

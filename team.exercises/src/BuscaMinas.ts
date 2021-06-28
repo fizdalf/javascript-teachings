@@ -58,7 +58,15 @@ export class MineSweeper {
             }
             return false;
         }
-        return this.minePositionCollection.map((mines) => {mines.reveal})
+        return this.lose()
+    }
+
+    lose(): boolean {
+        this.minePositionCollection.positions.forEach((minePosition) => {
+            const slot = this.getSlotInPosition(minePosition.row, minePosition.column)
+            slot.reveal()
+        })
+        return true
     }
 
     getSlotInPosition(row: number, column: number): Slot {
@@ -66,7 +74,11 @@ export class MineSweeper {
     }
 
     getBoard() {
-        return this.grid.forEach(array => {array.forEach(slot => {slot.getContent()})})
+        return this.grid.forEach(array => {
+            array.forEach(slot => {
+                slot.getContent()
+            })
+        })
     }
 
     isGameFinished = false;
