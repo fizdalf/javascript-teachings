@@ -74,11 +74,7 @@ export class MineSweeper {
     }
 
     getBoard() {
-        return this.grid.forEach(array => {
-            array.forEach(slot => {
-                slot.getContent()
-            })
-        })
+        this.grid.map(row => row.map(slot => slot.getContent()));
     }
 
     isGameFinished = false;
