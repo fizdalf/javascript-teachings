@@ -31,11 +31,9 @@ export class Slot {
         }
         //todo: if the state is wrong mine return "#"
         //todo esto pasa una vez se ha terminado el juego porque has pisado una mina
-        ****if (this.isRevealed()) {
-            if (this.isFlag() && !this.hasMine) {
-                return '#'
-            }
-        }****
+        if (this.isFlag() && !this.hasMine) {
+            return '#'
+        }
         if (this.hasMine) {
             return '*';
         }
@@ -58,10 +56,9 @@ export class Slot {
         this.tagState = TagStates.FLAG;
     }
 
-    // todo: create function to remove the flag
-    ****unmarkFlag() {
+    unmarkFlag() {
         if (this.isFlag()) {
             this.tagState = TagStates.NONE
         }
-    }****
+    }
 }

@@ -58,10 +58,7 @@ export class MineSweeper {
             }
             return false;
         }
-        ****if (slot.isMine()){
-            return this.minePositionCollection.forEach() **** //aquí me atasqué en cómo hacer que todas las minas de minePositionCollection se revelen
-        }
-        return true;
+        return this.minePositionCollection.map((mines) => {mines.reveal})
     }
 
     getSlotInPosition(row: number, column: number): Slot {
