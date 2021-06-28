@@ -53,6 +53,11 @@ export class Slot {
     reveal() {
         // todo: if the slot is revealed and there was a flag, but NO mine, we have to set a new state
         // that will indicate it was a "wrong" flag
+        if(this.isRevealed()){
+            if (this.isFlag() && !this.hasMine) {
+
+            }
+        }
         this.revealed = true;
         this.tagState = TagStates.NONE;
         return this.value;
