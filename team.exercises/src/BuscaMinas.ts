@@ -22,7 +22,12 @@ export class MineSweeper {
         if (this.isOutOfBounds(row, column)) {
             throw new Error('Position out of bounds');
         }
-        return this.revealNext(row, column);
+        const isMine = this.revealNext(row, column);
+        if (isMine) {
+            this.revealMinesPositions()
+            this.revealWrongFlags();
+        }
+        return isMine;
     }
 
     private isOutOfBounds(row: number, column: number) {
@@ -38,38 +43,36 @@ export class MineSweeper {
             return false;
         }
         slot.reveal();
-        if (!slot.isMine()) {
-            if (slot.getContent() === "0") {
-                const combinations = [
-                    [-1, -1],
-                    [-1, 0],
-                    [-1, 1],
-                    [0, -1],
-                    [0, 1],
-                    [1, -1],
-                    [1, 0],
-                    [1, 1]
-                ]
-
-                combinations.forEach((combination) => {
-                    this.revealNext(row + combination[0], column + combination[1]);
-                })
-
-            }
-            return false;
+        if (slot.isMine()) {
+            return true;
         }
-        return this.lose()
+        if (slot.getContent() === "0") {
+            const combinations = [
+                [-1, -1],
+                [-1, 0],
+                [-1, 1],
+                [0, -1],
+                [0, 1],
+                [1, -1],
+                [1, 0],
+                [1, 1]
+            ]
+
+            combinations.forEach((combination) => {
+                this.revealNext(row + combination[0], column + combination[1]);
+            })
+        }
+        return false;
     }
 
-    lose(): boolean {
+    private revealMinesPositions() {
         this.minePositionCollection.positions.forEach((minePosition) => {
             const slot = this.getSlotInPosition(minePosition.row, minePosition.column)
             slot.reveal()
         })
-        return true
-    }
+    }//todo: 1 - test de esto ^^
 
-    getSlotInPosition(row: number, column: number): Slot {
+    private getSlotInPosition(row: number, column: number): Slot {
         return this.grid[row][column]
     }
 
@@ -88,5 +91,6 @@ export class MineSweeper {
     isGameFinished = false;
     isGameWon = false;
     isGameLost = false;
+
 }
 

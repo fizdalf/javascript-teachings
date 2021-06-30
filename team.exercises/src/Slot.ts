@@ -34,13 +34,9 @@ export class Slot {
             }
             return '';
         }
-        //todo: if the state is wrong mine return "#"
-        //todo esto pasa una vez se ha terminado el juego porque has pisado una mina
-        if (new MineSweeper(new PredeterminedMinesPositions([new MinePosition(1, 1)]), 8, 8).lose()) {
-            if (this.isFlag() && !this.hasMine) {
-                return '#'
-            }
-        } // no se como decir bien que solo haga eso si pierdes
+        if (this.tagState === TagStates.WRONGFLAG) {
+            return '#'
+        }
         if (this.hasMine) {
             return "*";
         }
@@ -52,8 +48,6 @@ export class Slot {
     };
 
     reveal() {
-        // todo: if the slot is revealed and there was a flag, but NO mine, we have to set a new state
-        // that will indicate it was a "wrong" flag
         this.revealed = true;
         if (this.isFlag() && !this.hasMine) {
             return this.tagState === TagStates.WRONGFLAG
@@ -64,10 +58,12 @@ export class Slot {
     }
 
     markWithFlag() {
+        // TODO: 3 - Prevent this from happening if the slot is revealed (with test)
         this.tagState = TagStates.FLAG;
     }
 
     unmarkFlag() {
+        // TODO: 4 - Prevent this from happening if the slot is revealed (with test)
         if (this.isFlag()) {
             this.tagState = TagStates.NONE
         }
