@@ -74,7 +74,15 @@ export class MineSweeper {
     }
 
     getBoard() {
-        this.grid.map(row => row.map(slot => slot.getContent()));
+        const newGrid: string[][] = [];
+        this.grid.forEach(x => {
+            const newRow: string[] = [];
+            x.forEach(slot => {
+                newRow.push(slot.getContent());
+            })
+            newGrid.push(newRow);
+        })
+        return newGrid;
     }
 
     isGameFinished = false;

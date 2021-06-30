@@ -1,6 +1,7 @@
 import {MineSweeper} from "../src/BuscaMinas";
 import {PredeterminedMinesPositions} from "../src/PredeterminedMinesPositions";
 import {MinePosition} from "../src/MinePositions";
+import {Slot} from "../src/Slot";
 
 const positions = [
     new MinePosition(7, 7),

@@ -3,8 +3,9 @@ import {PredeterminedMinesPositions} from "./PredeterminedMinesPositions";
 import {MinePosition} from "./MinePositions";
 
 enum TagStates {
+    WRONGFLAG = "WRONGFLAG",
     FLAG = "FLAG",
-    NONE = "NONE"
+    NONE = "NONE",
 }
 
 export class Slot {
@@ -53,14 +54,13 @@ export class Slot {
     reveal() {
         // todo: if the slot is revealed and there was a flag, but NO mine, we have to set a new state
         // that will indicate it was a "wrong" flag
-        if(this.isRevealed()){
-            if (this.isFlag() && !this.hasMine) {
-
-            }
-        }
         this.revealed = true;
+        if (this.isFlag() && !this.hasMine) {
+            return this.tagState === TagStates.WRONGFLAG
+        }
         this.tagState = TagStates.NONE;
         return this.value;
+
     }
 
     markWithFlag() {
