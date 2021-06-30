@@ -51,5 +51,4 @@ describe('OpenSlot', function () {
             ]
         );
     })
-
 });

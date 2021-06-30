@@ -42,7 +42,7 @@ export class Slot {
             }
         } // no se como decir bien que solo haga eso si pierdes
         if (this.hasMine) {
-            return '*';
+            return "*";
         }
         return this.value.toString();
     }
