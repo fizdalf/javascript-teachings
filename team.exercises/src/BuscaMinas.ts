@@ -88,6 +88,14 @@ export class MineSweeper {
         return newGrid;
     }
 
+    private revealWrongFlags() { // todo: 5 - reveal all the slots that have FLAG but not mines!! (with test)
+
+    }
+
+    //todo: 2 - función que pone y saca banderas (with test)
+
+
+
     isGameFinished = false;
     isGameWon = false;
     isGameLost = false;
