@@ -50,7 +50,8 @@ export class Slot {
     reveal() {
         this.revealed = true;
         if (this.isFlag() && !this.hasMine) {
-            return this.tagState === TagStates.WRONGFLAG
+            this.tagState = TagStates.WRONGFLAG
+            return this.value;
         }
         this.tagState = TagStates.NONE;
         return this.value;
@@ -67,9 +68,7 @@ export class Slot {
     unmarkFlag() {
         // TODO: 4 - Prevent this from happening if the slot is revealed (with test)
         if (!this.isRevealed()) {
-            if (this.isFlag()) {
-                this.tagState = TagStates.NONE
-            }
+            this.tagState = TagStates.NONE
         }
     }
 }

@@ -70,7 +70,7 @@ export class MineSweeper {
             const slot = this.getSlotInPosition(minePosition.row, minePosition.column)
             slot.reveal()
         })
-    }//todo: 1 - test de esto ^^
+    }
 
     private getSlotInPosition(row: number, column: number): Slot {
         return this.grid[row][column]
@@ -91,8 +91,6 @@ export class MineSweeper {
     private revealWrongFlags() { // todo: 5 - reveal all the slots that have FLAG but not mines!! (with test)
 
     }
-
-    //todo: 2 - función que pone y saca banderas (with test)
 
     toggleFlag(row: number, column: number) {
         const slot = this.getSlotInPosition(row,column)
