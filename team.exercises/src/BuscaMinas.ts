@@ -94,7 +94,13 @@ export class MineSweeper {
 
     //todo: 2 - función que pone y saca banderas (with test)
 
-
+    toggleFlag(row: number, column: number) {
+        const slot = this.getSlotInPosition(row,column)
+        if(slot.isFlag()){
+            slot.unmarkFlag()
+        }
+        slot.markWithFlag()
+    }
 
     isGameFinished = false;
     isGameWon = false;
