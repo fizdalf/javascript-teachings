@@ -88,14 +88,21 @@ export class MineSweeper {
         return newGrid;
     }
 
-    private revealWrongFlags() { // todo: 5 - reveal all the slots that have FLAG but not mines!! (with test)
-
+    private revealWrongFlags() {
+        this.grid.forEach(row => {
+            row.forEach(slot =>{
+                if(slot.isFlag() && !slot.isMine()){
+                    slot.reveal()
+                }
+            })
+        })
     }
 
     toggleFlag(row: number, column: number) {
         const slot = this.getSlotInPosition(row,column)
         if(slot.isFlag()){
             slot.unmarkFlag()
+            return;
         }
         slot.markWithFlag()
     }

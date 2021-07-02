@@ -59,14 +59,12 @@ export class Slot {
     }
 
     markWithFlag() {
-        // TODO: 3 - Prevent this from happening if the slot is revealed (with test)
         if (!this.isRevealed()) {
             this.tagState = TagStates.FLAG;
         }
     }
 
     unmarkFlag() {
-        // TODO: 4 - Prevent this from happening if the slot is revealed (with test)
         if (!this.isRevealed()) {
             this.tagState = TagStates.NONE
         }
