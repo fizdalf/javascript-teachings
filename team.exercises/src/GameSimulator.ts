@@ -69,4 +69,5 @@ function wonGame() {
 
 }
 
+lostGame()
 wonGame()
