@@ -27,33 +27,45 @@ function getCurrentBoard() {
 }
 
 function lostGame() {
+    console.log('Starts the game')
     getCurrentBoard();
+    console.log('Open the slot 1, 1')
     mineSweeper.openSlot(1, 1)
     getCurrentBoard();
     console.log('GAME OVER CERDO')
 }
 
 function wonGame() {
+    console.log('Starts the game')
     getCurrentBoard();
+    console.log('Open the first slot 0, 0')
     mineSweeper.openSlot(0,0)
     getCurrentBoard();
+    console.log('Open the slot 1, 0')
     mineSweeper.openSlot(1,0)
     getCurrentBoard();
+    console.log('Open the slot 2, 1')
     mineSweeper.openSlot(2,1)
     getCurrentBoard();
+    console.log('Open the slot 2, 0')
     mineSweeper.openSlot(2,0)
     getCurrentBoard();
+    console.log('Open the slot 1, 2')
     mineSweeper.openSlot(1,2)
     getCurrentBoard();
+    console.log('Place a flag in the slot 1, 1')
     mineSweeper.toggleFlag(1,1)
     getCurrentBoard();
+    console.log('Place a flag in the slot 2, 2')
     mineSweeper.toggleFlag(2,2)
     getCurrentBoard();
+    console.log('Open the slot 0, 1')
     mineSweeper.openSlot(0,1)
     getCurrentBoard();
+    console.log('Open the slot 0, 2')
     mineSweeper.openSlot(0,2)
     getCurrentBoard();
-    console.log('YOU WON')
+    console.log('YOU WON GUARRO')
 
 }
 
