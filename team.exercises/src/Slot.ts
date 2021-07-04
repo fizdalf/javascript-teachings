@@ -1,7 +1,3 @@
-import {MineSweeper} from "./BuscaMinas";
-import {PredeterminedMinesPositions} from "./PredeterminedMinesPositions";
-import {MinePosition} from "./MinePositions";
-
 enum TagStates {
     WRONGFLAG = "WRONGFLAG",
     FLAG = "FLAG",
@@ -30,17 +26,17 @@ export class Slot {
     getContent(): string {
         if (!this.isRevealed()) {
             if (this.isFlag()) {
-                return 'f';
+                return ' f ';
             }
-            return '';
+            return '   ';
         }
         if (this.tagState === TagStates.WRONGFLAG) {
-            return '#'
+            return ' # '
         }
         if (this.hasMine) {
-            return "*";
+            return " * ";
         }
-        return this.value.toString();
+        return ' ' + this.value + ' ';
     }
 
     isFlag(): boolean {
