@@ -2,7 +2,7 @@ import {MineSweeper} from "./BuscaMinas";
 import {MinePosition} from "./MinePositions";
 import {PredeterminedMinesPositions} from "./PredeterminedMinesPositions";
 const Positions = new PredeterminedMinesPositions([new MinePosition(1, 1), new MinePosition(2, 2)])
-const mineSweeper = new MineSweeper(Positions, 2, 3)
+let mineSweeper = new MineSweeper(Positions, 2, 3)
 
 function getElements() {
     const arrays: string[][] = []
@@ -36,6 +36,7 @@ function lostGame() {
 }
 
 function wonGame() {
+    mineSweeper = new MineSweeper(Positions, 2, 3)
     console.log('Starts the game')
     getCurrentBoard();
     console.log('Open the first slot 0, 0')

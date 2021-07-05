@@ -10,6 +10,7 @@ export class MineSweeper {
     private size;
     private grid: Slot[][];
     private minePositionCollection: MinePositionCollection;
+    private flags: number = 0;
 
     constructor(minePositionGenerator: MinePositionGenerator, mineCount: number, gridSize: number) {
         this.size = gridSize;
@@ -90,8 +91,8 @@ export class MineSweeper {
 
     private revealWrongFlags() {
         this.grid.forEach(row => {
-            row.forEach(slot =>{
-                if(slot.isFlag() && !slot.isMine()){
+            row.forEach(slot => {
+                if (slot.isFlag() && !slot.isMine()) {
                     slot.reveal()
                 }
             })
@@ -99,11 +100,16 @@ export class MineSweeper {
     }
 
     toggleFlag(row: number, column: number) {
-        const slot = this.getSlotInPosition(row,column)
-        if(slot.isFlag()){
+        const slot = this.getSlotInPosition(row, column)
+        if (slot.isRevealed()) {
+            return;
+        }
+        if (slot.isFlag()) {
+            this.flags--;
             slot.unmarkFlag()
             return;
         }
+        this.flags++;
         slot.markWithFlag()
     }
 
