@@ -3,9 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>Sergio es el mejor</title>
+    <style>
+        div {
+            color: #e30b0b;
+            font-size: 100px;
+
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        a {
+            font-size: 200px;
+        }
+
+        img {
+            width: 1000px;
+        }
+
+        area:hover {
+            border: 1px blue solid;
+        }
+
+        .helado {
+            background-image: url("https://www.recetasderechupete.com/wp-content/uploads/2019/07/shutterstock_1010248351-768x527.jpg");
+            background-repeat: repeat;
+            background-clip: content-box;
+            margin: 10px;
+            padding: 10px;
+            border: 50px #111111 dashed;
+        }
+
+        .casilla {
+            background-color: #7f7f7f;
+            border: 1px solid blue;
+        }
+
+        .button {
+            box-shadow: #000066 10px 10px;
+            background-color: #0074D9;
+        }
+
+        table, tr, td {
+            border: 1px blue solid;
+        }
+    </style>
 </head>
 <body>
-<blockquote>
+<img src="https://lh3.googleusercontent.com/P3RCd_DVAIqcjfxukNIoWRBZDxY0isx9UZJbwxDH9uLpfA_Gu1x3N_2r-xCwXncERIbWykM8pUcJk4g4H9-thev8nC9iaxk660E5-PGJxeBEvY85f8OX"
+     alt="imagen de una geisha" usemap="#clickMap">
+<map name="clickMap">
+    <area shape="circle" coords="500,200,50" alt="Careto" href="#cap1">
+    <area shape="rect" coords="0,0,50,50" alt="cuadrado" href="#cap1">
+    <area shape="poly" coords="50,50,70,50,70,80,50,80,50,50" alt="cuadrado" href="#cap1">
+</map>
+<table>
+    <tr><!--table row -->
+        <td>Hola</td> <!-- table data (column) -->
+        <td>Hola</td>
+        <td>Hola</td>
+    </tr>
+    <tr>
+        <td>Otra Fila</td>
+        <td>Otra fila mas</td>
+        <td>test test est</td>
+    </tr>
+</table>
+<div class="button">
+    Press me
+</div>
+<blockquote class="helado button">
     Hola esto es una cita
 </blockquote>
 <a href="#cap1">Capítulo 1</a>
@@ -20,7 +89,7 @@ dfas
 df
 -->
 
-<div>
+<div class="helado">
     hola
 </div>
 <div style="color: blueviolet">
@@ -43,9 +112,21 @@ a<br>b
 <br>
 <p>
 </p>
+<div class="grid">
+    <div class="casilla">1</div>
+    <div class="casilla">2</div>
+    <div class="casilla">3</div>
+    <div class="casilla">4</div>
+    <div class="casilla">5</div>
+    <div class="casilla">6</div>
+    <div class="casilla">7</div>
+    <div class="casilla">8</div>
+    <div class="casilla">9</div>
+    <div class="casilla">10</div>
+</div>
 <h1>
 </h1>
-<h1>
+<h1 class="helado">
     Hola
 </h1>
 <h2>
@@ -57,7 +138,7 @@ a<br>b
 <h4>
     Hola
 </h4>
-<h5>
+<h5 class="helado">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aspernatur dignissimos dolor doloremque dolores
     doloribus error et illum laboriosam libero magnam neque omnis perspiciatis quae recusandae repellendus suscipit
     velit voluptatum!
